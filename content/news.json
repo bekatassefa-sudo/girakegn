@@ -1,0 +1,82 @@
+{
+  "news": [
+    {
+      "date": "2026-10-11",
+      "category": "announcement",
+      "title": {
+        "en": "The court is back in session: Gera Kegn is coming to the big screen",
+        "am": "ችሎቱ ተመልሷል፦ ግራ ቀኝ ወደ ትልቁ ስክሪን ይመጣል"
+      },
+      "text": {
+        "en": "After two seasons, the story moves from your living room to the cinema.",
+        "am": "ከሁለት ምዕራፎች በኋላ ታሪኩ ከሳሎን ወደ ሲኒማ ቤት ይሸጋገራል።"
+      },
+      "published": true
+    },
+    {
+      "date": "2026-10-11",
+      "category": "campaign",
+      "title": {
+        "en": "Why we're asking the audience to produce the film",
+        "am": "ፊልሙን ተመልካቹ እንዲያዘጋጀው ለምን ጠየቅን"
+      },
+      "text": {
+        "en": "A film made for the people who kept the series alive — and made with them.",
+        "am": "ድራማውን ሕያው ላደረጉት ሰዎች የተሠራ — ከእነሱም ጋር የተሠራ ፊልም።"
+      },
+      "published": true
+    },
+    {
+      "date": "2026-10-11",
+      "category": "milestone",
+      "title": {
+        "en": "The full series is now streaming on this site",
+        "am": "ሙሉው ተከታታይ ድራማ አሁን በዚህ ድረ ገጽ ይታያል"
+      },
+      "text": {
+        "en": "Both seasons, episode by episode — catch up before the film.",
+        "am": "ሁለቱም ምዕራፎች፣ በክፍል በክፍል — ከፊልሙ በፊት ይከታተሉ።"
+      },
+      "published": true
+    },
+    {
+      "date": "2026-10-09",
+      "category": "bts",
+      "title": {
+        "en": "Script diary #1: reopening the files",
+        "am": "የስክሪፕት ማስታወሻ #1፦ መዝገቦቹን እንደገና መክፈት"
+      },
+      "text": {
+        "en": "The writers' room goes back to the novel to find the film's final case.",
+        "am": "የጸሐፊዎቹ ክፍል የፊልሙን የመጨረሻ ጉዳይ ለማግኘት ወደ ልብ ወለዱ ይመለሳል።"
+      },
+      "published": true
+    },
+    {
+      "date": "2026-10-08",
+      "category": "photos",
+      "title": {
+        "en": "Location scout: Piassa, Arat Kilo and the old courthouses",
+        "am": "የቦታ ፍለጋ፦ ፒያሳ፣ አራት ኪሎ እና የድሮ ፍርድ ቤቶች"
+      },
+      "text": {
+        "en": "First photos from the search for 1970s Addis Ababa.",
+        "am": "የ1970ዎቹን አዲስ አበባ ፍለጋ የመጀመሪያ ፎቶዎች።"
+      },
+      "published": true
+    },
+    {
+      "date": "2026-10-07",
+      "category": "news",
+      "title": {
+        "en": "Screenings planned for Washington DC, London, Toronto & beyond",
+        "am": "በዋሽንግተን ዲሲ፣ ለንደን፣ ቶሮንቶ እና ሌሎች ከተሞች ማሳያዎች ታቅደዋል"
+      },
+      "text": {
+        "en": "Vote for your city — the more supporters, the sooner it's booked.",
+        "am": "ለከተማዎ ድምጽ ይስጡ — ብዙ ደጋፊ ያላት ከተማ ቀድማ ትያዛለች።"
+      },
+      "published": true
+    }
+  ]
+}

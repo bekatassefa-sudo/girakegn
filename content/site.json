@@ -1,0 +1,138 @@
+{
+  "site": {
+    "releaseDate": "2028-09-11T18:00:00.000+03:00",
+    "releaseLabel": {
+      "en": "In cinemas · Meskerem 2020 E.C.",
+      "am": "በሲኒማ ቤቶች · መስከረም 2020 ዓ.ም."
+    },
+    "trailerUrl": "",
+    "youtubeChannel": "#",
+    "social": {
+      "youtube": "#",
+      "facebook": "#",
+      "instagram": "#",
+      "tiktok": "#",
+      "telegram": "#",
+      "x": "#"
+    },
+    "email": {
+      "hello": "hello@gerakegn.com",
+      "press": "press@gerakegn.com",
+      "partners": "partners@gerakegn.com"
+    }
+  },
+  "cinemas": [
+    {
+      "city": {
+        "en": "Addis Ababa",
+        "am": "አዲስ አበባ"
+      },
+      "region": "ET",
+      "status": "planned"
+    },
+    {
+      "city": {
+        "en": "Adama",
+        "am": "አዳማ"
+      },
+      "region": "ET",
+      "status": "planned"
+    },
+    {
+      "city": {
+        "en": "Hawassa",
+        "am": "ሀዋሳ"
+      },
+      "region": "ET",
+      "status": "planned"
+    },
+    {
+      "city": {
+        "en": "Bahir Dar",
+        "am": "ባሕር ዳር"
+      },
+      "region": "ET",
+      "status": "planned"
+    },
+    {
+      "city": {
+        "en": "Washington DC",
+        "am": "ዋሽንግተን ዲሲ"
+      },
+      "region": "US",
+      "status": "vote"
+    },
+    {
+      "city": {
+        "en": "Minneapolis",
+        "am": "ሚኒያፖሊስ"
+      },
+      "region": "US",
+      "status": "vote"
+    },
+    {
+      "city": {
+        "en": "Seattle",
+        "am": "ሲያትል"
+      },
+      "region": "US",
+      "status": "vote"
+    },
+    {
+      "city": {
+        "en": "Toronto",
+        "am": "ቶሮንቶ"
+      },
+      "region": "CA",
+      "status": "vote"
+    },
+    {
+      "city": {
+        "en": "London",
+        "am": "ለንደን"
+      },
+      "region": "UK",
+      "status": "vote"
+    },
+    {
+      "city": {
+        "en": "Stockholm",
+        "am": "ስቶክሆልም"
+      },
+      "region": "SE",
+      "status": "vote"
+    },
+    {
+      "city": {
+        "en": "Frankfurt",
+        "am": "ፍራንክፈርት"
+      },
+      "region": "DE",
+      "status": "vote"
+    },
+    {
+      "city": {
+        "en": "Dubai",
+        "am": "ዱባይ"
+      },
+      "region": "AE",
+      "status": "vote"
+    },
+    {
+      "city": {
+        "en": "Melbourne",
+        "am": "ሜልበርን"
+      },
+      "region": "AU",
+      "status": "vote"
+    },
+    {
+      "city": {
+        "en": "Tel Aviv",
+        "am": "ቴል አቪቭ"
+      },
+      "region": "IL",
+      "status": "vote"
+    }
+  ]
+}

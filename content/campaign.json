@@ -1,0 +1,256 @@
+{
+  "crowdfunding": {
+    "currency": "ETB",
+    "usdRate": 0.0072,
+    "goal": 15000000,
+    "raised": 4860000,
+    "backers": 2317,
+    "guadProducers": 184,
+    "endsOn": "2027-01-08T23:59:00+03:00",
+    "channels": [
+      {
+        "id": "telebirr",
+        "name": "telebirr",
+        "note": {
+          "en": "Local · mobile money",
+          "am": "በሀገር ውስጥ · ሞባይል ገንዘብ"
+        },
+        "url": "#"
+      },
+      {
+        "id": "cbebirr",
+        "name": "CBE Birr",
+        "note": {
+          "en": "Local · bank wallet",
+          "am": "በሀገር ውስጥ · ባንክ"
+        },
+        "url": "#"
+      },
+      {
+        "id": "chapa",
+        "name": "Chapa",
+        "note": {
+          "en": "Local cards & wallets",
+          "am": "ካርድ እና ዋሌት"
+        },
+        "url": "#"
+      },
+      {
+        "id": "intl",
+        "name": "International card / PayPal",
+        "note": {
+          "en": "Diaspora · USD, EUR, GBP",
+          "am": "ለዲያስፖራ · USD, EUR, GBP"
+        },
+        "url": "#"
+      }
+    ],
+    "tiers": [
+      {
+        "amount": 500,
+        "usd": 5,
+        "title": {
+          "en": "Witness",
+          "am": "ምስክር"
+        },
+        "perks": {
+          "en": [
+            "Name on the digital Wall of Witnesses",
+            "Production diary updates"
+          ],
+          "am": [
+            "ስምዎ በዲጂታል የምስክሮች ግድግዳ ላይ",
+            "የቀረጻ ማስታወሻ ዜናዎች"
+          ]
+        }
+      },
+      {
+        "amount": 2500,
+        "usd": 20,
+        "title": {
+          "en": "Juror",
+          "am": "ዳኛ ረዳት"
+        },
+        "perks": {
+          "en": [
+            "All Witness rewards",
+            "Digital poster set",
+            "Behind-the-scenes video diary"
+          ],
+          "am": [
+            "የምስክር ሽልማቶች በሙሉ",
+            "ዲጂታል የፖስተር ስብስብ",
+            "ከትዕይንት ጀርባ ቪዲዮ"
+          ]
+        }
+      },
+      {
+        "amount": 10000,
+        "usd": 75,
+        "title": {
+          "en": "ጓድ Producer",
+          "am": "ጓድ ፕሮዲዩሰር"
+        },
+        "featured": true,
+        "guad": true,
+        "perks": {
+          "en": [
+            "Your name in the film's ጓድ Producer credit roll",
+            "Two premiere-week cinema tickets",
+            "ጓድ Producer certificate"
+          ],
+          "am": [
+            "ስምዎ በፊልሙ የጓድ ፕሮዲዩሰሮች ዝርዝር ውስጥ",
+            "ለመጀመሪያ ሳምንት ሁለት ትኬቶች",
+            "የጓድ ፕሮዲዩሰር ምስክር ወረቀት"
+          ]
+        }
+      },
+      {
+        "amount": 50000,
+        "usd": 360,
+        "title": {
+          "en": "Presiding Judge",
+          "am": "ሰብሳቢ ዳኛ"
+        },
+        "guad": true,
+        "perks": {
+          "en": [
+            "All ጓድ Producer rewards",
+            "Invitation to the Addis Ababa premiere",
+            "Signed script page & set visit"
+          ],
+          "am": [
+            "የጓድ ፕሮዲዩሰር ሽልማቶች በሙሉ",
+            "የአዲስ አበባ ፕሪሚየር ግብዣ",
+            "የተፈረመ የስክሪፕት ገጽ እና የቀረጻ ቦታ ጉብኝት"
+          ]
+        }
+      }
+    ],
+    "useOfFunds": [
+      {
+        "pct": 38,
+        "label": {
+          "en": "Production & shooting days",
+          "am": "ቀረጻ እና የቀረጻ ቀናት"
+        }
+      },
+      {
+        "pct": 22,
+        "label": {
+          "en": "Cast & crew",
+          "am": "ተዋንያን እና ባለሙያዎች"
+        }
+      },
+      {
+        "pct": 14,
+        "label": {
+          "en": "Sets, costumes & period design",
+          "am": "መድረክ፣ አልባሳት እና የዘመኑ ዲዛይን"
+        }
+      },
+      {
+        "pct": 14,
+        "label": {
+          "en": "Post-production, sound & music",
+          "am": "ድኅረ ቀረጻ፣ ድምፅ እና ሙዚቃ"
+        }
+      },
+      {
+        "pct": 8,
+        "label": {
+          "en": "Release & cinema distribution",
+          "am": "ምርቃት እና የሲኒማ ስርጭት"
+        }
+      },
+      {
+        "pct": 4,
+        "label": {
+          "en": "Campaign, payment fees & audit",
+          "am": "ዘመቻ፣ የክፍያ ወጪዎች እና ኦዲት"
+        }
+      }
+    ]
+  },
+  "partnerPackages": [
+    {
+      "title": {
+        "en": "Title Partner",
+        "am": "ዋና አጋር"
+      },
+      "slots": 1,
+      "perks": {
+        "en": [
+          "“GERA KEGN presented by” billing",
+          "Logo on poster, trailer & opening credits",
+          "Premiere co-hosting & screening rights",
+          "Custom campaign with the cast"
+        ],
+        "am": [
+          "«ግራ ቀኝ በ… አቅራቢነት» ስያሜ",
+          "ሎጎ በፖስተር፣ ቅድመ እይታ እና መክፈቻ ላይ",
+          "የፕሪሚየር አጋርነት",
+          "ከተዋንያን ጋር ልዩ ዘመቻ"
+        ]
+      }
+    },
+    {
+      "title": {
+        "en": "Presenting Partner",
+        "am": "አቅራቢ አጋር"
+      },
+      "slots": 3,
+      "perks": {
+        "en": [
+          "Logo in end credits & on website",
+          "Branded production-diary episodes",
+          "Private screening for staff & clients"
+        ],
+        "am": [
+          "ሎጎ በመዝጊያ እና በድረ ገጹ ላይ",
+          "በስምዎ የቀረጻ ማስታወሻ ክፍሎች",
+          "ለሠራተኞች እና ደንበኞች የግል ማሳያ"
+        ]
+      }
+    },
+    {
+      "title": {
+        "en": "Supporting Partner",
+        "am": "ደጋፊ አጋር"
+      },
+      "slots": 8,
+      "perks": {
+        "en": [
+          "Logo in end credits",
+          "Partner wall on website",
+          "Premiere invitations"
+        ],
+        "am": [
+          "ሎጎ በመዝጊያ ላይ",
+          "በድረ ገጹ የአጋሮች ግድግዳ",
+          "የፕሪሚየር ግብዣዎች"
+        ]
+      }
+    },
+    {
+      "title": {
+        "en": "In-kind Partner",
+        "am": "በዓይነት አጋር"
+      },
+      "slots": null,
+      "perks": {
+        "en": [
+          "Locations, equipment, catering, transport, period props",
+          "Credit as in-kind partner",
+          "Behind-the-scenes mention"
+        ],
+        "am": [
+          "የቀረጻ ቦታ፣ መሣሪያ፣ ምግብ፣ ትራንስፖርት፣ የዘመኑ ዕቃዎች",
+          "በዓይነት አጋርነት ዕውቅና",
+          "ከትዕይንት ጀርባ መጠቀስ"
+        ]
+      }
+    }
+  ]
+}

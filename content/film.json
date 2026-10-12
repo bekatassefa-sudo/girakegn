@@ -1,0 +1,324 @@
+{
+  "cast": [
+    {
+      "actor": "Actor Name",
+      "role": {
+        "en": "The Presiding Judge",
+        "am": "ሰብሳቢ ዳኛው"
+      },
+      "bio": {
+        "en": "Believes the law can still stand upright — even when the times lean.",
+        "am": "ዘመኑ ቢያዘነብልም ሕግ ቀጥ ብሎ መቆም ይችላል ብሎ ያምናል።"
+      }
+    },
+    {
+      "actor": "Actor Name",
+      "role": {
+        "en": "The Defence Advocate",
+        "am": "ተከላካይ ጠበቃው"
+      },
+      "bio": {
+        "en": "Sharp, stubborn, and running out of places to stand.",
+        "am": "ብልህ፣ ቆራጥ፣ ግን የሚቆምበት ቦታ እያጣ ያለ።"
+      }
+    },
+    {
+      "actor": "Actor Name",
+      "role": {
+        "en": "The Prosecutor",
+        "am": "ዐቃቤ ሕጉ"
+      },
+      "bio": {
+        "en": "Loyal to the file in front of him, and to whoever wrote it.",
+        "am": "ፊቱ ላለው ፋይል እና ለጻፈው ታማኝ።"
+      }
+    },
+    {
+      "actor": "Actor Name",
+      "role": {
+        "en": "The Court Clerk",
+        "am": "የችሎት ጸሐፊዋ"
+      },
+      "bio": {
+        "en": "Types every word. Remembers the ones she was told not to.",
+        "am": "እያንዳንዱን ቃል ትጽፋለች። እንዳትጽፍ የተባለችውንም ታስታውሳለች።"
+      }
+    },
+    {
+      "actor": "Actor Name",
+      "role": {
+        "en": "The Accused",
+        "am": "ተከሳሹ"
+      },
+      "bio": {
+        "en": "An ordinary man whose case is anything but.",
+        "am": "ጉዳዩ ተራ ያልሆነ ተራ ሰው።"
+      }
+    },
+    {
+      "actor": "Actor Name",
+      "role": {
+        "en": "The Cadre",
+        "am": "ካድሬው"
+      },
+      "bio": {
+        "en": "Sits in the back row. Takes notes on everyone.",
+        "am": "የኋላ ወንበር ላይ ይቀመጣል። ስለ ሁሉም ማስታወሻ ይይዛል።"
+      }
+    }
+  ],
+  "crew": [
+    {
+      "name": "Name",
+      "role": {
+        "en": "Director",
+        "am": "ዳይሬክተር"
+      }
+    },
+    {
+      "name": "Name",
+      "role": {
+        "en": "Screenwriter",
+        "am": "የስክሪፕት ጸሐፊ"
+      }
+    },
+    {
+      "name": "Name",
+      "role": {
+        "en": "Based on the novel by",
+        "am": "በልብ ወለዱ ደራሲ ላይ የተመሠረተ"
+      }
+    },
+    {
+      "name": "Name",
+      "role": {
+        "en": "Producer",
+        "am": "ፕሮዲዩሰር"
+      }
+    },
+    {
+      "name": "Name",
+      "role": {
+        "en": "Director of Photography",
+        "am": "ሲኒማቶግራፈር"
+      }
+    },
+    {
+      "name": "Name",
+      "role": {
+        "en": "Original Music",
+        "am": "ሙዚቃ"
+      }
+    }
+  ],
+  "cases": [
+    {
+      "no": "001/72",
+      "season": "1",
+      "title": {
+        "en": "The Missing Ledger",
+        "am": "የጠፋው መዝገብ"
+      },
+      "text": {
+        "en": "A cooperative's accounts vanish overnight. The bookkeeper is charged — but who signed the order?",
+        "am": "የማኅበሩ ሂሳብ በአንድ ሌሊት ጠፋ። ሂሳብ ያዡ ተከሰሰ — ትዕዛዙን ማን ፈረመ?"
+      }
+    },
+    {
+      "no": "014/72",
+      "season": "1",
+      "title": {
+        "en": "A House in Arat Kilo",
+        "am": "አራት ኪሎ ያለው ቤት"
+      },
+      "text": {
+        "en": "Nationalised property, two families, one key. The court must decide who the law belongs to.",
+        "am": "የተወረሰ ቤት፣ ሁለት ቤተሰቦች፣ አንድ ቁልፍ። ሕጉ የማን እንደሆነ ችሎቱ መወሰን አለበት።"
+      }
+    },
+    {
+      "no": "027/73",
+      "season": "1",
+      "title": {
+        "en": "The Letter from Asmara",
+        "am": "ከአስመራ የመጣው ደብዳቤ"
+      },
+      "text": {
+        "en": "A soldier's letter becomes evidence. Its words can free a man — or condemn the writer.",
+        "am": "የወታደር ደብዳቤ ማስረጃ ሆነ። ቃላቱ አንዱን ነጻ ሊያወጡ — ጸሐፊውን ሊያስፈርዱ ይችላሉ።"
+      }
+    },
+    {
+      "no": "009/74",
+      "season": "2",
+      "title": {
+        "en": "Curfew",
+        "am": "ሰዓት እላፊ"
+      },
+      "text": {
+        "en": "Found on the street after midnight. The only witness is the man who arrested him.",
+        "am": "ከእኩለ ሌሊት በኋላ መንገድ ላይ ተገኘ። ብቸኛው ምስክር ያሰረው ሰው ነው።"
+      }
+    },
+    {
+      "no": "033/74",
+      "season": "2",
+      "title": {
+        "en": "The Kebele Record",
+        "am": "የቀበሌው መዝገብ"
+      },
+      "text": {
+        "en": "One line in a neighbourhood register decides a family's fate.",
+        "am": "በቀበሌ መዝገብ ላይ ያለች አንዲት መስመር የቤተሰብን ዕጣ ትወስናለች።"
+      }
+    },
+    {
+      "no": "— / —",
+      "season": "film",
+      "title": {
+        "en": "The Final Hearing",
+        "am": "የመጨረሻው ችሎት"
+      },
+      "text": {
+        "en": "Sealed. To be opened in cinemas.",
+        "am": "የታሸገ። በሲኒማ ቤቶች ይከፈታል።"
+      }
+    }
+  ],
+  "milestones": [
+    {
+      "status": "done",
+      "when": {
+        "en": "Seasons 1 & 2",
+        "am": "ምዕራፍ 1 እና 2"
+      },
+      "title": {
+        "en": "The series",
+        "am": "ተከታታይ ድራማው"
+      },
+      "text": {
+        "en": "Two seasons on television, followed at home and abroad.",
+        "am": "በሀገር ውስጥ እና በውጭ የታየ ሁለት ምዕራፍ።"
+      }
+    },
+    {
+      "status": "done",
+      "when": {
+        "en": "Tikimt 2019",
+        "am": "ጥቅምት 2019"
+      },
+      "title": {
+        "en": "Film announced",
+        "am": "ፊልሙ ይፋ ሆነ"
+      },
+      "text": {
+        "en": "Website launch and public announcement.",
+        "am": "የድረ ገጹ መከፈት እና ይፋዊ ማስታወቂያ።"
+      }
+    },
+    {
+      "status": "now",
+      "when": {
+        "en": "Now",
+        "am": "አሁን"
+      },
+      "title": {
+        "en": "Crowdfunding",
+        "am": "ገንዘብ ማሰባሰብ"
+      },
+      "text": {
+        "en": "Producers, ጓድ Producers and partners fund the film.",
+        "am": "ፕሮዲዩሰሮች፣ ጓድ ፕሮዲዩሰሮች እና አጋሮች ፊልሙን ይደግፋሉ።"
+      }
+    },
+    {
+      "status": "next",
+      "when": {
+        "en": "Pre-production",
+        "am": "ቅድመ ዝግጅት"
+      },
+      "title": {
+        "en": "Casting & locations",
+        "am": "ተዋንያን እና ቦታዎች"
+      },
+      "text": {
+        "en": "Returning cast, new faces, rebuilding 1970s Addis.",
+        "am": "የሚመለሱ ተዋንያን፣ አዳዲስ ፊቶች፣ የ1970ዎቹ አዲስ አበባ።"
+      }
+    },
+    {
+      "status": "next",
+      "when": {
+        "en": "Production",
+        "am": "ቀረጻ"
+      },
+      "title": {
+        "en": "Principal photography",
+        "am": "ዋና ቀረጻ"
+      },
+      "text": {
+        "en": "Cameras roll. Weekly production diary.",
+        "am": "ካሜራዎች ይሽከረከራሉ። ሳምንታዊ ማስታወሻ።"
+      }
+    },
+    {
+      "status": "next",
+      "when": {
+        "en": "Release",
+        "am": "ምርቃት"
+      },
+      "title": {
+        "en": "In cinemas",
+        "am": "በሲኒማ ቤቶች"
+      },
+      "text": {
+        "en": "Addis Ababa premiere, then Ethiopia and the diaspora.",
+        "am": "የአዲስ አበባ ፕሪሚየር፣ ከዚያም ኢትዮጵያ እና ዲያስፖራ።"
+      }
+    }
+  ],
+  "gallery": [
+    {
+      "label": {
+        "en": "Season 1 · The courtroom",
+        "am": "ምዕራፍ 1 · ችሎቱ"
+      },
+      "tone": "a"
+    },
+    {
+      "label": {
+        "en": "Season 2 · Closing argument",
+        "am": "ምዕራፍ 2 · የመዝጊያ ክርክር"
+      },
+      "tone": "b"
+    },
+    {
+      "label": {
+        "en": "Behind the scenes",
+        "am": "ከትዕይንት ጀርባ"
+      },
+      "tone": "c"
+    },
+    {
+      "label": {
+        "en": "Script read-through",
+        "am": "የስክሪፕት ንባብ"
+      },
+      "tone": "d"
+    },
+    {
+      "label": {
+        "en": "Location scout · Piassa",
+        "am": "የቦታ ፍለጋ · ፒያሳ"
+      },
+      "tone": "e"
+    },
+    {
+      "label": {
+        "en": "Costume tests",
+        "am": "የአልባሳት ሙከራ"
+      },
+      "tone": "f"
+    }
+  ]
+}

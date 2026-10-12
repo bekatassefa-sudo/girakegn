@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Local tooling (preview server config, editor settings)
+.claude/
+.vscode/
+.idea/
+
+# Node (decap-server via npx, any future build tooling)
+node_modules/
+npm-debug.log*
+
+# Local env / secrets — never commit
+.env
+.env.*

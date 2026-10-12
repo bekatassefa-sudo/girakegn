@@ -1,0 +1,225 @@
+{
+  "faq": [
+    {
+      "id": "movie",
+      "title": {
+        "en": "The movie",
+        "am": "ፊልሙ"
+      },
+      "items": [
+        {
+          "q": {
+            "en": "Is the film a continuation of the series?",
+            "am": "ፊልሙ የተከታታዩ ቀጣይ ነው?"
+          },
+          "a": {
+            "en": "Yes. The film continues the story of the court and its people. It is written so that newcomers can follow it too.",
+            "am": "አዎ። ፊልሙ የችሎቱን እና የሰዎቹን ታሪክ ይቀጥላል። አዲስ ተመልካቾችም እንዲከተሉት ተደርጎ ተጽፏል።"
+          }
+        },
+        {
+          "q": {
+            "en": "When will it be released?",
+            "am": "መቼ ይመረቃል?"
+          },
+          "a": {
+            "en": "The target release window is shown on the home page countdown. Confirmed dates will be announced in the Production Diary.",
+            "am": "የታቀደው የምርቃት ጊዜ በመነሻ ገጹ ላይ ተገልጿል። የተረጋገጡ ቀናት በቀረጻ ማስታወሻው ይገለጻሉ።"
+          }
+        }
+      ]
+    },
+    {
+      "id": "series",
+      "title": {
+        "en": "The original series",
+        "am": "ተከታታይ ድራማው"
+      },
+      "items": [
+        {
+          "q": {
+            "en": "Can I watch the series here?",
+            "am": "ድራማውን እዚህ ማየት እችላለሁ?"
+          },
+          "a": {
+            "en": "Yes — the Series page streams available episodes, organised by season. Episodes are hosted on the official GERA KEGN YouTube channel.",
+            "am": "አዎ — የተከታታዩ ገጽ ያሉትን ክፍሎች በምዕራፍ ተደራጅተው ያሳያል። ክፍሎቹ በይፋዊው የግራ ቀኝ የዩቲዩብ ቻናል ላይ ይገኛሉ።"
+          }
+        },
+        {
+          "q": {
+            "en": "Is it free to watch?",
+            "am": "በነጻ ማየት ይቻላል?"
+          },
+          "a": {
+            "en": "Yes, available episodes are free to watch. Availability may vary by country depending on rights.",
+            "am": "አዎ፣ ያሉት ክፍሎች በነጻ ይታያሉ። እንደ መብቱ በአንዳንድ አገሮች ሊለያይ ይችላል።"
+          }
+        }
+      ]
+    },
+    {
+      "id": "crowdfunding",
+      "title": {
+        "en": "Crowdfunding & producers",
+        "am": "ገንዘብ ማሰባሰብ እና ፕሮዲዩሰሮች"
+      },
+      "items": [
+        {
+          "q": {
+            "en": "What does it mean to become a producer?",
+            "am": "ፕሮዲዩሰር መሆን ምን ማለት ነው?"
+          },
+          "a": {
+            "en": "Producers are supporters who contribute to the making of the film and receive the recognition and rewards of their chosen level. It is a reward-based contribution, not an investment or ownership stake.",
+            "am": "ፕሮዲዩሰሮች ለፊልሙ ሥራ አስተዋጽኦ የሚያደርጉ እና በመረጡት ደረጃ ዕውቅና እና ሽልማት የሚያገኙ ደጋፊዎች ናቸው። ይህ የሽልማት መሠረት ያለው አስተዋጽኦ እንጂ ኢንቨስትመንት ወይም የባለቤትነት ድርሻ አይደለም።"
+          }
+        },
+        {
+          "q": {
+            "en": "What happens if the goal isn't reached?",
+            "am": "ግቡ ካልተሳካ ምን ይሆናል?"
+          },
+          "a": {
+            "en": "This will be set out in the campaign terms before launch. [To be confirmed by the production.]",
+            "am": "ይህ ዘመቻው ከመጀመሩ በፊት በውሉ ይገለጻል። [በፕሮዳክሽኑ የሚረጋገጥ]"
+          }
+        }
+      ]
+    },
+    {
+      "id": "guad",
+      "title": {
+        "en": "ጓድ Producer status",
+        "am": "የጓድ ፕሮዲዩሰር ደረጃ"
+      },
+      "items": [
+        {
+          "q": {
+            "en": "What is a ጓድ Producer?",
+            "am": "ጓድ ፕሮዲዩሰር ማነው?"
+          },
+          "a": {
+            "en": "ጓድ (guad, “comrade”) Producers are backers who contribute at the qualifying level. Their names appear in the film's dedicated ጓድ Producer credit roll.",
+            "am": "ጓድ ፕሮዲዩሰሮች በብቁ ደረጃ የሚያዋጡ ደጋፊዎች ናቸው። ስማቸው በፊልሙ የጓድ ፕሮዲዩሰሮች ዝርዝር ውስጥ ይወጣል።"
+          }
+        },
+        {
+          "q": {
+            "en": "How do I submit my name for the credits?",
+            "am": "ስሜን ለዝርዝሩ እንዴት አስገባለሁ?"
+          },
+          "a": {
+            "en": "After your qualifying contribution, use the name submission form on the ጓድ Producer page before the credit deadline.",
+            "am": "ብቁ አስተዋጽኦ ካደረጉ በኋላ፣ ከመጨረሻው ቀን በፊት በጓድ ፕሮዲዩሰር ገጽ ላይ ያለውን ቅጽ ይጠቀሙ።"
+          }
+        }
+      ]
+    },
+    {
+      "id": "partners",
+      "title": {
+        "en": "Corporate partnerships",
+        "am": "የድርጅት አጋርነት"
+      },
+      "items": [
+        {
+          "q": {
+            "en": "How can my company partner with the film?",
+            "am": "ድርጅቴ እንዴት አጋር ሊሆን ይችላል?"
+          },
+          "a": {
+            "en": "See the Corporate Partners page for packages and send an enquiry. The partnerships team will reply with a full proposal.",
+            "am": "ለጥቅሎቹ የድርጅት አጋሮች ገጽን ይመልከቱ እና ጥያቄ ይላኩ። የአጋርነት ቡድኑ ሙሉ ፕሮፖዛል ይልካል።"
+          }
+        }
+      ]
+    },
+    {
+      "id": "diaspora",
+      "title": {
+        "en": "Diaspora participation",
+        "am": "የዲያስፖራ ተሳትፎ"
+      },
+      "items": [
+        {
+          "q": {
+            "en": "Can I contribute from abroad?",
+            "am": "ከውጭ አገር ማዋጣት እችላለሁ?"
+          },
+          "a": {
+            "en": "Yes. International cards and PayPal are supported in USD, EUR and GBP.",
+            "am": "አዎ። ዓለም አቀፍ ካርዶች እና PayPal በUSD፣ EUR እና GBP ይቀበላሉ።"
+          }
+        },
+        {
+          "q": {
+            "en": "Will the film screen in my city?",
+            "am": "ፊልሙ በከተማዬ ይታያል?"
+          },
+          "a": {
+            "en": "Vote for your city on the Diaspora page. Cities with the most supporters are prioritised for screenings.",
+            "am": "በዲያስፖራ ገጽ ላይ ለከተማዎ ድምጽ ይስጡ። ብዙ ደጋፊ ያላቸው ከተሞች ቅድሚያ ያገኛሉ።"
+          }
+        }
+      ]
+    },
+    {
+      "id": "payments",
+      "title": {
+        "en": "Payments",
+        "am": "ክፍያዎች"
+      },
+      "items": [
+        {
+          "q": {
+            "en": "Which payment methods are accepted?",
+            "am": "የትኞቹ የክፍያ መንገዶች ይቀበላሉ?"
+          },
+          "a": {
+            "en": "telebirr, CBE Birr and Chapa in Ethiopia; international cards and PayPal abroad. Payments are processed by the provider — card details never touch this website.",
+            "am": "በኢትዮጵያ telebirr፣ CBE Birr እና Chapa፤ በውጭ ዓለም አቀፍ ካርዶች እና PayPal። ክፍያዎች በአቅራቢው ይስተናገዳሉ — የካርድ መረጃ በዚህ ድረ ገጽ አያልፍም።"
+          }
+        }
+      ]
+    },
+    {
+      "id": "transparency",
+      "title": {
+        "en": "Transparency",
+        "am": "ግልጽነት"
+      },
+      "items": [
+        {
+          "q": {
+            "en": "How will I know how the money is used?",
+            "am": "ገንዘቡ እንዴት እንደዋለ እንዴት አውቃለሁ?"
+          },
+          "a": {
+            "en": "The Transparency page shows the funding goal, progress, use of funds and milestones, and is updated throughout production.",
+            "am": "የግልጽነት ገጹ ግቡን፣ ሂደቱን፣ የገንዘብ አጠቃቀሙን እና ምዕራፎችን ያሳያል፤ በቀረጻው ሁሉ ይዘመናል።"
+          }
+        }
+      ]
+    },
+    {
+      "id": "release",
+      "title": {
+        "en": "Release & cinemas",
+        "am": "ምርቃት እና ሲኒማዎች"
+      },
+      "items": [
+        {
+          "q": {
+            "en": "Where can I buy tickets?",
+            "am": "ትኬት የት መግዛት እችላለሁ?"
+          },
+          "a": {
+            "en": "Ticketing will open closer to release. Join the newsletter to get first access.",
+            "am": "የትኬት ሽያጭ ወደ ምርቃቱ ሲቃረብ ይከፈታል። ቅድሚያ ለማግኘት ይመዝገቡ።"
+          }
+        }
+      ]
+    }
+  ]
+}

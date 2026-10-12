@@ -1,0 +1,333 @@
+{
+  "series": {
+    "playlist": "",
+    "seasons": [
+      {
+        "season": 1,
+        "year": {
+          "en": "Season 1",
+          "am": "ምዕራፍ 1"
+        },
+        "blurb": {
+          "en": "The court opens. A new judge, a city under watch, and the first files.",
+          "am": "ችሎቱ ይከፈታል። አዲስ ዳኛ፣ በክትትል ሥር ያለች ከተማ እና የመጀመሪያዎቹ መዝገቦች።"
+        },
+        "episodes": [
+          {
+            "ep": 1,
+            "youtube": "",
+            "duration": "47:10",
+            "featured": true,
+            "title": {
+              "en": "The Court Opens",
+              "am": "ችሎቱ ተከፈተ"
+            },
+            "desc": {
+              "en": "A newly appointed judge takes the bench in a city where every word is recorded.",
+              "am": "አዲስ የተሾመ ዳኛ እያንዳንዱ ቃል በሚመዘገብባት ከተማ ወንበሩን ይይዛል።"
+            },
+            "published": true
+          },
+          {
+            "ep": 2,
+            "youtube": "https://www.youtube.com/watch?v=3R84iULjfwQ&list=PLMAgTa0j90_jp3CacZzyMPwjWiWmROp0K&index=29",
+            "duration": "45:32",
+            "title": {
+              "en": "The Missing Ledger",
+              "am": "የጠፋው መዝገብ"
+            },
+            "desc": {
+              "en": "A cooperative's accounts vanish overnight. The bookkeeper is charged.",
+              "am": "የማኅበሩ ሂሳብ በአንድ ሌሊት ጠፋ። ሂሳብ ያዡ ተከሰሰ።"
+            },
+            "published": true,
+            "featured": false
+          },
+          {
+            "ep": 3,
+            "youtube": "https://www.youtube.com/watch?v=_EIKJeNHPGM",
+            "duration": "46:05",
+            "title": {
+              "en": "A House in Arat Kilo",
+              "am": "አራት ኪሎ ያለው ቤት"
+            },
+            "desc": {
+              "en": "Nationalised property, two families, one key.",
+              "am": "የተወረሰ ቤት፣ ሁለት ቤተሰቦች፣ አንድ ቁልፍ።"
+            },
+            "published": true,
+            "featured": false
+          },
+          {
+            "ep": 4,
+            "youtube": "https://www.youtube.com/watch?v=jSfXwgHOQmo",
+            "duration": "44:48",
+            "title": {
+              "en": "The Letter from Asmara",
+              "am": "ከአስመራ የመጣው ደብዳቤ"
+            },
+            "desc": {
+              "en": "A soldier's letter becomes evidence.",
+              "am": "የወታደር ደብዳቤ ማስረጃ ሆነ።"
+            },
+            "published": true,
+            "featured": false
+          },
+          {
+            "ep": 5,
+            "youtube": "https://www.youtube.com/watch?v=BUu6jPSvga8",
+            "duration": "46:51",
+            "title": {
+              "en": "Witness for the Defence",
+              "am": "የተከሳሽ ምስክር"
+            },
+            "desc": {
+              "en": "The only witness who can help is the one who has the most to lose.",
+              "am": "ሊረዳ የሚችለው ብቸኛ ምስክር ብዙ የሚያጣው ነው።"
+            },
+            "published": true,
+            "featured": false
+          },
+          {
+            "ep": 6,
+            "youtube": "https://www.youtube.com/watch?v=q9Oah2tu4ds",
+            "duration": "52:20",
+            "title": {
+              "en": "Verdict",
+              "am": "ብይን"
+            },
+            "desc": {
+              "en": "A verdict that divides the city — and puts the judge under watch.",
+              "am": "ከተማውን የከፋፈለ ብይን — ዳኛውም በክትትል ሥር ወደቀ።"
+            },
+            "published": true,
+            "featured": false
+          },
+          {
+            "ep": 7,
+            "youtube": "",
+            "duration": "46:12",
+            "featured": false,
+            "published": true,
+            "title": {
+              "en": "The Clerk’s Notebook",
+              "am": "የጸሐፊዋ ማስታወሻ"
+            },
+            "desc": {
+              "en": "The clerk keeps a second record — one nobody asked for.",
+              "am": "ጸሐፊዋ ሁለተኛ መዝገብ ትይዛለች — ማንም ያልጠየቃትን።"
+            }
+          },
+          {
+            "ep": 8,
+            "youtube": "",
+            "duration": "45:38",
+            "featured": false,
+            "published": true,
+            "title": {
+              "en": "Night Session",
+              "am": "የሌሊት ችሎት"
+            },
+            "desc": {
+              "en": "A hearing called after curfew, with no public in the gallery.",
+              "am": "ከሰዓት እላፊ በኋላ የተጠራ ችሎት፤ ታዳሚ የለም።"
+            }
+          },
+          {
+            "ep": 9,
+            "youtube": "",
+            "duration": "47:05",
+            "featured": false,
+            "published": true,
+            "title": {
+              "en": "Appeal",
+              "am": "ይግባኝ"
+            },
+            "desc": {
+              "en": "An old case comes back — and so does the man who lost it.",
+              "am": "አንድ የቆየ ጉዳይ ተመለሰ — የተሸነፈውም ሰው እንዲሁ።"
+            }
+          },
+          {
+            "ep": 10,
+            "youtube": "",
+            "duration": "53:40",
+            "featured": true,
+            "published": true,
+            "title": {
+              "en": "Recess",
+              "am": "እረፍት"
+            },
+            "desc": {
+              "en": "The season finale. The court rises — but not everyone walks out.",
+              "am": "የምዕራፉ ማጠቃለያ። ችሎቱ ተነሳ — ግን ሁሉም አልወጣም።"
+            }
+          }
+        ]
+      },
+      {
+        "season": 2,
+        "year": {
+          "en": "Season 2",
+          "am": "ምዕራፍ 2"
+        },
+        "blurb": {
+          "en": "The pressure rises. The files get heavier, and the court itself is on trial.",
+          "am": "ጫናው ይጨምራል። መዝገቦቹ ይከብዳሉ፤ ችሎቱ ራሱ ይዳኛል።"
+        },
+        "episodes": [
+          {
+            "ep": 1,
+            "youtube": "",
+            "duration": "48:02",
+            "featured": true,
+            "title": {
+              "en": "Curfew",
+              "am": "ሰዓት እላፊ"
+            },
+            "desc": {
+              "en": "Found on the street after midnight. The only witness is the man who arrested him.",
+              "am": "ከእኩለ ሌሊት በኋላ መንገድ ላይ ተገኘ። ብቸኛው ምስክር ያሰረው ሰው ነው።"
+            },
+            "published": true
+          },
+          {
+            "ep": 2,
+            "youtube": "",
+            "duration": "45:17",
+            "title": {
+              "en": "The Kebele Record",
+              "am": "የቀበሌው መዝገብ"
+            },
+            "desc": {
+              "en": "One line in a neighbourhood register decides a family's fate.",
+              "am": "በቀበሌ መዝገብ ላይ ያለች አንዲት መስመር የቤተሰብን ዕጣ ትወስናለች።"
+            },
+            "published": true,
+            "featured": false
+          },
+          {
+            "ep": 3,
+            "youtube": "",
+            "duration": "46:40",
+            "title": {
+              "en": "The Back Row",
+              "am": "የኋላው ወንበር"
+            },
+            "desc": {
+              "en": "A cadre starts attending every hearing. Nobody asks why.",
+              "am": "አንድ ካድሬ በየችሎቱ መገኘት ጀመረ። ማንም ለምን ብሎ አይጠይቅም።"
+            },
+            "published": true,
+            "featured": false
+          },
+          {
+            "ep": 4,
+            "youtube": "",
+            "duration": "47:29",
+            "title": {
+              "en": "Typewriter",
+              "am": "የጽሕፈት መኪናው"
+            },
+            "desc": {
+              "en": "The clerk is asked to change one word in the transcript.",
+              "am": "ጸሐፊዋ በመዝገቡ ላይ አንድ ቃል እንድትቀይር ተጠየቀች።"
+            },
+            "published": true,
+            "featured": false
+          },
+          {
+            "ep": 5,
+            "youtube": "",
+            "duration": "49:03",
+            "title": {
+              "en": "Left, Right",
+              "am": "ግራ፣ ቀኝ"
+            },
+            "desc": {
+              "en": "The judge must choose a side — or find a way to stand in the middle.",
+              "am": "ዳኛው ወገን መምረጥ አለበት — ወይም በመሃል የሚቆምበትን መንገድ ማግኘት።"
+            },
+            "published": true,
+            "featured": false
+          },
+          {
+            "ep": 6,
+            "youtube": "",
+            "duration": "46:22",
+            "featured": false,
+            "published": true,
+            "title": {
+              "en": "Sealed Evidence",
+              "am": "የታሸገ ማስረጃ"
+            },
+            "desc": {
+              "en": "An envelope arrives that the court is not allowed to open.",
+              "am": "ችሎቱ እንዳይከፍተው የተከለከለ ፖስታ ደረሰ።"
+            }
+          },
+          {
+            "ep": 7,
+            "youtube": "",
+            "duration": "45:51",
+            "featured": false,
+            "published": true,
+            "title": {
+              "en": "Testimony",
+              "am": "ምስክርነት"
+            },
+            "desc": {
+              "en": "A witness changes her story overnight.",
+              "am": "አንዲት ምስክር በአንድ ሌሊት ቃሏን ቀየረች።"
+            }
+          },
+          {
+            "ep": 8,
+            "youtube": "",
+            "duration": "47:14",
+            "featured": false,
+            "published": true,
+            "title": {
+              "en": "The Transfer",
+              "am": "ዝውውሩ"
+            },
+            "desc": {
+              "en": "The judge receives an order to move to another court.",
+              "am": "ዳኛው ወደ ሌላ ችሎት እንዲዛወር ትዕዛዝ ደረሰው።"
+            }
+          },
+          {
+            "ep": 9,
+            "youtube": "",
+            "duration": "48:30",
+            "featured": false,
+            "published": true,
+            "title": {
+              "en": "Closing Argument",
+              "am": "የመዝጊያ ክርክር"
+            },
+            "desc": {
+              "en": "The advocate makes the speech of his life.",
+              "am": "ጠበቃው የሕይወቱን ንግግር ያደርጋል።"
+            }
+          },
+          {
+            "ep": 10,
+            "youtube": "",
+            "duration": "55:44",
+            "featured": true,
+            "title": {
+              "en": "Adjourned",
+              "am": "ተቀጠረ"
+            },
+            "desc": {
+              "en": "The series finale. The court is adjourned — until the film.",
+              "am": "የተከታታዩ ማጠቃለያ። ችሎቱ ተቀጥሯል — እስከ ፊልሙ።"
+            },
+            "published": true
+          }
+        ]
+      }
+    ]
+  }
+}
