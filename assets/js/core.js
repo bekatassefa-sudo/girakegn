@@ -33,7 +33,7 @@
   /* ---------------- Shared UI strings ---------------- */
   const UI = {
     en: {
-      skip: "Skip to content", menu: "Menu", close: "Close", back: "Become a Producer", film: "The film",
+      skip: "Skip to content", menu: "Menu", close: "Close", back: "Become a ጓድ Producer", film: "The film",
       cd_d: "days", cd_h: "hours", cd_m: "min", cd_s: "sec",
       raised: "raised", goal: "goal", funded: "funded", backers: "backers", daysLeft: "days left", guads: "ጓድ Producers",
       pledge: "Pledge now", secure: "Local payments in birr · international cards for the diaspora",
@@ -49,11 +49,10 @@
       pledge_head: "PLEDGE FORM · ቅጽ 01", pledge_title: "Put your name on the record", custom: "Or enter an amount",
       pay: "Choose how to pay", pledge_note: "You'll be taken to the secure page of your chosen payment provider. Payment integration is being finalised.",
       pending: "Payment link not yet connected — available at campaign launch.",
-      slots: "slots", onRequest: "On request", enquire: "Enquire",
-      ticker: ["Two seasons on television", "Now: the feature film", "Produced by its audience", "Become a ጓድ Producer", "Addis Ababa · Washington · London · Toronto", "The court is back in session"]
+      slots: "slots", onRequest: "On request", enquire: "Enquire"
     },
     am: {
-      skip: "ወደ ይዘቱ ይዝለሉ", menu: "ማውጫ", close: "ዝጋ", back: "ፕሮዲዩሰር ይሁኑ", film: "ፊልሙ",
+      skip: "ወደ ይዘቱ ይዝለሉ", menu: "ማውጫ", close: "ዝጋ", back: "ጓድ ፕሮዲዩሰር ይሁኑ", film: "ፊልሙ",
       cd_d: "ቀናት", cd_h: "ሰዓታት", cd_m: "ደቂቃ", cd_s: "ሰከንድ",
       raised: "ተሰብስቧል", goal: "ግብ", funded: "ተሳክቷል", backers: "ደጋፊዎች", daysLeft: "ቀናት ቀርተዋል", guads: "ጓድ ፕሮዲዩሰሮች",
       pledge: "አሁን ይደግፉ", secure: "በብር የሀገር ውስጥ ክፍያ · ለዲያስፖራ ዓለም አቀፍ ካርድ",
@@ -69,8 +68,7 @@
       pledge_head: "የድጋፍ ቅጽ · FORM 01", pledge_title: "ስምዎን መዝገብ ላይ ያስፍሩ", custom: "ወይም መጠን ያስገቡ",
       pay: "የክፍያ መንገድ ይምረጡ", pledge_note: "ወደ መረጡት አቅራቢ ደህንነቱ የተጠበቀ የክፍያ ገጽ ይወሰዳሉ። የክፍያ ስርዓቱ በመጠናቀቅ ላይ ነው።",
       pending: "የክፍያ ማስፈንጠሪያ ገና አልተገናኘም — ዘመቻው ሲጀመር ይገኛል።",
-      slots: "ቦታዎች", onRequest: "በጥያቄ", enquire: "ይጠይቁ",
-      ticker: ["ሁለት ምዕራፍ በቴሌቪዥን", "አሁን፦ ፊልሙ", "በተመልካቹ የሚዘጋጅ", "ጓድ ፕሮዲዩሰር ይሁኑ", "አዲስ አበባ · ዋሽንግተን · ለንደን · ቶሮንቶ", "ችሎቱ ተመልሷል"]
+      slots: "ቦታዎች", onRequest: "በጥያቄ", enquire: "ይጠይቁ"
     }
   };
 
@@ -127,7 +125,7 @@
         <div class="lang" role="group" aria-label="Language">
           <button type="button" data-lang="en">EN</button><button type="button" data-lang="am" class="ethi">አማ</button>
         </div>
-        <a href="${href("producer")}" class="btn btn-red btn-sm nav-cta" data-t="back"></a>
+        <a href="${href("producer")}" class="btn btn-blue btn-sm nav-cta" data-t="back"></a>
         <button type="button" class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">
           <span class="menu-btn-label" data-t="menu"></span><span class="menu-btn-icon"><i></i><i></i></span>
         </button>
@@ -374,11 +372,12 @@
   GKX.track = track;
 
   /* ---------------- Pledge modal ---------------- */
-  const pledge = { tier: 2, cur: "ETB" };
+  const featuredTier = () => Math.max(0, C.crowdfunding.tiers.findIndex((t) => t.featured));
+  const pledge = { tier: featuredTier(), cur: "ETB" };
   function renderPledge() {
     const f = C.crowdfunding;
     $("#amountPicker").innerHTML = f.tiers.map((tier, i) => {
-      const amt = pledge.cur === "ETB" ? GKX.fmt(tier.amount) : `$${GKX.fmt(tier.usd)}`;
+      const amt = pledge.cur === "ETB" ? GKX.fmt(tier.local.amount) : `$${GKX.fmt(tier.diaspora.amount)}`;
       return `<button type="button" data-i="${i}" aria-pressed="${pledge.tier === i && !$("#customAmt").value}">${amt}<small>${esc(L(tier.title))}</small></button>`;
     }).join("");
     $("#curLabel").textContent = pledge.cur;

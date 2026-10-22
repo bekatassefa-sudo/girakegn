@@ -47,84 +47,108 @@
     ],
     "tiers": [
       {
-        "amount": 500,
-        "usd": 5,
         "title": {
-          "en": "Witness",
-          "am": "ምስክር"
+          "en": "ጓድ",
+          "am": "ጓድ"
         },
-        "perks": {
-          "en": [
-            "Name on the digital Wall of Witnesses",
-            "Production diary updates"
-          ],
-          "am": [
-            "ስምዎ በዲጂታል የምስክሮች ግድግዳ ላይ",
-            "የቀረጻ ማስታወሻ ዜናዎች"
-          ]
+        "local": {
+          "amount": 250,
+          "perks": {
+            "en": [
+              "Your name on the digital Wall of ጓዶች",
+              "Production diary updates"
+            ],
+            "am": [
+              "ስምዎ በዲጂታል የጓዶች ግድግዳ ላይ",
+              "የቀረጻ ማስታወሻ ዜናዎች"
+            ]
+          }
+        },
+        "diaspora": {
+          "amount": 5,
+          "perks": {
+            "en": [
+              "Your name on the digital Wall of ጓዶች",
+              "Production diary updates"
+            ],
+            "am": [
+              "ስምዎ በዲጂታል የጓዶች ግድግዳ ላይ",
+              "የቀረጻ ማስታወሻ ዜናዎች"
+            ]
+          }
         }
       },
       {
-        "amount": 2500,
-        "usd": 20,
-        "title": {
-          "en": "Juror",
-          "am": "ዳኛ ረዳት"
-        },
-        "perks": {
-          "en": [
-            "All Witness rewards",
-            "Digital poster set",
-            "Behind-the-scenes video diary"
-          ],
-          "am": [
-            "የምስክር ሽልማቶች በሙሉ",
-            "ዲጂታል የፖስተር ስብስብ",
-            "ከትዕይንት ጀርባ ቪዲዮ"
-          ]
-        }
-      },
-      {
-        "amount": 10000,
-        "usd": 75,
         "title": {
           "en": "ጓድ Producer",
           "am": "ጓድ ፕሮዲዩሰር"
         },
         "featured": true,
         "guad": true,
-        "perks": {
-          "en": [
-            "Your name in the film's ጓድ Producer credit roll",
-            "Two premiere-week cinema tickets",
-            "ጓድ Producer certificate"
-          ],
-          "am": [
-            "ስምዎ በፊልሙ የጓድ ፕሮዲዩሰሮች ዝርዝር ውስጥ",
-            "ለመጀመሪያ ሳምንት ሁለት ትኬቶች",
-            "የጓድ ፕሮዲዩሰር ምስክር ወረቀት"
-          ]
+        "local": {
+          "amount": 1000,
+          "perks": {
+            "en": [
+              "All ጓድ rewards",
+              "Your name in the film’s ጓድ Producer credit roll",
+              "ጓድ Producer certificate"
+            ],
+            "am": [
+              "የጓድ ሽልማቶች በሙሉ",
+              "ስምዎ በፊልሙ የጓድ ፕሮዲዩሰሮች ዝርዝር ውስጥ",
+              "የጓድ ፕሮዲዩሰር ምስክር ወረቀት"
+            ]
+          }
+        },
+        "diaspora": {
+          "amount": 100,
+          "perks": {
+            "en": [
+              "All ጓድ rewards",
+              "Your name in the film’s ጓድ Producer credit roll",
+              "T-shirt or tote bag"
+            ],
+            "am": [
+              "የጓድ ሽልማቶች በሙሉ",
+              "ስምዎ በፊልሙ የጓድ ፕሮዲዩሰሮች ዝርዝር ውስጥ",
+              "ቲሸርት ወይም የእጅ ቦርሳ"
+            ]
+          }
         }
       },
       {
-        "amount": 50000,
-        "usd": 360,
         "title": {
-          "en": "Presiding Judge",
-          "am": "ሰብሳቢ ዳኛ"
+          "en": "ጓድ Executive Producer",
+          "am": "ጓድ ዋና ፕሮዲዩሰር"
         },
         "guad": true,
-        "perks": {
-          "en": [
-            "All ጓድ Producer rewards",
-            "Invitation to the Addis Ababa premiere",
-            "Signed script page & set visit"
-          ],
-          "am": [
-            "የጓድ ፕሮዲዩሰር ሽልማቶች በሙሉ",
-            "የአዲስ አበባ ፕሪሚየር ግብዣ",
-            "የተፈረመ የስክሪፕት ገጽ እና የቀረጻ ቦታ ጉብኝት"
-          ]
+        "local": {
+          "amount": 2500,
+          "perks": {
+            "en": [
+              "All ጓድ Producer rewards",
+              "Your name in the ጓድ Executive Producer credits"
+            ],
+            "am": [
+              "የጓድ ፕሮዲዩሰር ሽልማቶች በሙሉ",
+              "ስምዎ በጓድ ዋና ፕሮዲዩሰሮች ዝርዝር ውስጥ"
+            ]
+          }
+        },
+        "diaspora": {
+          "amount": 150,
+          "perks": {
+            "en": [
+              "All ጓድ Producer rewards",
+              "Your name in the ጓድ Executive Producer credits",
+              "Hoodie"
+            ],
+            "am": [
+              "የጓድ ፕሮዲዩሰር ሽልማቶች በሙሉ",
+              "ስምዎ በጓድ ዋና ፕሮዲዩሰሮች ዝርዝር ውስጥ",
+              "ሁዲ"
+            ]
+          }
         }
       }
     ],

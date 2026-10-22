@@ -56,7 +56,9 @@
   };
 
   /* ---------- Countdown ---------- */
+  // Editors can hide it or reset its target in /admin → Site settings (showCountdown, releaseDate).
   R.countdown = (el) => {
+    el.hidden = C.site.showCountdown === false;
     el.classList.add("countdown");
     el.innerHTML = ["d", "h", "m", "s"].map((k) => `<div><b data-cd="${k}">00</b><span>${esc(t("cd_" + k))}</span></div>`).join("");
     tickCountdown();
@@ -73,9 +75,30 @@
 
   R.release = (el) => { el.textContent = L(C.site.releaseLabel); };
 
-  R.ticker = (el) => {
-    const run = [...t("ticker"), ...t("ticker")].map((s) => `<span>${esc(s)}</span>`).join("");
-    el.innerHTML = `<div class="ticker-track">${run}${run}</div>`;
+  /* ---------- Pitch campaign video (YouTube link set in /admin → Site settings) ----------
+     Shows a thumbnail + play button; YouTube itself only loads when clicked. */
+  R.pitch = (el) => {
+    const id = X.ytId(C.site.pitchVideoUrl);
+    const am = X.lang === "am";
+    const kicker = am ? "የዘመቻው ቪዲዮ" : "The campaign pitch";
+    el.classList.add("pitch");
+    if (el._playing === id && id) return;   // don't interrupt a playing video on language change
+    el.innerHTML = id ? `
+      <button type="button" class="pitch-frame" aria-label="${am ? "የዘመቻውን ቪዲዮ ያጫውቱ" : "Play the campaign pitch video"}">
+        <img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="" loading="lazy">
+        <span class="play-dot" aria-hidden="true"></span>
+        <span class="pitch-label"><small>${esc(kicker)}</small>${am ? "ለምን ፊልሙን በጋራ እንሠራለን" : "Why we're making this film together"}</span>
+      </button>` : `
+      <div class="pitch-frame is-empty">
+        <span class="pitch-label"><small>${esc(kicker)}</small>${am ? "ቪዲዮው በቅርቡ ይቀርባል" : "Video coming soon"}</span>
+      </div>`;
+    const btn = $("button.pitch-frame", el);
+    if (btn) btn.addEventListener("click", () => {
+      el._playing = id;
+      btn.outerHTML = `<div class="pitch-frame"><iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&playsinline=1"
+        title="GERA KEGN campaign pitch" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe></div>`;
+      X.track("video_open", { video: id, where: "pitch" });
+    });
   };
 
   const ICONS = {
@@ -91,20 +114,38 @@
       `<a href="${esc(url)}" aria-label="${k}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${ICONS[k]}"/></svg></a>`).join("");
   };
 
-  /* ---------- Tiers ---------- */
+  /* ---------- Tiers: one card per level, with an Ethiopia (ETB) / Diaspora (USD) switch ----------
+     data-market="diaspora" opens on the USD prices (used on the Diaspora page). */
+  const MARKETS = { local: "ETB", diaspora: "USD" };
   R.tiers = (el) => {
-    el.classList.add("tiers");
-    el.setAttribute("data-stagger", "");
-    el.innerHTML = C.crowdfunding.tiers.map((tier, i) => `
-      <article class="tier ${tier.featured ? "featured" : ""} ${tier.guad ? "is-guad" : ""}">
-        ${tier.featured ? `<span class="tier-badge">${esc(t("popular"))}</span>` : ""}
-        <h3>${esc(L(tier.title))}</h3>
-        <div class="tier-amt">${fmt(tier.amount)} ${C.crowdfunding.currency}</div>
-        <div class="tier-usd">≈ $${fmt(tier.usd)} USD</div>
-        ${tier.guad ? `<p class="tier-guad">★ ${esc(t("qualifies"))}</p>` : ""}
-        <ul>${L(tier.perks).map((p) => `<li>${esc(p)}</li>`).join("")}</ul>
-        <button type="button" class="btn ${tier.featured ? "btn-gold" : "btn-ghost"} btn-block" data-open-pledge data-tier="${i}">${esc(t("choose"))}</button>
-      </article>`).join("");
+    const market = el._market || el.dataset.market || "local";
+    const am = X.lang === "am";
+    const money = (n) => (market === "local" ? `${fmt(n)} ETB` : `$${fmt(n)}`);
+    el.classList.add("tier-block");
+    el.innerHTML = `
+      <div class="tier-switch" role="group" aria-label="${am ? "የክፍያ ቦታ" : "Where are you paying from?"}">
+        <button type="button" data-market="local" aria-pressed="${market === "local"}">${am ? "በኢትዮጵያ · ብር" : "In Ethiopia · ETB"}</button>
+        <button type="button" data-market="diaspora" aria-pressed="${market === "diaspora"}">${am ? "ዲያስፖራ · USD" : "Diaspora · USD"}</button>
+      </div>
+      <div class="tiers" data-stagger>
+        ${C.crowdfunding.tiers.map((tier, i) => {
+          const m = tier[market] || {};
+          return `
+          <article class="tier ${tier.featured ? "featured" : ""} ${tier.guad ? "is-guad" : ""}">
+            ${tier.featured ? `<span class="tier-badge">${esc(t("popular"))}</span>` : ""}
+            <h3>${esc(L(tier.title))}</h3>
+            <div class="tier-from">${am ? "ከ" : "Starting from"}</div>
+            <div class="tier-amt">${money(m.amount)}</div>
+            ${tier.guad ? `<p class="tier-guad">★ ${esc(t("qualifies"))}</p>` : ""}
+            <ul>${(L(m.perks) || []).map((p) => `<li>${esc(p)}</li>`).join("")}</ul>
+            <button type="button" class="btn ${tier.featured ? "btn-gold" : "btn-ghost"} btn-block" data-open-pledge data-tier="${i}" data-cur="${MARKETS[market]}">${esc(t("choose"))}</button>
+          </article>`;
+        }).join("")}
+      </div>`;
+    $$(".tier-switch button", el).forEach((b) => b.addEventListener("click", () => {
+      el._market = b.dataset.market; R.tiers(el);
+      $$(".tier", el).forEach((c) => c.classList.add("is-in"));   // already on screen: no re-reveal
+    }));
   };
 
   /* ---------- Case files ---------- */
@@ -146,11 +187,12 @@
     const posters = C.cast.filter((p) => p.photo);
     const others = C.cast.filter((p) => !p.photo);
     const am = X.lang === "am";
-    const poster = (p) => {
+    const poster = (p, i) => {
       const actor = L(p.actor), role = L(p.role);
       const srcset = p.photoSmall ? `srcset="${esc(p.photoSmall)} 600w, ${esc(p.photo)} 1099w" sizes="(max-width: 640px) 90vw, (max-width: 920px) 45vw, 380px"` : "";
       return `
-      <figure class="poster" tabindex="0">
+      <figure class="poster" tabindex="0" role="button" aria-expanded="false" data-poster="${i}"
+              aria-label="${esc(am ? `${actor} — ${role}፤ ተጨማሪ ለማንበብ ይጫኑ` : `${actor}, ${role}. Read more`)}">
         <div class="poster-frame">
           <img src="${esc(p.photo)}" ${srcset} width="1099" height="1431" loading="lazy" decoding="async"
                alt="${esc(am ? `${actor} — ${role}` : `${actor} as ${role}, character poster`)}">
@@ -177,11 +219,57 @@
       </article>`;
     el.classList.add("cast");
     el.innerHTML = `
-      ${posters.length ? `<div class="poster-row" data-stagger>${posters.map(poster).join("")}</div>` : ""}
+      ${posters.length ? `<div class="poster-stage">
+        <div class="poster-row" data-stagger>${posters.map(poster).join("")}</div>
+        <div class="poster-panel" aria-live="polite" hidden></div>
+      </div>` : ""}
       ${others.length && el.dataset.only !== "posters" ? `
         <p class="eyebrow cast-more" data-reveal="left">${am ? "በፊልሙ ውስጥ ደግሞ · በቅርቡ ይገለጻሉ" : "Also in the film · to be announced"}</p>
         <div class="cast-grid" data-stagger>${others.map(card).join("")}</div>` : ""}`;
   };
+  // Click a poster: it glides to the first column, the others fade back, and its full
+  // description fills the space they occupied. Click again / × / Esc to close.
+  function focusPoster(stage, idx) {
+    const row = $(".poster-row", stage), panel = $(".poster-panel", stage);
+    const cards = $$(".poster", row);
+    const wide = matchMedia("(min-width: 921px)").matches;
+    const close = () => {
+      stage.classList.remove("is-focused");
+      cards.forEach((c) => { c.style.transform = ""; c.classList.remove("is-active"); c.setAttribute("aria-expanded", "false"); });
+      panel.classList.remove("is-open");
+      setTimeout(() => { if (!stage.classList.contains("is-focused")) panel.hidden = true; }, X.reduced ? 0 : 450);
+    };
+    if (idx == null || stage._focus === idx) { stage._focus = null; return close(); }
+    stage._focus = idx;
+    const p = C.cast.filter((x) => x.photo)[idx];
+    const am = X.lang === "am";
+    panel.innerHTML = `
+      <button type="button" class="poster-close" aria-label="${am ? "ዝጋ" : "Close"}">×</button>
+      <p class="poster-panel-kicker">${esc(L(p.role))}</p>
+      <h3 class="poster-panel-name">${esc(L(p.actor))}</h3>
+      <p class="poster-panel-text">${esc(L(p.about) || L(p.bio))}</p>`;
+    $(".poster-close", panel).addEventListener("click", () => { stage._focus = null; close(); cards[idx].focus(); });
+    stage.classList.add("is-focused");
+    cards.forEach((c, i) => {
+      const on = i === idx;
+      c.classList.toggle("is-active", on);
+      c.setAttribute("aria-expanded", on);
+      // glide the chosen poster into the first column (desktop grid only)
+      c.style.transform = on && wide ? `translateX(${cards[0].offsetLeft - c.offsetLeft}px)` : "";
+    });
+    panel.hidden = false;
+    requestAnimationFrame(() => panel.classList.add("is-open"));
+  }
+  document.addEventListener("click", (e) => {
+    const card = e.target.closest(".poster[data-poster]");
+    if (card) focusPoster(card.closest(".poster-stage"), +card.dataset.poster);
+  });
+  document.addEventListener("keydown", (e) => {
+    const card = e.target.closest?.(".poster[data-poster]");
+    if (card && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); focusPoster(card.closest(".poster-stage"), +card.dataset.poster); }
+    if (e.key === "Escape") $$(".poster-stage.is-focused").forEach((st) => { st._focus = null; focusPoster(st, null); });
+  });
+
   // Poster tilt: follow the pointer (mouse/pen only — not touch, not reduced motion).
   if (!X.reduced) {
     document.addEventListener("pointermove", (e) => {
@@ -523,7 +611,7 @@
   ];
   R.emblem = (el) => {
     const label = X.lang === "am"
-      ? "ግራ ቀኝ — የሰራው ህዝብ ፊልም። ከተመልካች ወደ አምራች።"
+      ? "ግራ ቀኝ — የሰፊው ህዝብ ፊልም። ከተመልካች ወደ አምራች።"
       : "GERA KEGN — the film made by the people. From viewer to producer.";
     // Pure artwork: build once (rebuilding would restart the animations); just relabel on language change.
     if (el._built) { $("svg", el).setAttribute("aria-label", label); return; }

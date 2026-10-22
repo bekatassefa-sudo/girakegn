@@ -2,6 +2,26 @@
   "cast": [
     {
       "actor": {
+        "en": "Mikael Tamre",
+        "am": "ሚካኤል ታምሬ"
+      },
+      "photo": "assets/img/cast/mikael-tamre-prosecutor-1099.webp",
+      "photoSmall": "assets/img/cast/mikael-tamre-prosecutor-600.webp",
+      "role": {
+        "en": "The Prosecutor",
+        "am": "ዐቃቤ ሕጉ"
+      },
+      "bio": {
+        "en": "Loyal to the file in front of him, and to whoever wrote it.",
+        "am": "ፊቱ ላለው ፋይል እና ለጻፈው ታማኝ።"
+      },
+      "about": {
+        "en": "The Prosecutor arrives with every file already decided. Charming in the corridor and merciless at the bench, he serves the law as it is written — and whoever is holding the pen. Mikael Tamre brings him back to the courtroom, where his open hand is never quite as open as it looks.",
+        "am": "ዐቃቤ ሕጉ እያንዳንዱን መዝገብ ቀድሞ ወስኖ ይመጣል። በኮሪደሩ ተግባቢ፣ በችሎቱ ርኅራኄ የለሽ ነው፤ ሕጉን እንደተጻፈው — እና ብዕሩን ለያዘው ሰው — ያገለግላል። ሚካኤል ታምሬ ወደ ችሎቱ ይመልሰዋል፤ የተዘረጋው እጁ እንደሚመስለው ክፍት አይደለም።"
+      }
+    },
+    {
+      "actor": {
         "en": "Abebe Balcha",
         "am": "አበበ ባልቻ"
       },
@@ -14,6 +34,10 @@
       "bio": {
         "en": "Believes the law can still stand upright — even when the times lean.",
         "am": "ዘመኑ ቢያዘነብልም ሕግ ቀጥ ብሎ መቆም ይችላል ብሎ ያምናል።"
+      },
+      "about": {
+        "en": "The Presiding Judge believes the law can still stand upright, even when the times lean. Every hearing tests that belief a little more. Abebe Balcha returns as the man in the middle of the court — and of the story — who must decide whether to follow the law or the times.",
+        "am": "ሰብሳቢ ዳኛው ዘመኑ ቢያዘነብልም ሕግ ቀጥ ብሎ መቆም ይችላል ብሎ ያምናል። እያንዳንዱ ችሎት ያንን እምነት ይፈትነዋል። አበበ ባልቻ በችሎቱም በታሪኩም መሃል ያለውን ሰው ሆኖ ይመለሳል — ሕጉን ወይስ ዘመኑን መከተል እንዳለበት የሚወስነው።"
       }
     },
     {
@@ -30,22 +54,10 @@
       "bio": {
         "en": "Sharp, stubborn, and running out of places to stand.",
         "am": "ብልህ፣ ቆራጥ፣ ግን የሚቆምበት ቦታ እያጣ ያለ።"
-      }
-    },
-    {
-      "actor": {
-        "en": "Mikael Tamre",
-        "am": "ሚካኤል ታምሬ"
       },
-      "photo": "assets/img/cast/mikael-tamre-prosecutor-1099.webp",
-      "photoSmall": "assets/img/cast/mikael-tamre-prosecutor-600.webp",
-      "role": {
-        "en": "The Prosecutor",
-        "am": "ዐቃቤ ሕጉ"
-      },
-      "bio": {
-        "en": "Loyal to the file in front of him, and to whoever wrote it.",
-        "am": "ፊቱ ላለው ፋይል እና ለጻፈው ታማኝ።"
+      "about": {
+        "en": "The Defence Advocate is sharp, stubborn and running out of places to stand. He takes the cases nobody else will, and smiles through the ones he cannot win. Girum Zenebe returns as the voice for the accused — the one person in the room still arguing that everyone deserves a defence.",
+        "am": "ተከላካይ ጠበቃው ብልህ፣ ቆራጥ ግን የሚቆምበት ቦታ እያጣ ያለ ሰው ነው። ሌሎች የማይቀበሏቸውን ጉዳዮች ይቀበላል፤ ማሸነፍ በማይችላቸውም ፈገግ ይላል። ግሩም ዘነበ የተከሳሾች ድምጽ ሆኖ ይመለሳል — ሁሉም ሰው ተከላካይ ይገባዋል ብሎ አሁንም የሚከራከረው ብቸኛ ሰው።"
       }
     },
     {

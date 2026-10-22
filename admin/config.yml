@@ -140,20 +140,35 @@ collections:
                   - { name: url, label: "Payment link", widget: string, hint: "Use # until the gateway is live." }
               - name: tiers
                 label: "Contribution levels"
+                hint: "Each level has a LOCAL price (ETB, Ethiopia) and a DIASPORA price (USD), each with its own rewards. Visitors switch between them on the site."
                 widget: list
-                summary: "{{fields.title.en}} · {{fields.amount}} ETB"
+                summary: "{{fields.title.en}} · {{fields.local.amount}} ETB / {{fields.diaspora.amount}} USD"
                 fields:
-                  - { name: amount, label: "Amount (ETB)", widget: number, value_type: int }
-                  - { name: usd, label: "Approx. USD", widget: number, value_type: int }
                   - { name: title, label: "Level name", widget: object, fields: *bi }
-                  - { name: featured, label: "Highlight this level", widget: boolean, default: false, required: false }
-                  - { name: guad, label: "Qualifies as ጓድ Producer", widget: boolean, default: false, required: false }
-                  - name: perks
-                    label: "Rewards"
+                  - { name: featured, label: "Highlight this level (also pre-selected in the pledge pop-up)", widget: boolean, default: false, required: false }
+                  - { name: guad, label: "Qualifies for the ጓድ credit roll", widget: boolean, default: false, required: false }
+                  - name: local
+                    label: "In Ethiopia (ETB)"
                     widget: object
                     fields:
-                      - { name: en, label: "English", widget: list, field: { name: perk, label: "Reward", widget: string } }
-                      - { name: am, label: "አማርኛ", widget: list, required: false, field: { name: perk, label: "ሽልማት", widget: string } }
+                      - { name: amount, label: "Starting from (ETB)", widget: number, value_type: int }
+                      - name: perks
+                        label: "Rewards"
+                        widget: object
+                        fields:
+                          - { name: en, label: "English", widget: list, field: { name: perk, label: "Reward", widget: string } }
+                          - { name: am, label: "አማርኛ", widget: list, required: false, field: { name: perk, label: "ሽልማት", widget: string } }
+                  - name: diaspora
+                    label: "Diaspora (USD)"
+                    widget: object
+                    fields:
+                      - { name: amount, label: "Starting from (USD)", widget: number, value_type: int }
+                      - name: perks
+                        label: "Rewards (merch such as T-shirts and hoodies go here)"
+                        widget: object
+                        fields:
+                          - { name: en, label: "English", widget: list, field: { name: perk, label: "Reward", widget: string } }
+                          - { name: am, label: "አማርኛ", widget: list, required: false, field: { name: perk, label: "ሽልማት", widget: string } }
               - name: useOfFunds
                 label: "Use of funds (Transparency page)"
                 widget: list
@@ -214,6 +229,7 @@ collections:
               - { name: photoSmall, label: "Character poster (small, ~600px wide, for phones)", widget: image, required: false }
               - { name: role, label: "Character", widget: object, fields: *bi }
               - { name: bio, label: "Character line", widget: object, fields: *bitext }
+              - { name: about, label: "Full description (shown when the poster is clicked)", widget: object, required: false, fields: *bitext }
           - name: crew
             label: "Creative team"
             widget: list
@@ -291,8 +307,10 @@ collections:
             widget: object
             collapsed: false
             fields:
-              - { name: releaseDate, label: "Release date (countdown target)", widget: datetime }
-              - { name: releaseLabel, label: "Release label", widget: object, fields: *bi }
+              - { name: showCountdown, label: "Show the countdown", widget: boolean, default: true, hint: "Untick to hide the day counter everywhere (e.g. while a new date is being confirmed)." }
+              - { name: releaseDate, label: "Countdown target (reset the day counter here)", widget: datetime, hint: "The counter counts down to this date and time (Addis Ababa time). Change it and publish to reset the counter." }
+              - { name: releaseLabel, label: "Release line under the counter", widget: object, fields: *bi }
+              - { name: pitchVideoUrl, label: "Pitch campaign video (YouTube link)", widget: string, required: false, hint: "Shown on the home page under the main buttons. Leave empty to show a 'coming soon' placeholder." }
               - { name: trailerUrl, label: "Teaser YouTube link", widget: string, required: false }
               - { name: youtubeChannel, label: "YouTube channel link", widget: string }
               - name: social

@@ -25,6 +25,8 @@
   --f-display: "Playfair Display", "Noto Serif Ethiopic", Georgia, serif;
   --f-type: "Special Elite", "Courier New", monospace;
   --f-body: "Inter", "Noto Serif Ethiopic", system-ui, sans-serif;
+  --f-para: "Courier New", Courier, "Noto Serif Ethiopic", monospace;  /* paragraphs */
+  --blue: #2a4e60; --blue-2: #346579;   /* from Abebe Balcha's poster */
 
   --wrap: 1180px;
   --radius: 4px;
@@ -349,10 +351,6 @@ html[lang="am"] .release-label { letter-spacing: .02em; font-size: 15px; }
 .page-hero .btn-row { margin-top: 30px; }
 
 /* ---------- ticker ---------- */
-.ticker { background: var(--red); color: #fbeee0; overflow: hidden; border-block: 1px solid rgba(0, 0, 0, .4); }
-.ticker-track { display: flex; width: max-content; animation: marquee 50s linear infinite; }
-.ticker-track span { font: 400 14px/1 var(--f-type); letter-spacing: .14em; padding: 14px 0; white-space: nowrap; }
-.ticker-track span::after { content: "✦"; margin: 0 28px; color: var(--gold-2); }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
 /* ---------- paper ---------- */
@@ -843,7 +841,7 @@ html[lang="am"] .faq-group-title { font-family: var(--f-ethi); letter-spacing: .
   .timeline::before { display: none; }
 }
 @media (max-width: 1060px) {
-  .tiers, .packages, .cards-4 { grid-template-columns: repeat(2, 1fr); }
+  .packages, .cards-4 { grid-template-columns: repeat(2, 1fr); }
   .steps { grid-template-columns: 1fr 1fr; gap: 36px 24px; }
   .steps li::after { display: none; }
   .footer-grid { grid-template-columns: 1fr 1fr 1fr; }
@@ -1046,3 +1044,148 @@ html { scroll-padding-top: 116px; }
   .nav.scrolled .brand-swap > .brand-scales { width: 32px; height: 16px; }
   .menu { padding-top: 108px; }
 }
+
+
+/* =====================================================================
+   OCT 22 EDITS
+   ===================================================================== */
+
+/* Paragraphs in Courier New. :where() keeps this at zero specificity, so any element
+   with its own font (eyebrows, typewriter labels, the tagline) keeps it. Amharic
+   characters aren't in Courier, so they fall through to Noto Serif Ethiopic. */
+:where(main) p { font-family: var(--f-para); }
+.lede { font-size: 18.5px; }
+
+/* Hero title: the ግራ ቀኝ artwork, split in two so each half slides in from its side */
+.title-art { display: flex; justify-content: center; align-items: flex-end; width: min(820px, 92vw); margin: 0 auto; }
+.title-art img {
+  display: block; height: auto; padding: 0; background: none; -webkit-text-fill-color: initial;
+  filter: drop-shadow(0 18px 36px rgba(0, 0, 0, .55));
+}
+.title-art .gra { width: 51.05%; }
+.title-art .kegn { width: 48.95%; }
+.title-en { font-family: var(--f-para); font-weight: 700; letter-spacing: .5em; margin-top: 14px; }
+.title-en em { font: italic 400 1.15em var(--f-para); letter-spacing: .04em; }
+
+/* Blue button, matching the Presiding Judge poster */
+.btn-blue { background: var(--blue); color: #f3ead6; box-shadow: 0 10px 30px -10px rgba(42, 78, 96, .9); }
+.btn-blue:hover { background: var(--blue-2); }
+
+/* Pitch campaign video under the hero buttons */
+.pitch { width: min(600px, 100%); margin: 34px auto 0; text-align: left; }
+.pitch-frame {
+  position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; padding: 0; border: 1px solid var(--line-2);
+  border-radius: 6px; overflow: hidden; background: #000; box-shadow: 0 40px 80px -40px rgba(0, 0, 0, .9);
+}
+.pitch-frame img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
+button.pitch-frame:hover img { transform: scale(1.04); }
+.pitch-frame .play-dot { width: 72px; height: 72px; margin: -36px 0 0 -36px; }
+.pitch-frame .play-dot::after { content: ""; border-left: 18px solid var(--paper); border-block: 11px solid transparent; margin-left: 5px; }
+button.pitch-frame:hover .play-dot { background: var(--red); border-color: var(--red); }
+.pitch-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+.pitch-label {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 20px 16px; color: var(--paper);
+  font: 700 18px/1.25 var(--f-display); background: linear-gradient(transparent, rgba(0, 0, 0, .85));
+}
+html[lang="am"] .pitch-label { font-family: var(--f-ethi); }
+.pitch-label small { display: block; margin-bottom: 4px; font: 400 11px var(--f-type); letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+.pitch-frame.is-empty {
+  display: grid; place-items: center;
+  background: repeating-linear-gradient(90deg, rgba(0, 0, 0, .25) 0 2px, transparent 2px 6px), radial-gradient(ellipse at 50% 30%, #2a4e60, #0f1a20 75%);
+}
+.pitch-frame.is-empty::before { content: "ግራ ቀኝ"; font: 900 clamp(40px, 8vw, 72px)/1 var(--f-ethi); color: rgba(233, 223, 199, .12); }
+
+/* Tiers: three levels, with an Ethiopia / Diaspora switch */
+.tier-switch { display: inline-flex; padding: 4px; margin-bottom: 26px; border: 1px solid var(--line-2); border-radius: 999px; }
+.tier-switch button {
+  background: none; border: 0; border-radius: 999px; padding: 10px 18px; min-height: 40px; color: var(--muted);
+  font-size: 13px; font-weight: 600; letter-spacing: .06em; transition: background .25s, color .25s;
+}
+.tier-switch button[aria-pressed="true"] { background: var(--gold); color: var(--ink); }
+.tiers { grid-template-columns: repeat(3, 1fr); }
+.tier-from { font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+html[lang="am"] .tier-from { letter-spacing: 0; font-size: 13px; }
+.tier-amt { font-size: 30px; margin: 4px 0 16px; }
+
+/* Character posters: click to focus */
+.poster-stage { position: relative; --pgap: clamp(20px, 3vw, 40px); }
+.poster-stage .poster-row { gap: var(--pgap); }
+.poster-stage .poster { cursor: pointer; }
+.poster-stage .poster.is-in { transition: transform .75s var(--ease), opacity .5s ease, filter .5s ease; transition-delay: 0s; }
+.poster-stage.is-focused .poster:not(.is-active) { opacity: .1; filter: blur(3px) grayscale(.7); }
+.poster-stage.is-focused .poster.is-active .poster-bio { opacity: 0; }
+.poster-panel {
+  position: absolute; top: 0; bottom: 0; right: 0; left: calc((100% - 2 * var(--pgap)) / 3 + var(--pgap));
+  display: flex; flex-direction: column; justify-content: center; padding: clamp(24px, 4vw, 60px);
+  background: linear-gradient(90deg, rgba(13, 11, 9, .92), rgba(13, 11, 9, .7)); border-left: 2px solid var(--gold);
+  opacity: 0; transform: translateX(40px); transition: opacity .5s ease .15s, transform .7s var(--ease) .15s;
+}
+.poster-panel.is-open { opacity: 1; transform: none; }
+.poster-panel-kicker { margin: 0 0 8px; font: 600 12px var(--f-body); letter-spacing: .22em; text-transform: uppercase; color: var(--gold); }
+html[lang="am"] .poster-panel-kicker { font: 700 15px var(--f-ethi); letter-spacing: 0; }
+.poster-panel-name { margin: 0 0 18px; font: 800 clamp(30px, 3.4vw, 46px)/1.1 var(--f-display); color: var(--paper); }
+html[lang="am"] .poster-panel-name { font-family: var(--f-ethi); font-weight: 900; }
+.poster-panel-text { margin: 0; font-size: 18px; line-height: 1.75; color: var(--text); max-width: 60ch; }
+.poster-close {
+  position: absolute; top: 14px; right: 14px; width: 44px; height: 44px; border-radius: 50%;
+  background: none; border: 1px solid var(--line-2); color: var(--paper); font-size: 26px; line-height: 1;
+}
+.poster-close:hover { border-color: var(--gold); color: var(--gold); }
+@media (max-width: 920px) {
+  .tiers { grid-template-columns: 1fr; max-width: 520px; }
+  .poster-panel { position: relative; left: auto; margin-top: 18px; border-left: 0; border-top: 2px solid var(--gold); transform: translateY(20px); }
+}
+@media (max-width: 640px) {
+  .tier-switch { display: flex; }
+  .tier-switch button { flex: 1; padding: 10px 8px; }
+  .pitch { margin-top: 26px; }
+}
+
+/* the release line is a label, not a paragraph — keep it crisp */
+.release-label { font-family: var(--f-body); font-weight: 600; }
+
+/* Elements waiting to slide in from the right sit off-screen until revealed, which made
+   the page wider than the viewport. `hidden` hid that strip but still let the browser
+   scroll into it (e.g. when a clicked poster was brought into view). `clip` hides it AND
+   makes the page impossible to scroll sideways. `hidden` stays as a fallback for old browsers. */
+html, body { overflow-x: hidden; overflow-x: clip; }
+
+/* The closed description panel must not sit (invisibly) over the posters and swallow their
+   clicks: `display: flex` above would otherwise override the `hidden` attribute. */
+.poster-panel[hidden] { display: none; }
+.poster-panel:not(.is-open) { pointer-events: none; }
+
+/* =====================================================================
+   AGED PAPER — the whole site sits on worn, foxed umber paper
+   (texture: assets/img/brand/aged-paper.webp, a seamless 1024px tile
+    generated by assets/img/originals/make-aged-paper-texture.py)
+   Section backgrounds become translucent tints so the paper shows through.
+   ===================================================================== */
+:root {
+  --paper-bg: #261b13;            /* average of the texture — shows while it loads */
+  --muted: #b7ab95;               /* a touch lighter, so small grey text keeps its contrast on the lighter page */
+}
+html { background: var(--paper-bg); }
+body {
+  background-color: var(--paper-bg);
+  background-image:
+    radial-gradient(ellipse 85% 100% at 50% 50%, transparent 60%, rgba(12, 7, 3, .55) 100%),   /* worn, darker edges */
+    url("../img/brand/aged-paper.webp");
+  background-size: 100% 100%, 900px 900px;
+  background-repeat: no-repeat, repeat;
+}
+.section-alt   { background: rgba(14, 9, 5, .28); }
+.hero-bg       { background: radial-gradient(ellipse 70% 60% at 50% 38%, rgba(60, 42, 26, .10) 0%, rgba(14, 9, 5, .55) 60%, rgba(8, 5, 3, .82) 100%); }
+.page-hero     { background: radial-gradient(ellipse 60% 80% at 75% 0%, rgba(196, 154, 74, .16), transparent 60%), linear-gradient(180deg, rgba(14, 9, 5, .55), rgba(14, 9, 5, .12)); }
+.support-band  { background: radial-gradient(ellipse 60% 70% at 85% 10%, rgba(158, 42, 32, .32), transparent 60%), rgba(14, 9, 5, .35); }
+.banner        { background: radial-gradient(ellipse 60% 90% at 90% 10%, rgba(158, 42, 32, .36), transparent 60%), rgba(14, 9, 5, .42); }
+.path          { background: rgba(14, 9, 5, .42); }
+.path::before  { background: linear-gradient(180deg, rgba(60, 36, 20, .75), rgba(34, 20, 12, .75)); }
+.logo-wall span { background: rgba(14, 9, 5, .45); }
+.nav.scrolled, html.menu-open .nav { background: rgba(30, 20, 12, .9); }
+.menu { background: var(--paper-bg) url("../img/brand/aged-paper.webp") 0 0 / 900px 900px; }
+.menu::before { content: ""; position: absolute; inset: 0; background: rgba(10, 6, 3, .55); pointer-events: none; }
+
+
+/* the closed menu must really be gone (no tabbing into invisible links); core.js un-hides it before opening */
+.menu[hidden] { display: none; }

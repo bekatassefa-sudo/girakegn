@@ -15,10 +15,17 @@
     document.body.append(s);
   });
 
-  Promise.all(FILES.map((f) => fetch(`content/${f}.json`, { cache: "no-cache" }).then((r) => {
-    if (!r.ok) throw new Error(`content/${f}.json → ${r.status}`);
-    return r.json();
-  })))
+  // Fetch one content file, retrying twice on a dropped connection (patchy mobile data).
+  const getJSON = (f, tries = 3) => fetch(`content/${f}.json`, { cache: "no-cache" })
+    .then((r) => {
+      if (!r.ok) throw new Error(`content/${f}.json → ${r.status}`);
+      return r.json();
+    })
+    .catch((err) => (tries > 1
+      ? new Promise((res) => setTimeout(res, 400)).then(() => getJSON(f, tries - 1))
+      : Promise.reject(err)));
+
+  Promise.all(FILES.map((f) => getJSON(f)))
     .then((parts) => {
       const GK = Object.assign({}, ...parts);
       // Normalise CMS shapes for the site scripts.
