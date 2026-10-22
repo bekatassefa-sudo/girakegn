@@ -16,3 +16,6 @@ npm-debug.log*
 
 # Personal code walkthrough (learning notes, not shipped)
 walkthrough/
+
+# Full-resolution source artwork (kept locally, not published)
+assets/img/originals/

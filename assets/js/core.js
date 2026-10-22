@@ -29,6 +29,8 @@
   ];
   const href = (id) => PAGES.find((p) => p[0] === id)[1];
   const current = document.body.dataset.page;
+  // Review preview on GitHub Pages: not indexed, labelled, forms off. Switches off by itself on the real host.
+  const PREVIEW = /\.github\.io$/i.test(location.hostname);
 
   /* ---------------- Shared UI strings ---------------- */
   const UI = {
@@ -332,6 +334,7 @@
         if (bad) ok = false;
       });
       if (!ok) { msg.className = "form-msg err"; msg.textContent = t("form_bad"); $(".invalid", form)?.focus(); return; }
+      if (PREVIEW) { msg.className = "form-msg err"; msg.textContent = GKX.lang === "am" ? "በዚህ የግምገማ ቅድመ እይታ ቅጾች አይላኩም።" : "Forms are switched off in this review preview."; return; }
       const data = Object.fromEntries(new FormData(form));
       data.form = form.dataset.form; data.lang = GKX.lang; data.page = current;
       const btn = $('[type="submit"]', form);
@@ -449,7 +452,18 @@
   GKX.applyLang = applyLang;
 
   /* ---------------- Boot ---------------- */
+  if (PREVIEW) {
+    const robots = document.createElement("meta");
+    robots.name = "robots"; robots.content = "noindex, nofollow";
+    document.head.append(robots);
+  }
   shell();
+  if (PREVIEW) {
+    const ribbon = document.createElement("div");
+    ribbon.className = "preview-ribbon"; ribbon.setAttribute("role", "note");
+    ribbon.innerHTML = `<b>REVIEW PREVIEW</b><span class="ethi">የግምገማ ቅድመ እይታ</span><small>Not final · ያልተጠናቀቀ</small>`;
+    document.body.append(ribbon);
+  }
   initMenu();
   initForms();
   initPledge();

@@ -6,10 +6,25 @@
   <meta name="robots" content="noindex, nofollow">
   <title>GERA KEGN · Content Admin</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='10' fill='%230d0b09'/><path d='M32 12v38M18 50h28M14 22h36' stroke='%23c49a4a' stroke-width='4' stroke-linecap='round'/><circle cx='32' cy='12' r='4' fill='%239e2a20'/></svg>">
-  <!-- Netlify Identity: invite-only editor accounts -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-  <script src="https://unpkg.com/decap-cms@^3.6.0/dist/decap-cms.js"></script>
+  <script>
+    // The admin needs Netlify (Identity + Git Gateway). On the GitHub Pages review
+    // preview it can't work, so show a notice instead of a login that would fail.
+    if (/\.github\.io$/i.test(location.hostname)) {
+      document.body.innerHTML =
+        '<main style="font:16px/1.6 system-ui,sans-serif;max-width:520px;margin:12vh auto;padding:0 20px;color:#2a2118">' +
+        '<h1 style="font-size:22px">Content admin is not available in the review preview</h1>' +
+        '<p>This preview is for reviewing the website. The content admin will be switched on when the site is hosted on Netlify.</p>' +
+        '<p><a href="../">← Back to the site</a></p></main>';
+    } else {
+      // Netlify Identity: invite-only editor accounts, then Decap CMS.
+      for (const src of ["https://identity.netlify.com/v1/netlify-identity-widget.js",
+                         "https://unpkg.com/decap-cms@^3.6.0/dist/decap-cms.js"]) {
+        const s = document.createElement("script"); s.src = src; s.async = false;
+        document.body.append(s);
+      }
+    }
+  </script>
 </body>
 </html>
