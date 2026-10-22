@@ -1,7 +1,12 @@
 {
   "cast": [
     {
-      "actor": "Actor Name",
+      "actor": {
+        "en": "Abebe Balcha",
+        "am": "አበበ ባልቻ"
+      },
+      "photo": "assets/img/cast/abebe-balcha-judge-1099.webp",
+      "photoSmall": "assets/img/cast/abebe-balcha-judge-600.webp",
       "role": {
         "en": "The Presiding Judge",
         "am": "ሰብሳቢ ዳኛው"
@@ -12,7 +17,12 @@
       }
     },
     {
-      "actor": "Actor Name",
+      "actor": {
+        "en": "Girum Zenebe",
+        "am": "ግሩም ዘነበ"
+      },
+      "photo": "assets/img/cast/girum-zenebe-defence-1099.webp",
+      "photoSmall": "assets/img/cast/girum-zenebe-defence-600.webp",
       "role": {
         "en": "The Defence Advocate",
         "am": "ተከላካይ ጠበቃው"
@@ -23,7 +33,12 @@
       }
     },
     {
-      "actor": "Actor Name",
+      "actor": {
+        "en": "Mikael Tamre",
+        "am": "ሚካኤል ታምሬ"
+      },
+      "photo": "assets/img/cast/mikael-tamre-prosecutor-1099.webp",
+      "photoSmall": "assets/img/cast/mikael-tamre-prosecutor-600.webp",
       "role": {
         "en": "The Prosecutor",
         "am": "ዐቃቤ ሕጉ"
@@ -34,7 +49,10 @@
       }
     },
     {
-      "actor": "Actor Name",
+      "actor": {
+        "en": "To be announced",
+        "am": "በቅርቡ ይገለጻል"
+      },
       "role": {
         "en": "The Court Clerk",
         "am": "የችሎት ጸሐፊዋ"
@@ -45,7 +63,10 @@
       }
     },
     {
-      "actor": "Actor Name",
+      "actor": {
+        "en": "To be announced",
+        "am": "በቅርቡ ይገለጻል"
+      },
       "role": {
         "en": "The Accused",
         "am": "ተከሳሹ"
@@ -56,7 +77,10 @@
       }
     },
     {
-      "actor": "Actor Name",
+      "actor": {
+        "en": "To be announced",
+        "am": "በቅርቡ ይገለጻል"
+      },
       "role": {
         "en": "The Cadre",
         "am": "ካድሬው"

@@ -90,7 +90,7 @@ Add each episode's YouTube link in **/admin → The Series** (or `content/series
 | Cast, crew, synopsis, novel excerpt & author | `content/*.json → cast, crew`; `story.html`, `movie.html` |
 | Partner packages & pricing | `content/*.json → partnerPackages` |
 | News posts, FAQ answers, terms (marked *Draft — legal review*) | `content/*.json → news, faq`; producer & ጓድ pages |
-| Social links, emails, domain, OG image `assets/img/og-poster.jpg` | `content/*.json → site`; page `<head>`s |
+| Social links, emails, domain (share image is now `assets/img/campaign/og-share.jpg`) | `content/*.json → site`; page `<head>`s |
 | Native-speaker review of all Amharic | `data-am` attributes, `/admin` (Amharic fields) |
 
 ## Integrations to wire

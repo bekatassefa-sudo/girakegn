@@ -6,7 +6,7 @@
         "season": 1,
         "year": {
           "en": "Season 1",
-          "am": "ምዕራፍ 1"
+          "am": "ክፍል 1"
         },
         "blurb": {
           "en": "The court opens. A new judge, a city under watch, and the first files.",
@@ -15,7 +15,7 @@
         "episodes": [
           {
             "ep": 1,
-            "youtube": "",
+            "youtube": "https://youtu.be/AOtJIoQWOKw?si=G0ByOaHy3oiaCk8c",
             "duration": "47:10",
             "featured": true,
             "title": {
@@ -30,7 +30,7 @@
           },
           {
             "ep": 2,
-            "youtube": "https://www.youtube.com/watch?v=3R84iULjfwQ&list=PLMAgTa0j90_jp3CacZzyMPwjWiWmROp0K&index=29",
+            "youtube": "https://youtu.be/3R84iULjfwQ?si=Xukl_1QaQaqF0W6S",
             "duration": "45:32",
             "title": {
               "en": "The Missing Ledger",
@@ -105,7 +105,7 @@
           },
           {
             "ep": 7,
-            "youtube": "",
+            "youtube": "https://youtu.be/iA0-Pz2uMuo?si=Ldd6vMRn43IOa7ah",
             "duration": "46:12",
             "featured": false,
             "published": true,
@@ -120,7 +120,7 @@
           },
           {
             "ep": 8,
-            "youtube": "",
+            "youtube": "https://youtu.be/oSt64Gry-TU?si=H5vBBSh9m-rzyJGh",
             "duration": "45:38",
             "featured": false,
             "published": true,
@@ -135,7 +135,7 @@
           },
           {
             "ep": 9,
-            "youtube": "",
+            "youtube": "https://youtu.be/Xc00c06xgZY?si=VLHrMhKEGK4Ykg4C",
             "duration": "47:05",
             "featured": false,
             "published": true,
@@ -150,7 +150,7 @@
           },
           {
             "ep": 10,
-            "youtube": "",
+            "youtube": "https://youtu.be/8BuLciFldtU?si=Nme1N9lfXvQadYcp",
             "duration": "53:40",
             "featured": true,
             "published": true,
@@ -159,8 +159,38 @@
               "am": "እረፍት"
             },
             "desc": {
-              "en": "The season finale. The court rises — but not everyone walks out.",
-              "am": "የምዕራፉ ማጠቃለያ። ችሎቱ ተነሳ — ግን ሁሉም አልወጣም።"
+              "en": "The court rises for recess — but not everyone walks out.",
+              "am": "ችሎቱ ለእረፍት ተነሳ — ግን ሁሉም አልወጣም።"
+            }
+          },
+          {
+            "ep": 11,
+            "youtube": "https://youtu.be/_8rKLEYT7vM?si=OrCEUg8dAmQt0qtJ",
+            "duration": "46:30",
+            "featured": false,
+            "published": true,
+            "title": {
+              "en": "Contempt of Court",
+              "am": "ችሎት መድፈር"
+            },
+            "desc": {
+              "en": "Someone in the gallery speaks out of turn — and the court must decide how far it will go.",
+              "am": "ከታዳሚዎቹ አንዱ ያለ ተራው ተናገረ — ችሎቱ ምን ያህል እንደሚሄድ መወሰን አለበት።"
+            }
+          },
+          {
+            "ep": 12,
+            "youtube": "https://youtu.be/9h5N7iDhYjU?si=1MwHaLdaDzAJWlUP",
+            "duration": "54:10",
+            "featured": false,
+            "published": true,
+            "title": {
+              "en": "The Sentence",
+              "am": "ፍርዱ"
+            },
+            "desc": {
+              "en": "The season finale. A sentence is passed, and the judge pays a price for it.",
+              "am": "የምዕራፉ ማጠቃለያ። ፍርድ ተሰጠ፤ ዳኛውም ዋጋ ከፈለበት።"
             }
           }
         ]
@@ -169,7 +199,7 @@
         "season": 2,
         "year": {
           "en": "Season 2",
-          "am": "ምዕራፍ 2"
+          "am": "ክፍል 2"
         },
         "blurb": {
           "en": "The pressure rises. The files get heavier, and the court itself is on trial.",
@@ -178,7 +208,7 @@
         "episodes": [
           {
             "ep": 1,
-            "youtube": "",
+            "youtube": "https://youtu.be/sMzpQ3bXz8M?si=nRPwbprljDAn32ro",
             "duration": "48:02",
             "featured": true,
             "title": {
@@ -193,7 +223,7 @@
           },
           {
             "ep": 2,
-            "youtube": "",
+            "youtube": "https://youtu.be/fVXNJKKEk1E?si=iLrm1nYFysRFyN7c",
             "duration": "45:17",
             "title": {
               "en": "The Kebele Record",
@@ -208,7 +238,7 @@
           },
           {
             "ep": 3,
-            "youtube": "",
+            "youtube": "https://youtu.be/K9mGjt9542A?si=9EE7z5F4usfbSNiq",
             "duration": "46:40",
             "title": {
               "en": "The Back Row",
@@ -223,7 +253,7 @@
           },
           {
             "ep": 4,
-            "youtube": "",
+            "youtube": "https://youtu.be/rK7UB-tkd34?si=IXiDKGCISOkp5ya1",
             "duration": "47:29",
             "title": {
               "en": "Typewriter",
@@ -238,7 +268,7 @@
           },
           {
             "ep": 5,
-            "youtube": "",
+            "youtube": "https://youtu.be/AhsA3KU1A4Q?si=CCMeF4Ukn2onFXpz",
             "duration": "49:03",
             "title": {
               "en": "Left, Right",
@@ -253,7 +283,7 @@
           },
           {
             "ep": 6,
-            "youtube": "",
+            "youtube": "https://youtu.be/b9LjFlQzfC8?si=7hpZoUY1bF_Bt6Jv",
             "duration": "46:22",
             "featured": false,
             "published": true,
@@ -268,7 +298,7 @@
           },
           {
             "ep": 7,
-            "youtube": "",
+            "youtube": "https://youtu.be/DcdLw9AZM1g?si=FpeBWBhknN1xk3H1",
             "duration": "45:51",
             "featured": false,
             "published": true,
@@ -283,7 +313,7 @@
           },
           {
             "ep": 8,
-            "youtube": "",
+            "youtube": "https://youtu.be/UXMyyTrsKYE?si=msfH2aJgWOAp5FOV",
             "duration": "47:14",
             "featured": false,
             "published": true,
@@ -298,7 +328,7 @@
           },
           {
             "ep": 9,
-            "youtube": "",
+            "youtube": "https://youtu.be/U1pR6OegqP8?si=OYhV0FLZi5RKlfC-",
             "duration": "48:30",
             "featured": false,
             "published": true,
@@ -313,7 +343,37 @@
           },
           {
             "ep": 10,
-            "youtube": "",
+            "youtube": "https://youtu.be/YwNMYYq4qdE?si=0wPjglUtYALR_UDT",
+            "duration": "47:20",
+            "featured": false,
+            "published": true,
+            "title": {
+              "en": "The Clerk’s Testimony",
+              "am": "የጸሐፊዋ ምስክርነት"
+            },
+            "desc": {
+              "en": "The clerk is called to the stand — and asked about the record she kept.",
+              "am": "ጸሐፊዋ ለምስክርነት ተጠራች — ስለያዘችው መዝገብ ተጠየቀች።"
+            }
+          },
+          {
+            "ep": 11,
+            "youtube": "https://youtu.be/Xu7bMDzz4bc?si=opFs0-4XWMdGo57D",
+            "duration": "48:05",
+            "featured": false,
+            "published": true,
+            "title": {
+              "en": "The Night Before",
+              "am": "ከብይኑ በፊት ያለው ሌሊት"
+            },
+            "desc": {
+              "en": "On the eve of the verdict, every side makes one last move.",
+              "am": "ከብይኑ ዋዜማ፣ እያንዳንዱ ወገን የመጨረሻ እርምጃውን ይወስዳል።"
+            }
+          },
+          {
+            "ep": 12,
+            "youtube": "https://youtu.be/69BcFTw8Quo?si=mtHOTEsKl1I9rOZa",
             "duration": "55:44",
             "featured": true,
             "title": {

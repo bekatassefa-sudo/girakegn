@@ -206,10 +206,12 @@ collections:
           - name: cast
             label: "Cast"
             widget: list
-            summary: "{{fields.actor}} — {{fields.role.en}}"
+            summary: "{{fields.actor.en}} — {{fields.role.en}}"
+            hint: "Cast with a photo appear as full character posters (shown first); cast without one appear as silhouettes under “Also in the film”."
             fields:
-              - { name: actor, label: "Actor", widget: string }
-              - { name: photo, label: "Photo", widget: image, required: false }
+              - { name: actor, label: "Actor", widget: object, fields: *bi }
+              - { name: photo, label: "Character poster (large, ~1100px wide)", widget: image, required: false, hint: "Portrait poster, 1099×1431 or similar 3:4 shape. WebP or JPG." }
+              - { name: photoSmall, label: "Character poster (small, ~600px wide, for phones)", widget: image, required: false }
               - { name: role, label: "Character", widget: object, fields: *bi }
               - { name: bio, label: "Character line", widget: object, fields: *bitext }
           - name: crew

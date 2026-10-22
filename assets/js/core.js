@@ -106,8 +106,19 @@
     header.className = "nav";
     header.id = "nav";
     header.innerHTML = `
-      <a href="${href("home")}" class="brand" aria-label="Gera Kegn — home">
-        <span class="brand-am">ግራ ቀኝ</span><span class="brand-en">GERA KEGN</span>
+      <a href="${href("home")}" class="brand brand-swap" aria-label="Gera Kegn — home">
+        <span class="brand-text"><span class="brand-am">ግራ ቀኝ</span><span class="brand-en">GERA KEGN</span></span>
+        <img class="brand-badge" src="assets/img/campaign/brand-badge-96.webp"
+             srcset="assets/img/campaign/brand-badge-96.webp 96w, assets/img/campaign/brand-badge-144.webp 144w"
+             sizes="48px" width="48" height="48" alt="" aria-hidden="true" decoding="async">
+        <svg class="brand-scales" viewBox="0 0 44 22" aria-hidden="true">
+          <path d="M22 3v16M15 20.5h14"/>
+          <g class="bs-beam"><path d="M5 5h34"/>
+            <g class="bs-pan bs-l"><path d="M5 5 2 13M5 5l3 8" class="bs-thin"/><path d="M1 13q4 4 8 0z" class="bs-dish"/></g>
+            <g class="bs-pan bs-r"><path d="M39 5l-3 8M39 5l3 8" class="bs-thin"/><path d="M35 13q4 4 8 0z" class="bs-dish"/></g>
+          </g>
+          <circle cx="22" cy="2.6" r="1.6" class="bs-cap"/>
+        </svg>
       </a>
       <nav class="nav-links" aria-label="Main">
         ${NAV_INLINE.map((id) => `<a href="${href(id)}" data-nav="${id}" class="${id === current ? "active" : ""}"></a>`).join("")}

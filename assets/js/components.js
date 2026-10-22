@@ -139,22 +139,67 @@
 
   /* ---------- Cast & crew ---------- */
   const SIL = `<svg class="silhouette" viewBox="0 0 200 220" aria-hidden="true"><path d="M100 18c26 0 42 20 42 46 0 22-10 40-24 48v10c38 8 68 30 74 70v28H8v-28c6-40 36-62 74-70v-10c-14-8-24-26-24-48 0-26 16-46 42-46z"/></svg>`;
+  // Cast with a photo → full character posters (the artwork already carries colour and the
+  // actor's name, so nothing is printed over it). Cast without one → silhouette cards.
+  // data-only="posters" shows just the posters (used on the Home page).
   R.cast = (el) => {
-    el.classList.add("cast-grid");
-    el.setAttribute("data-stagger", "");
-    el.innerHTML = C.cast.map((p, i) => `
+    const posters = C.cast.filter((p) => p.photo);
+    const others = C.cast.filter((p) => !p.photo);
+    const am = X.lang === "am";
+    const poster = (p) => {
+      const actor = L(p.actor), role = L(p.role);
+      const srcset = p.photoSmall ? `srcset="${esc(p.photoSmall)} 600w, ${esc(p.photo)} 1099w" sizes="(max-width: 640px) 90vw, (max-width: 920px) 45vw, 380px"` : "";
+      return `
+      <figure class="poster" tabindex="0">
+        <div class="poster-frame">
+          <img src="${esc(p.photo)}" ${srcset} width="1099" height="1431" loading="lazy" decoding="async"
+               alt="${esc(am ? `${actor} — ${role}` : `${actor} as ${role}, character poster`)}">
+          <span class="poster-glare" aria-hidden="true"></span>
+        </div>
+        <figcaption>
+          <span class="poster-role">${esc(role)}</span>
+          <span class="poster-actor">${esc(actor)}</span>
+          <span class="poster-bio">${esc(L(p.bio))}</span>
+        </figcaption>
+      </figure>`;
+    };
+    const card = (p, i) => `
       <article class="person" tabindex="0">
         <div class="portrait">
-          ${p.photo ? `<img src="${esc(p.photo)}" alt="${esc(p.actor)}" loading="lazy">` : SIL}
-          <span class="initial">No. ${String(i + 1).padStart(2, "0")}</span>
+          ${SIL}
+          <span class="initial">No. ${String(posters.length + i + 1).padStart(2, "0")}</span>
         </div>
         <div class="person-info">
           <h3 class="person-role">${esc(L(p.role))}</h3>
-          <p class="person-actor">${esc(p.actor)}</p>
+          <p class="person-actor">${esc(L(p.actor))}</p>
           <p class="person-bio">${esc(L(p.bio))}</p>
         </div>
-      </article>`).join("");
+      </article>`;
+    el.classList.add("cast");
+    el.innerHTML = `
+      ${posters.length ? `<div class="poster-row" data-stagger>${posters.map(poster).join("")}</div>` : ""}
+      ${others.length && el.dataset.only !== "posters" ? `
+        <p class="eyebrow cast-more" data-reveal="left">${am ? "በፊልሙ ውስጥ ደግሞ · በቅርቡ ይገለጻሉ" : "Also in the film · to be announced"}</p>
+        <div class="cast-grid" data-stagger>${others.map(card).join("")}</div>` : ""}`;
   };
+  // Poster tilt: follow the pointer (mouse/pen only — not touch, not reduced motion).
+  if (!X.reduced) {
+    document.addEventListener("pointermove", (e) => {
+      if (e.pointerType === "touch") return;
+      const p = e.target.closest?.(".poster");
+      if (!p) return;
+      const r = p.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+      p.style.setProperty("--ry", `${x * 10}deg`);
+      p.style.setProperty("--rx", `${y * -10}deg`);
+      p.style.setProperty("--gx", `${(x + 0.5) * 100}%`);
+      p.style.setProperty("--gy", `${(y + 0.5) * 100}%`);
+    });
+    document.addEventListener("pointerout", (e) => {
+      const p = e.target.closest?.(".poster");
+      if (p && !p.contains(e.relatedTarget)) ["--rx", "--ry"].forEach((k) => p.style.setProperty(k, "0deg"));
+    });
+  }
   R.crew = (el) => {
     el.classList.add("crew");
     el.setAttribute("data-stagger", "");
@@ -461,6 +506,114 @@
       const step = (n) => { const p = Math.min(1, (n - s0) / 1400); el.textContent = fmt(end * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(step); };
       requestAnimationFrame(step);
     }, { threshold: 0.5 }).observe(el);
+  };
+
+  /* ---------- "The people's film" emblem, animated ----------
+     One SVG at the artwork's own pixel size (1254×1254). The flat image sits
+     underneath; soft-edged copies of single parts (fist, flag, crowd, stars) are
+     layered on top and moved a few pixels, so the artwork itself appears to move.
+     Vector extras (banknotes, reel spokes, glints) are drawn on top. */
+  const EMBLEM = "assets/img/campaign/peoples-film-emblem.webp";
+  const NOTES = [ // banknotes rising from the crowd into the fist: [path, start delay s]
+    ["M150 640 C 90 470, 160 300, 300 205", 0],
+    ["M230 625 C 200 470, 200 330, 320 215", 0.7],
+    ["M310 615 C 300 480, 240 330, 285 225", 1.4],
+    ["M120 655 C 60 520, 120 360, 265 230", 2.1],
+    ["M410 625 C 360 500, 260 360, 330 220", 2.8]
+  ];
+  R.emblem = (el) => {
+    const label = X.lang === "am"
+      ? "ግራ ቀኝ — የሰራው ህዝብ ፊልም። ከተመልካች ወደ አምራች።"
+      : "GERA KEGN — the film made by the people. From viewer to producer.";
+    // Pure artwork: build once (rebuilding would restart the animations); just relabel on language change.
+    if (el._built) { $("svg", el).setAttribute("aria-label", label); return; }
+    el._built = true;
+    const soft = (id, shape, blur = 7) =>
+      `<mask id="${id}" maskUnits="userSpaceOnUse" x="0" y="0" width="1254" height="1254"><g filter="url(#em-blur${blur})">${shape}</g></mask>`;
+    const patch = (cls, mask, extra = "") => `<g class="${cls}" mask="url(#${mask})" ${extra}><use href="#em-img"/></g>`;
+    const note = `<g><rect x="-27" y="-13" width="54" height="26" rx="3" fill="#e9d8be" stroke="#775266" stroke-width="2.5"/>
+      <ellipse cx="0" cy="0" rx="9" ry="7" fill="none" stroke="#775266" stroke-width="2"/>
+      <text x="-22" y="-3" font-size="8" font-family="Special Elite, monospace" fill="#775266">200</text></g>`;
+    const ray = Array.from({ length: 18 }, (_, i) =>
+      `<polygon points="0,0 -9,-150 9,-150" transform="rotate(${i * 20})"/>`).join("");
+
+    el.classList.add("emblem");
+    el.innerHTML = `
+      <svg class="emblem-svg" viewBox="0 0 1254 1254" role="img" aria-label="${esc(label)}">
+        <defs>
+          <image id="em-img" href="${EMBLEM}" width="1254" height="1254"/>
+          <filter id="em-blur7" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="7"/></filter>
+          <filter id="em-blur4" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="4"/></filter>
+          <filter id="em-wave" filterUnits="userSpaceOnUse" x="240" y="430" width="160" height="160">
+            <feTurbulence type="fractalNoise" baseFrequency="0.014 0.05" numOctaves="2" seed="4" result="n">
+              <animate attributeName="baseFrequency" dur="3.6s" repeatCount="indefinite"
+                       values="0.014 0.05;0.022 0.075;0.014 0.05"/>
+            </feTurbulence>
+            <feDisplacementMap in="SourceGraphic" in2="n" scale="11" xChannelSelector="R" yChannelSelector="G"/>
+          </filter>
+          <linearGradient id="em-glint-g" x1="0" x2="1">
+            <stop offset="0" stop-color="#fff3d6" stop-opacity="0"/>
+            <stop offset=".5" stop-color="#fff3d6" stop-opacity=".55"/>
+            <stop offset="1" stop-color="#fff3d6" stop-opacity="0"/>
+          </linearGradient>
+          <clipPath id="em-c-banner"><polygon points="105,752 1062,664 1062,885 105,905"/></clipPath>
+          <clipPath id="em-c-strips"><rect x="395" y="1070" width="172" height="26" rx="6"/><rect x="680" y="1070" width="177" height="26" rx="6"/></clipPath>
+          ${soft("em-m-fist", `<polygon fill="#fff" points="104,150 200,92 285,20 430,4 540,4 614,62 614,244 536,322 514,462 360,470 340,332 250,342 104,326"/>`)}
+          ${soft("em-m-flag", `<polygon fill="#fff" points="274,456 362,474 366,560 274,556"/>`, 4)}
+          ${soft("em-m-crowdA", `<rect fill="#fff" x="88" y="572" width="146" height="128"/>`)}
+          ${soft("em-m-crowdB", `<rect fill="#fff" x="234" y="560" width="114" height="140"/>`)}
+          ${soft("em-m-crowdC", `<rect fill="#fff" x="348" y="572" width="132" height="128"/>`)}
+          ${soft("em-m-starL", `<circle fill="#fff" cx="210" cy="826" r="47"/>`, 4)}
+          ${soft("em-m-starR", `<circle fill="#fff" cx="1047" cy="768" r="45"/>`, 4)}
+          ${soft("em-m-starB", `<circle fill="#fff" cx="627" cy="1093" r="45"/>`, 4)}
+        </defs>
+
+        <use href="#em-img"/>
+
+        <g class="em-burst" fill="#e8b45a"><g transform="translate(392 120)">${ray}</g></g>
+
+        ${patch("em-flag", "em-m-flag", 'filter="url(#em-wave)"')}
+        ${patch("em-crowd em-crowd-a", "em-m-crowdA")}
+        ${patch("em-crowd em-crowd-b", "em-m-crowdB")}
+        ${patch("em-crowd em-crowd-c", "em-m-crowdC")}
+
+        <g class="em-notes">${NOTES.map(([path, delay]) => `
+          <g opacity="0">${note}
+            <animateMotion dur="3.4s" begin="${delay}s" repeatCount="indefinite" path="${path}" rotate="auto"/>
+            <animate attributeName="opacity" dur="3.4s" begin="${delay}s" repeatCount="indefinite"
+                     values="0;1;1;0" keyTimes="0;.12;.78;1"/>
+          </g>`).join("")}
+        </g>
+
+        ${patch("em-fist", "em-m-fist")}
+
+        <g class="em-reel" style="--cx:977px;--cy:527px">
+          <circle cx="977" cy="527" r="37" fill="#0c0c0b"/>
+          ${[0, 72, 144, 216, 288].map((a) => `<circle cx="977" cy="507" r="6.5" fill="#f3dcb0" transform="rotate(${a} 977 527)"/>`).join("")}
+          <circle cx="977" cy="527" r="5" fill="#f3dcb0"/>
+        </g>
+        <g class="em-reel em-reel-2" style="--cx:1059px;--cy:496px">
+          <circle cx="1059" cy="496" r="37" fill="#0c0c0b"/>
+          ${[36, 108, 180, 252, 324].map((a) => `<circle cx="1059" cy="476" r="6.5" fill="#f3dcb0" transform="rotate(${a} 1059 496)"/>`).join("")}
+          <circle cx="1059" cy="496" r="5" fill="#f3dcb0"/>
+        </g>
+
+        ${patch("em-star em-star-l", "em-m-starL", 'style="--cx:210px;--cy:826px"')}
+        ${patch("em-star em-star-r", "em-m-starR", 'style="--cx:1047px;--cy:768px"')}
+        ${patch("em-star em-star-b", "em-m-starB", 'style="--cx:627px;--cy:1093px"')}
+
+        <g clip-path="url(#em-c-banner)" class="em-glint-wrap"><rect class="em-glint" x="-260" y="620" width="200" height="320" fill="url(#em-glint-g)"/></g>
+        <g clip-path="url(#em-c-strips)" class="em-glint-wrap"><rect class="em-run" x="330" y="1060" width="70" height="50" fill="url(#em-glint-g)"/></g>
+      </svg>`;
+
+    // Animate only while on screen (saves battery); never for reduced-motion users.
+    const svg = $("svg", el);
+    svg.pauseAnimations?.();
+    if (X.reduced) return;
+    new IntersectionObserver(([en]) => {
+      el.classList.toggle("is-playing", en.isIntersecting);
+      en.isIntersecting ? svg.unpauseAnimations?.() : svg.pauseAnimations?.();
+    }, { threshold: 0.2 }).observe(el);
   };
 
   /* ---------- Credit-name live preview (ጓድ form) ---------- */
