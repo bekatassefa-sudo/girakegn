@@ -2,11 +2,11 @@
   "cast": [
     {
       "actor": {
-        "en": "Michael Tamre",
+        "en": "Michael Tamire",
         "am": "ሚካኤል ታምሬ"
       },
-      "photo": "assets/img/cast/michael-tamre-prosecutor-1099.webp",
-      "photoSmall": "assets/img/cast/michael-tamre-prosecutor-600.webp",
+      "photo": "assets/img/cast/michael-tamire-prosecutor-1099.webp",
+      "photoSmall": "assets/img/cast/michael-tamire-prosecutor-600.webp",
       "role": {
         "en": "The Prosecutor",
         "am": "ዐቃቤ ሕጉ"
@@ -16,7 +16,7 @@
         "am": "ፊቱ ላለው ፋይል እና ለጻፈው ታማኝ።"
       },
       "about": {
-        "en": "The Prosecutor arrives with every file already decided. Charming in the corridor and merciless at the bench, he serves the law as it is written — and whoever is holding the pen. Michael Tamre brings him back to the courtroom, where his open hand is never quite as open as it looks.",
+        "en": "The Prosecutor arrives with every file already decided. Charming in the corridor and merciless at the bench, he serves the law as it is written — and whoever is holding the pen. Michael Tamire brings him back to the courtroom, where his open hand is never quite as open as it looks.",
         "am": "ዐቃቤ ሕጉ እያንዳንዱን መዝገብ ቀድሞ ወስኖ ይመጣል። በኮሪደሩ ተግባቢ፣ በችሎቱ ርኅራኄ የለሽ ነው፤ ሕጉን እንደተጻፈው — እና ብዕሩን ለያዘው ሰው — ያገለግላል። ሚካኤል ታምሬ ወደ ችሎቱ ይመልሰዋል፤ የተዘረጋው እጁ እንደሚመስለው ክፍት አይደለም።"
       }
     },
