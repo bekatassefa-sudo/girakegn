@@ -20,11 +20,9 @@
     ["series", "series.html", { en: "The Series", am: "ተከታታዩ" }],
     ["why", "why-now.html", { en: "Why Now", am: "ለምን አሁን" }],
     ["producer", "become-a-producer.html", { en: "Become a Producer", am: "ፕሮዲዩሰር ይሁኑ" }],
-    ["guad", "guad-producer.html", { en: "ጓድ Producer", am: "ጓድ ፕሮዲዩሰር" }],
-    ["partners", "partners.html", { en: "Corporate Partners", am: "የድርጅት አጋሮች" }],
-    ["diaspora", "diaspora.html", { en: "Diaspora", am: "ዲያስፖራ" }],
-    ["transparency", "transparency.html", { en: "Transparency", am: "ግልጽነት" }],
-    ["news", "news.html", { en: "Production Diary", am: "የቀረጻ ማስታወሻ" }],
+    ["guad", "guad-producer.html", { en: "ጓድ Producer & Diaspora", am: "ጓድ ፕሮዲዩሰር እና ዲያስፖራ" }, { en: "ጓድ & Diaspora", am: "ጓድ እና ዲያስፖራ" }],
+    ["transparency", "transparency.html", { en: "Transparency & Production Diary", am: "ግልጽነት እና የቀረጻ ማስታወሻ" }, { en: "Transparency", am: "ግልጽነት" }],
+    ["merch", "merch.html", { en: "Merch", am: "ሸቀጦች" }],
     ["faq", "faq.html", { en: "FAQ", am: "ጥያቄዎች" }]
   ];
   const href = (id) => PAGES.find((p) => p[0] === id)[1];
@@ -43,7 +41,7 @@
       season: "Season", open: "Open file", closeFile: "Close file", closed: "CLOSED", sealed: "SEALED",
       more: "Read more →", voteBtn: "Vote", voted: "Voted ✓", planned: "Planned", confirmed: "Confirmed",
       soon: "Teaser · Coming soon", menuCampaign: "Campaign", follow: "Follow the case",
-      foot_film: "The film", foot_support: "Get involved", foot_info: "Information", contact: "Contact", press: "Press",
+      foot_film: "The film", foot_support: "Get involved", foot_info: "Information", partners: "Our partners", contact: "Contact", press: "Press",
       terms: "Producer terms", copy: "© Gera Kegn Film Production. All rights reserved.", made: "Website made by",
       news_sub: "Production updates, first ticket access and premiere news — in Amharic or English.",
       email: "Email address", sign: "Sign up", form_bad: "Please complete the highlighted fields.",
@@ -62,7 +60,7 @@
       season: "ምዕራፍ", open: "መዝገቡን ክፈት", closeFile: "መዝገቡን ዝጋ", closed: "ተዘግቷል", sealed: "የታሸገ",
       more: "ተጨማሪ ያንብቡ →", voteBtn: "ድምጽ", voted: "ሰጥተዋል ✓", planned: "የታቀደ", confirmed: "የተረጋገጠ",
       soon: "ቅድመ እይታ · በቅርቡ", menuCampaign: "ዘመቻው", follow: "ጉዳዩን ይከታተሉ",
-      foot_film: "ፊልሙ", foot_support: "ይሳተፉ", foot_info: "መረጃ", contact: "ያግኙን", press: "ለጋዜጠኞች",
+      foot_film: "ፊልሙ", foot_support: "ይሳተፉ", foot_info: "መረጃ", partners: "አጋሮቻችን", contact: "ያግኙን", press: "ለጋዜጠኞች",
       terms: "የፕሮዲዩሰር ውል", copy: "© ግራ ቀኝ ፊልም ፕሮዳክሽን። መብቱ በሕግ የተጠበቀ ነው።", made: "ድረ ገጹን የሠራው",
       news_sub: "የቀረጻ መረጃዎች፣ የትኬት ቅድሚያ እና የፕሪሚየር ዜናዎች — በአማርኛ ወይም በእንግሊዝኛ።",
       email: "ኢሜይል አድራሻ", sign: "ይመዝገቡ", form_bad: "እባክዎ የተመለከቱትን ቦታዎች ይሙሉ።",
@@ -100,7 +98,7 @@
   }
 
   /* ---------------- Shell: header, menu, footer, modals ---------------- */
-  const NAV_INLINE = ["movie", "series", "producer", "diaspora", "news"];
+  const NAV_INLINE = ["story", "movie", "series", "guad", "transparency", "merch"];   // "Become a ጓድ Producer" is the blue button beside these
   function shell() {
     const header = document.createElement("header");
     header.className = "nav";
@@ -179,9 +177,13 @@
           <div class="social-links" data-component="socials"></div>
         </div>
         <nav class="footer-col"><p class="eyebrow" data-t="foot_film"></p>${col(["story", "movie", "series", "why"])}</nav>
-        <nav class="footer-col"><p class="eyebrow" data-t="foot_support"></p>${col(["producer", "guad", "partners", "diaspora"])}</nav>
-        <nav class="footer-col"><p class="eyebrow" data-t="foot_info"></p>${col(["transparency", "news", "faq"])}
+        <nav class="footer-col"><p class="eyebrow" data-t="foot_support"></p>${col(["producer", "guad", "merch"])}</nav>
+        <nav class="footer-col"><p class="eyebrow" data-t="foot_info"></p>${col(["transparency", "faq"])}
           <a href="faq.html#contact" data-t="contact"></a><a href="mailto:${C.site.email.press}" data-t="press"></a></nav>
+        <nav class="footer-col footer-contact" aria-label="Contact"><p class="eyebrow" data-t="contact"></p>
+          ${(C.site.contactEmails || []).map((m) => `<a href="mailto:${esc(m)}">${esc(m)}</a>`).join("")}</nav>
+        ${(C.site.partners || []).length ? `<nav class="footer-col footer-partners" aria-label="Partners"><p class="eyebrow" data-t="partners"></p>
+          ${C.site.partners.map((p) => (/^https?:\/\//i.test(p.url || "") ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.name)}</a>` : `<span>${esc(p.name)}</span>`)).join("")}</nav>` : ""}
       </div>
       <div class="wrap footer-bottom">
         <p class="tiny muted" data-t="copy"></p>
@@ -215,7 +217,7 @@
   }
 
   function translateShell() {
-    $$("[data-nav]").forEach((el) => { el.textContent = L(PAGES.find((p) => p[0] === el.dataset.nav)[2]); });
+    $$("[data-nav]").forEach((el) => { const p = PAGES.find((x) => x[0] === el.dataset.nav); el.textContent = L((el.closest(".nav-links") && p[3]) || p[2]); });
     $$(".lang button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.lang === GKX.lang));
   }
 
@@ -334,7 +336,7 @@
         if (bad) ok = false;
       });
       if (!ok) { msg.className = "form-msg err"; msg.textContent = t("form_bad"); $(".invalid", form)?.focus(); return; }
-      if (PREVIEW) { msg.className = "form-msg err"; msg.textContent = GKX.lang === "am" ? "በዚህ የግምገማ ቅድመ እይታ ቅጾች አይላኩም።" : "Forms are switched off in this review preview."; return; }
+      if (PREVIEW && !form.hasAttribute("data-preview-ok")) { msg.className = "form-msg err"; msg.textContent = GKX.lang === "am" ? "በዚህ የግምገማ ቅድመ እይታ ቅጾች አይላኩም።" : "Forms are switched off in this review preview."; return; }
       const data = Object.fromEntries(new FormData(form));
       data.form = form.dataset.form; data.lang = GKX.lang; data.page = current;
       const btn = $('[type="submit"]', form);
@@ -346,7 +348,7 @@
         if (form.dataset.endpoint) {
           // Custom endpoint (Formspree, Mailchimp, CMS webhook…)
           res = await fetch(form.dataset.endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
-        } else if (form.hasAttribute("data-netlify") && !local) {
+        } else if (form.hasAttribute("data-netlify") && !local && !PREVIEW) {
           // Netlify Forms: lands in the private Forms inbox with spam filtering.
           res = await fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams(new FormData(form)).toString() });
         } else await new Promise((r) => setTimeout(r, 500)); // local preview: simulate
@@ -354,6 +356,7 @@
         track("form_submit", { form: data.form });
         msg.className = "form-msg ok";
         msg.textContent = (GKX.lang === "am" ? form.dataset.okAm : form.dataset.ok) || t("form_ok");
+        form.dispatchEvent(new CustomEvent("gk:sent", { bubbles: true, detail: data }));
         form.reset();
         form.dispatchEvent(new Event("input"));
       } catch {
@@ -380,7 +383,9 @@
   function renderPledge() {
     const f = C.crowdfunding;
     $("#amountPicker").innerHTML = f.tiers.map((tier, i) => {
-      const amt = pledge.cur === "ETB" ? GKX.fmt(tier.local.amount) : `$${GKX.fmt(tier.diaspora.amount)}`;
+      const n = pledge.cur === "ETB" ? tier.local.amount : tier.diaspora.amount;
+      if (n == null) return "";                       // no price in this currency yet
+      const amt = (pledge.cur === "ETB" ? GKX.fmt(n) : `$${GKX.fmt(n)}`) + (tier.plus ? "+" : "");
       return `<button type="button" data-i="${i}" aria-pressed="${pledge.tier === i && !$("#customAmt").value}">${amt}<small>${esc(L(tier.title))}</small></button>`;
     }).join("");
     $("#curLabel").textContent = pledge.cur;
@@ -481,7 +486,18 @@
     $$("[data-reveal]").forEach((el) => { if (el.getBoundingClientRect().top < innerHeight) el.classList.add("is-in"); });
   });
   // components.js loads right after this file; start once it has registered.
-  const start = () => { applyLang(); initDrift(); initCurtain(); };
+  function initHeroVideo() {
+    const v = $(".hero-video");
+    if (!v) return;
+    if (reduced) {           // no motion: show the finished portrait as a still
+      v.removeAttribute("autoplay"); v.pause();
+      v.poster = "assets/video/three-musketeers-final.webp"; v.load();
+      return;
+    }
+    v.muted = true;          // some browsers need the property set, not just the attribute
+    new IntersectionObserver(([en]) => { en.isIntersecting ? v.play().catch(() => {}) : v.pause(); }).observe(v);
+  }
+  const start = () => { applyLang(); initDrift(); initCurtain(); initHeroVideo(); };
   const whenReady = () => (window.GKC ? start() : setTimeout(whenReady, 10));
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", whenReady);
   else whenReady();

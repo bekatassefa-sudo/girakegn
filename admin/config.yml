@@ -110,7 +110,7 @@ collections:
 
   # ------------------------------------------------------------------
   - name: campaign
-    label: "Crowdfunding, Transparency & Partners"
+    label: "Crowdfunding & Transparency"
     editor: { preview: false }
     files:
       - name: campaign
@@ -142,16 +142,17 @@ collections:
                 label: "Contribution levels"
                 hint: "Each level has a LOCAL price (ETB, Ethiopia) and a DIASPORA price (USD), each with its own rewards. Visitors switch between them on the site."
                 widget: list
-                summary: "{{fields.title.en}} · {{fields.local.amount}} ETB / {{fields.diaspora.amount}} USD"
+                summary: "{{fields.title.en}} · {{fields.local.amount}} ETB"
                 fields:
                   - { name: title, label: "Level name", widget: object, fields: *bi }
                   - { name: featured, label: "Highlight this level (also pre-selected in the pledge pop-up)", widget: boolean, default: false, required: false }
                   - { name: guad, label: "Qualifies for the ጓድ credit roll", widget: boolean, default: false, required: false }
+                  - { name: plus, label: "Open-ended amount (shows “& plus” after the price)", widget: boolean, default: false, required: false }
                   - name: local
                     label: "In Ethiopia (ETB)"
                     widget: object
                     fields:
-                      - { name: amount, label: "Starting from (ETB)", widget: number, value_type: int }
+                      - { name: amount, label: "Price (ETB)", widget: number, value_type: int }
                       - name: perks
                         label: "Rewards"
                         widget: object
@@ -162,7 +163,7 @@ collections:
                     label: "Diaspora (USD)"
                     widget: object
                     fields:
-                      - { name: amount, label: "Starting from (USD)", widget: number, value_type: int }
+                      - { name: amount, label: "Price (USD) — leave empty if not set yet", widget: number, value_type: int, required: false }
                       - name: perks
                         label: "Rewards (merch such as T-shirts and hoodies go here)"
                         widget: object
@@ -177,19 +178,6 @@ collections:
                 fields:
                   - { name: pct, label: "Percent", widget: number, value_type: int, min: 0, max: 100 }
                   - { name: label, label: "Label", widget: object, fields: *bi }
-          - name: partnerPackages
-            label: "Corporate partner packages"
-            widget: list
-            summary: "{{fields.title.en}}"
-            fields:
-              - { name: title, label: "Package name", widget: object, fields: *bi }
-              - { name: slots, label: "Slots available (blank = on request)", widget: number, value_type: int, required: false }
-              - name: perks
-                label: "Benefits"
-                widget: object
-                fields:
-                  - { name: en, label: "English", widget: list, field: { name: perk, label: "Benefit", widget: string } }
-                  - { name: am, label: "አማርኛ", widget: list, required: false, field: { name: perk, label: "ጥቅም", widget: string } }
 
   # ------------------------------------------------------------------
   - name: credits
@@ -208,6 +196,7 @@ collections:
             add_to_top: true
             fields:
               - { name: name, label: "Name as it appears in the credits", widget: string, pattern: ['^.{1,40}$', "Max 40 characters"] }
+              - { name: no, label: "Producer number (people search by this)", widget: string, required: false }
 
   # ------------------------------------------------------------------
   - name: film
@@ -294,6 +283,29 @@ collections:
                   - { name: a, label: "Answer", widget: object, fields: *bitext }
 
   # ------------------------------------------------------------------
+  - name: merch
+    label: "Merch"
+    description: "Products on the Merch page. Leave the prices empty to show “Coming soon”."
+    editor: { preview: false }
+    files:
+      - name: merch
+        label: "Products"
+        file: content/merch.json
+        fields:
+          - name: merch
+            label: "Products"
+            widget: list
+            summary: "{{fields.name.en}}"
+            fields:
+              - { name: name, label: "Name", widget: object, fields: *bi }
+              - { name: desc, label: "Short description", widget: object, fields: *bi }
+              - { name: image, label: "Photo", widget: image, required: false }
+              - { name: priceEtb, label: "Price (ETB)", widget: number, value_type: int, required: false }
+              - { name: priceUsd, label: "Price (USD)", widget: number, value_type: int, required: false }
+              - { name: buyUrl, label: "Buy link", widget: string, required: false }
+              - { name: published, label: "Published", widget: boolean, default: true }
+
+  # ------------------------------------------------------------------
   - name: site
     label: "Site settings & cinemas"
     editor: { preview: false }
@@ -323,8 +335,18 @@ collections:
                   - { name: tiktok, label: "TikTok", widget: string }
                   - { name: telegram, label: "Telegram", widget: string }
                   - { name: x, label: "X", widget: string }
+              - { name: contactEmails, label: "Footer contact emails", widget: list, hint: "Shown as clickable links in the footer of every page.", field: { name: address, label: "Email address", widget: string } }
+              - name: partners
+                label: "Partners (footer of every page)"
+                hint: "The footer's “Our partners” section appears as soon as you add the first one."
+                widget: list
+                required: false
+                summary: "{{fields.name}}"
+                fields:
+                  - { name: name, label: "Company name", widget: string }
+                  - { name: url, label: "Website (optional)", widget: string, required: false }
               - name: email
-                label: "Contact emails"
+                label: "Other contact emails"
                 widget: object
                 fields:
                   - { name: hello, label: "General", widget: string }

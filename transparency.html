@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Transparency · ግራ ቀኝ GERA KEGN</title>
-  <meta name="description" content="Funding goal, campaign progress, use of funds, production milestones and accountability for GERA KEGN the Movie.">
+  <title>Transparency &amp; Production Diary · ግራ ቀኝ GERA KEGN</title>
+  <meta name="description" content="Funding goal, campaign progress, use of funds, milestones, accountability, and the production diary for GERA KEGN the Movie.">
   <meta name="theme-color" content="#0d0b09">
   <link rel="canonical" href="https://gerakegn.com/transparency.html">
-  <meta property="og:title" content="Transparency · GERA KEGN">
+  <meta property="og:title" content="Transparency &amp; Production Diary · GERA KEGN">
   <meta property="og:image" content="https://gerakegn.com/assets/img/campaign/og-share.jpg">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='10' fill='%230d0b09'/><path d='M32 12v38M18 50h28M14 22h36' stroke='%23c49a4a' stroke-width='4' stroke-linecap='round'/><circle cx='32' cy='12' r='4' fill='%239e2a20'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +19,7 @@
   <section class="page-hero">
     <div class="drift" data-speed="0.2" aria-hidden="true">ግልጽነት · ግልጽነት</div>
     <div class="wrap">
-      <p class="page-file" data-reveal="left"><span>FILE 10</span><span data-am="ግልጽነት">TRANSPARENCY</span></p>
+      <p class="page-file" data-reveal="left"><span>FILE 08</span><span data-am="ግልጽነት እና የቀረጻ ማስታወሻ">TRANSPARENCY &amp; PRODUCTION DIARY</span></p>
       <h1 class="h1" data-reveal="words" data-am="ክፍት መዝገብ። <em>ለሁሉም።</em>">An open ledger. <em>For everyone.</em></h1>
       <p class="lede" data-reveal="up" style="--i:3" data-am="የተመልካች ፊልም ለተመልካቹ ተጠያቂ መሆን አለበት። እዚህ ግቡን፣ ሂደቱን፣ ገንዘቡ የሚውልበትን እና ምዕራፎቹን ያገኛሉ — በቀረጻው ሁሉ ይዘመናል።">An audience-produced film should answer to its audience. Here you'll find the goal, progress, use of funds and milestones — updated throughout production.</p>
     </div>
@@ -73,16 +73,28 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="diary">
     <div class="wrap">
-      <div class="split" style="margin-bottom:44px;align-items:end">
-        <div>
-          <p class="eyebrow" data-reveal="left" data-am="የቅርብ ጊዜ ዝመናዎች">Project updates</p>
-          <h2 class="h2" data-reveal="words" data-am="ከቀረጻ ማስታወሻው">From the production diary</h2>
-        </div>
-        <div data-reveal="right" style="justify-self:end"><a href="news.html" class="btn btn-ghost" data-am="ሁሉም ዝመናዎች →">All updates →</a></div>
+      <div class="section-head">
+        <p class="eyebrow" data-reveal="left" data-am="የቀረጻ ማስታወሻ">Production diary</p>
+        <h2 class="h2" data-reveal="words" data-am="የችሎቱ <em>ማስታወቂያ ሰሌዳ</em>">The court <em>bulletin board</em></h2>
+        <p class="muted" data-reveal="up" data-am="ዜና፣ ከትዕይንት ጀርባ፣ ምዕራፎች፣ ፎቶዎች፣ ቪዲዮዎች እና የዘመቻ ዝመናዎች — ከገንዘብ ማሰባሰብ እስከ ፕሪሚየሩ።">News, behind the scenes, milestones, photos, videos and campaign updates — from crowdfunding to premiere.</p>
       </div>
-      <div data-component="news" data-limit="3"></div>
+      <div data-component="news" data-filter></div>
+    </div>
+  </section>
+
+  <section class="section-tight section-alt">
+    <div class="wrap-narrow center">
+      <p class="eyebrow" data-reveal="up" data-am="ምንም አያምልጥዎ">Never miss a hearing</p>
+      <h2 class="h2" data-reveal="words" data-am="ዝመናዎችን በኢሜይል ያግኙ">Get updates by email</h2>
+      <form class="mini-form" data-form="newsletter" name="newsletter" data-netlify="true" netlify-honeypot="bot-field" data-reveal="up" novalidate style="margin:24px auto 0">
+        <input type="hidden" name="form-name" value="newsletter"><p hidden><label>Leave empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <label class="sr" for="nlEmail" data-am="ኢሜይል">Email</label>
+        <input id="nlEmail" type="email" name="email" required autocomplete="email" placeholder="your@email.com">
+        <button class="btn btn-gold btn-sm" type="submit" data-am="ይመዝገቡ">Sign up</button>
+        <p class="form-msg" role="status"></p>
+      </form>
     </div>
   </section>
 </main>

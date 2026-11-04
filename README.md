@@ -6,7 +6,7 @@ Static, dependency-free, bilingual (English / Amharic) site. Run locally:
 python3 -m http.server 5173
 ```
 
-## Pages (per the Requirements Document)
+## Pages
 | # | Page | File |
 |---|---|---|
 | 1 | Home (+ Why Now and Become a Producer sections) | `index.html` |
@@ -16,11 +16,12 @@ python3 -m http.server 5173
 | 5 | Why Now | `why-now.html` |
 | 6 | Become a Producer (levels, steps, payment, registration, terms) | `become-a-producer.html` |
 | 7 | ጓድ Producer (looping credit roll, name submission, guidelines, terms) | `guad-producer.html` |
-| 8 | Corporate Partners (packages, visibility, enquiry form) | `partners.html` |
-| 9 | Diaspora (ways to help, city voting, ambassador form) | `diaspora.html` |
-| 10 | Transparency (goal, progress, use of funds, milestones, commitments) | `transparency.html` |
-| 11 | News / Production Diary (category filters) | `news.html` |
-| 12 | FAQ (search + topics) + contact form | `faq.html` |
+| 7b | …merged in: certificate generator, name search, Diaspora (levels in USD, city voting, ambassador form) | `guad-producer.html` |
+| 8 | Transparency & Production Diary (goal, progress, use of funds, milestones, commitments, diary with filters) | `transparency.html` |
+| 9 | Merch (products from `content/merch.json`) | `merch.html` |
+| 10 | FAQ (search + topics) + contact form | `faq.html` |
+
+Partners have no page: add them in **/admin → Site settings → Partners** and an “Our partners” column appears in every footer.
 
 ## Content management & moderation (`/admin`)
 The production team edits content at **`https://<domain>/admin`** (Decap CMS) — no code needed.

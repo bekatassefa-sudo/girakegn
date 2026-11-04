@@ -121,6 +121,7 @@
     const market = el._market || el.dataset.market || "local";
     const am = X.lang === "am";
     const money = (n) => (market === "local" ? `${fmt(n)} ETB` : `$${fmt(n)}`);
+    const plus = am ? "እና ከዚያ በላይ" : "& plus";
     el.classList.add("tier-block");
     el.innerHTML = `
       <div class="tier-switch" role="group" aria-label="${am ? "የክፍያ ቦታ" : "Where are you paying from?"}">
@@ -134,11 +135,12 @@
           <article class="tier ${tier.featured ? "featured" : ""} ${tier.guad ? "is-guad" : ""}">
             ${tier.featured ? `<span class="tier-badge">${esc(t("popular"))}</span>` : ""}
             <h3>${esc(L(tier.title))}</h3>
-            <div class="tier-from">${am ? "ከ" : "Starting from"}</div>
-            <div class="tier-amt">${money(m.amount)}</div>
+            ${m.amount == null
+              ? `<div class="tier-amt tier-tbc">${am ? "ዋጋው በቅርቡ ይገለጻል" : "Price to be confirmed"}</div>`
+              : `<div class="tier-amt">${money(m.amount)}${tier.plus ? ` <small>${plus}</small>` : ""}</div>`}
             ${tier.guad ? `<p class="tier-guad">★ ${esc(t("qualifies"))}</p>` : ""}
             <ul>${(L(m.perks) || []).map((p) => `<li>${esc(p)}</li>`).join("")}</ul>
-            <button type="button" class="btn ${tier.featured ? "btn-gold" : "btn-ghost"} btn-block" data-open-pledge data-tier="${i}" data-cur="${MARKETS[market]}">${esc(t("choose"))}</button>
+            <button type="button" class="btn ${tier.featured ? "btn-gold" : "btn-ghost"} btn-block" data-open-pledge data-tier="${i}" data-cur="${MARKETS[market]}" ${m.amount == null ? "disabled" : ""}>${esc(t("choose"))}</button>
           </article>`;
         }).join("")}
       </div>`;
@@ -375,7 +377,7 @@
       <div class="roll-block">
         <p class="roll-head">ጓድ PRODUCERS</p>
         <p class="roll-sub">${GKX_lang() === "am" ? "ይህ ፊልም የተሠራው በእነዚህ ጓዶች ነው" : "This film was made possible by these comrades"}</p>
-        <ul>${names.map((n) => `<li>${esc(n)}</li>`).join("")}</ul>
+        <ul>${names.map((n, i) => `<li>${esc(n)}</li>${(i + 1) % 100 === 0 && i + 1 < names.length ? '<li class="roll-mark">ግራ ቀኝ</li>' : ""}`).join("")}</ul>
         <p class="roll-end">ግራ ቀኝ</p>
       </div>`;
     el.classList.add("roll");
@@ -398,23 +400,100 @@
           <span class="funds-amt">${fmt((f.goal * u.pct) / 100)} ${f.currency}</span></li>`).join("")}</ul>`;
   };
 
-  /* ---------- Partner packages ---------- */
-  R.packages = (el) => {
-    el.classList.add("packages");
-    el.setAttribute("data-stagger", "alt");
-    el.innerHTML = C.partnerPackages.map((p, i) => `
-      <article class="package ${i === 0 ? "featured" : ""}">
-        <span class="package-no">0${i + 1}</span>
-        <h3>${esc(L(p.title))}</h3>
-        <p class="package-slots">${p.slots ? `${p.slots} ${esc(t("slots"))}` : esc(t("onRequest"))}</p>
-        <ul>${L(p.perks).map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
-        <a href="#enquire" class="btn ${i === 0 ? "btn-gold" : "btn-ghost"} btn-sm" data-package="${esc(p.title.en)}">${esc(t("enquire"))} →</a>
-      </article>`).join("");
+  /* ---------- Find your name: search the credit list by name or producer number ---------- */
+  R.creditsearch = (el) => {
+    const am = X.lang === "am";
+    const q0 = el._q || "";
+    el.classList.add("credit-search");
+    el.innerHTML = `
+      <label class="credit-search-label" for="creditQ">${am ? "ስምዎን በፕሮዲዩሰር ቁጥርዎ ይፈልጉ" : "Search your name with your producer number"}</label>
+      <input id="creditQ" type="search" autocomplete="off" value="${esc(q0)}" placeholder="${am ? "ስም ወይም ቁጥር" : "Name or number"}">
+      <div class="credit-results" role="status" aria-live="polite"></div>`;
+    const input = $("input", el), out = $(".credit-results", el);
+    const show = () => {
+      const q = input.value.trim().toLowerCase();
+      el._q = input.value;
+      if (!q) { out.innerHTML = ""; return; }
+      const hits = C.guadEntries.filter((n) => n.name.toLowerCase().includes(q) || String(n.no || "").toLowerCase().includes(q));
+      out.innerHTML = hits.length
+        ? `<ul>${hits.slice(0, 8).map((n) => `<li><b>${esc(n.name)}</b>${n.no ? `<span>No. ${esc(n.no)}</span>` : ""}</li>`).join("")}</ul>
+           ${hits.length > 8 ? `<p>${am ? `ከ${hits.length} ውጤቶች 8ቱ ይታያሉ` : `Showing 8 of ${hits.length} matches`}</p>` : ""}`
+        : `<p>${am ? "በዝርዝሩ ውስጥ አልተገኘም።" : "Not on the list yet."}</p>`;
+    };
+    input.addEventListener("input", show);
+    show();
   };
+
+  /* ---------- Merch (content/merch.json, editable in /admin) ---------- */
+  R.merch = (el) => {
+    const am = X.lang === "am";
+    el.classList.add("merch-grid");
+    el.setAttribute("data-stagger", "");
+    el.innerHTML = C.merch.filter((m) => m.published !== false).map((m) => {
+      const prices = [m.priceEtb != null ? `${fmt(m.priceEtb)} ETB` : "", m.priceUsd != null ? `$${fmt(m.priceUsd)}` : ""].filter(Boolean).join(" · ");
+      const buy = /^https?:\/\//i.test(m.buyUrl || "") ? m.buyUrl : "";
+      return `
+      <article class="merch-item">
+        <div class="merch-pic">${m.image ? `<img src="${esc(m.image)}" alt="${esc(L(m.name))}" loading="lazy">` : `<span aria-hidden="true">ግራ ቀኝ</span>`}</div>
+        <h3>${esc(L(m.name))}</h3>
+        <p>${esc(L(m.desc))}</p>
+        <div class="merch-buy">
+          <b>${prices ? esc(prices) : (am ? "በቅርቡ" : "Coming soon")}</b>
+          ${buy ? `<a class="btn btn-gold btn-sm" href="${esc(buy)}" target="_blank" rel="noopener">${am ? "ይግዙ" : "Buy"}</a>` : ""}
+        </div>
+      </article>`;
+    }).join("");
+  };
+
+  /* ---------- Fan certificate: drawn in the browser after the email subscription ---------- */
+  const certImg = (src) => new Promise((res, rej) => { const i = new Image(); i.onload = () => res(i); i.onerror = rej; i.src = src; });
+  async function drawCertificate(name) {
+    const cv = $("#certCanvas"), g = cv.getContext("2d"), W = cv.width, H = cv.height, ETH = '"Noto Serif Ethiopic"';
+    await Promise.all([`900 40px ${ETH}`, `700 40px ${ETH}`, '800 40px "Playfair Display"', 'italic 500 40px "Playfair Display"', '400 40px "Special Elite"'].map((f) => document.fonts.load(f, "ግራ ቀኝ GERA")));
+    const [paper, left, right] = await Promise.all(["assets/img/brand/aged-paper.webp", "assets/img/brand/title-left.webp", "assets/img/brand/title-right.webp"].map(certImg));
+    g.fillStyle = g.createPattern(paper, "repeat"); g.fillRect(0, 0, W, H);
+    g.fillStyle = "rgba(10, 6, 3, .28)"; g.fillRect(0, 0, W, H);
+    g.strokeStyle = "#c49a4a"; g.lineWidth = 6; g.strokeRect(44, 44, W - 88, H - 88);
+    g.lineWidth = 2; g.strokeRect(62, 62, W - 124, H - 124);
+    const tw = 760, x0 = (W - tw) / 2, lw = tw * 487 / 954, rw = tw * 467 / 954, th = lw * 248 / 487;
+    g.drawImage(left, x0, 96, lw, th); g.drawImage(right, x0 + lw, 96, rw, th);
+    g.textAlign = "center"; g.textBaseline = "alphabetic";
+    const text = (s, y, font, color) => { g.font = font; g.fillStyle = color; g.fillText(s, W / 2, y); };
+    text("CERTIFICATE  ·  የምስክር ወረቀት", 372, `400 40px "Special Elite", ${ETH}`, "#c49a4a");
+    text("This certifies that  ·  ይህ የሚያረጋግጠው", 470, `italic 500 42px "Playfair Display", ${ETH}`, "#e9dfc7");
+    let size = 104; const nameFont = () => `800 ${size}px "Playfair Display", ${ETH}`;
+    g.font = nameFont(); while (g.measureText(name).width > W - 320 && size > 40) { size -= 4; g.font = nameFont(); }
+    text(name, 610, nameFont(), "#e0bb6e");
+    g.strokeStyle = "rgba(196, 154, 74, .6)"; g.lineWidth = 2; g.beginPath(); g.moveTo(320, 650); g.lineTo(W - 320, 650); g.stroke();
+    text("is a true ጓድ of GERA KEGN — a faithful viewer and a huge fan.", 730, `500 40px "Playfair Display", ${ETH}`, "#ece4d2");
+    text("የግራ ቀኝ እውነተኛ ጓድ  ·  ታማኝ ተመልካች  ·  ትልቅ አድናቂ", 800, `700 40px ${ETH}`, "#ece4d2");
+    text("ግራ ቀኝ · GERA KEGN — THE MOVIE", 985, `400 30px "Special Elite", ${ETH}`, "#c49a4a");
+    text(new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" }), 1032, '400 26px "Special Elite"', "#b7ab95");
+    // red court stamp
+    g.save(); g.translate(W - 280, 900); g.rotate(-.16); g.strokeStyle = "#c8452f"; g.lineWidth = 6; g.strokeRect(-140, -46, 280, 92);
+    g.font = '400 42px "Special Elite"'; g.fillStyle = "#c8452f"; g.textBaseline = "middle"; g.fillText("CERTIFIED", 0, 4); g.restore();
+    return name;
+  }
+  document.addEventListener("gk:sent", async (e) => {
+    if (e.target.dataset?.form !== "certificate") return;
+    const name = String(e.detail.fanName || "").trim();
+    const box = $("#certResult");
+    box.hidden = false;
+    await drawCertificate(name);
+    box._name = name;
+    box.scrollIntoView({ behavior: X.reduced ? "auto" : "smooth", block: "center" });
+  });
   document.addEventListener("click", (e) => {
-    const a = e.target.closest("[data-package]");
-    const sel = $("#pkgSelect");
-    if (a && sel) sel.value = a.dataset.package;
+    if (!e.target.closest?.("#certDownload")) return;
+    const box = $("#certResult");
+    $("#certCanvas").toBlob((blob) => {
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = `gera-kegn-certificate-${(box._name || "fan").replace(/[^\p{L}\p{N}]+/gu, "-")}.png`;
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+      X.track("certificate_download", {});
+    }, "image/png");
   });
 
   /* ---------- FAQ ---------- */

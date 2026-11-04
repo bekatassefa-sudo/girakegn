@@ -6,7 +6,7 @@
    the site scripts. Don't edit content here.
    ===================================================================== */
 (() => {
-  const FILES = ["site", "series", "campaign", "credits", "film", "news", "faq"];
+  const FILES = ["site", "series", "campaign", "credits", "film", "news", "faq", "merch"];
   const SCRIPTS = ["assets/js/core.js", "assets/js/components.js"];
 
   const load = (src) => new Promise((res, rej) => {
@@ -29,8 +29,9 @@
     .then((parts) => {
       const GK = Object.assign({}, ...parts);
       // Normalise CMS shapes for the site scripts.
-      GK.guadNames = (GK.guadNames || []).map((n) => (typeof n === "string" ? n : n.name)).filter(Boolean)
-        .sort((a, b) => a.localeCompare(b));
+      GK.guadEntries = (GK.guadNames || []).map((n) => (typeof n === "string" ? { name: n } : n)).filter((n) => n.name)
+        .sort((a, b) => a.name.localeCompare(b.name));
+      GK.guadNames = GK.guadEntries.map((n) => n.name);
       GK.news = (GK.news || []).filter((n) => n.published !== false)
         .sort((a, b) => String(b.date).localeCompare(String(a.date)));
       GK.newsCategories = {

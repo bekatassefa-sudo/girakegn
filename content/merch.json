@@ -1,0 +1,49 @@
+{
+  "merch": [
+    {
+      "name": {
+        "en": "T-shirt",
+        "am": "ቲሸርት"
+      },
+      "desc": {
+        "en": "The GERA KEGN emblem on a classic tee.",
+        "am": "የግራ ቀኝ አርማ ያለበት ቲሸርት።"
+      },
+      "image": "",
+      "priceEtb": null,
+      "priceUsd": null,
+      "buyUrl": "",
+      "published": true
+    },
+    {
+      "name": {
+        "en": "Hoodie",
+        "am": "ሁዲ"
+      },
+      "desc": {
+        "en": "For the long nights in the gallery.",
+        "am": "ለረጅም የችሎት ምሽቶች።"
+      },
+      "image": "",
+      "priceEtb": null,
+      "priceUsd": null,
+      "buyUrl": "",
+      "published": true
+    },
+    {
+      "name": {
+        "en": "Tote bag",
+        "am": "የእጅ ቦርሳ"
+      },
+      "desc": {
+        "en": "Carry your case files in style.",
+        "am": "መዝገቦችዎን በዘመናዊ መንገድ ይያዙ።"
+      },
+      "image": "",
+      "priceEtb": null,
+      "priceUsd": null,
+      "buyUrl": "",
+      "published": true
+    }
+  ]
+}

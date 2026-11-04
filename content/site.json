@@ -21,7 +21,14 @@
       "hello": "hello@gerakegn.com",
       "press": "press@gerakegn.com",
       "partners": "partners@gerakegn.com"
-    }
+    },
+    "contactEmails": [
+      "info@gerakegn.com",
+      "direbdil.assefa@gerakegn.com",
+      "girum.assefa@gerakegn.com",
+      "michael.tamre@gerakegn.com"
+    ],
+    "partners": []
   },
   "cinemas": [
     {

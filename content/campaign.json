@@ -2,7 +2,7 @@
   "crowdfunding": {
     "currency": "ETB",
     "usdRate": 0.0072,
-    "goal": 15000000,
+    "goal": 18000000,
     "raised": 4860000,
     "backers": 2317,
     "guadProducers": 184,
@@ -48,31 +48,31 @@
     "tiers": [
       {
         "title": {
-          "en": "ጓድ",
-          "am": "ጓድ"
+          "en": "Producer",
+          "am": "ፕሮዲዩሰር"
         },
         "local": {
-          "amount": 250,
+          "amount": 200,
           "perks": {
             "en": [
-              "Your name on the digital Wall of ጓዶች",
+              "Your name on the digital wall of producers",
               "Production diary updates"
             ],
             "am": [
-              "ስምዎ በዲጂታል የጓዶች ግድግዳ ላይ",
+              "ስምዎ በዲጂታል የፕሮዲዩሰሮች ግድግዳ ላይ",
               "የቀረጻ ማስታወሻ ዜናዎች"
             ]
           }
         },
         "diaspora": {
-          "amount": 5,
+          "amount": null,
           "perks": {
             "en": [
-              "Your name on the digital Wall of ጓዶች",
+              "Your name on the digital wall of producers",
               "Production diary updates"
             ],
             "am": [
-              "ስምዎ በዲጂታል የጓዶች ግድግዳ ላይ",
+              "ስምዎ በዲጂታል የፕሮዲዩሰሮች ግድግዳ ላይ",
               "የቀረጻ ማስታወሻ ዜናዎች"
             ]
           }
@@ -86,17 +86,48 @@
         "featured": true,
         "guad": true,
         "local": {
+          "amount": 250,
+          "perks": {
+            "en": [
+              "All Producer rewards",
+              "Your name in the film’s ጓድ Producer credit roll"
+            ],
+            "am": [
+              "የፕሮዲዩሰር ሽልማቶች በሙሉ",
+              "ስምዎ በፊልሙ የጓድ ፕሮዲዩሰሮች ዝርዝር ውስጥ"
+            ]
+          }
+        },
+        "diaspora": {
+          "amount": 5,
+          "perks": {
+            "en": [
+              "All Producer rewards",
+              "Your name in the film’s ጓድ Producer credit roll"
+            ],
+            "am": [
+              "የፕሮዲዩሰር ሽልማቶች በሙሉ",
+              "ስምዎ በፊልሙ የጓድ ፕሮዲዩሰሮች ዝርዝር ውስጥ"
+            ]
+          }
+        }
+      },
+      {
+        "title": {
+          "en": "ጓድ ሻለቃ Producer",
+          "am": "ጓድ ሻለቃ ፕሮዲዩሰር"
+        },
+        "guad": true,
+        "local": {
           "amount": 1000,
           "perks": {
             "en": [
-              "All ጓድ rewards",
-              "Your name in the film’s ጓድ Producer credit roll",
-              "ጓድ Producer certificate"
+              "All ጓድ Producer rewards",
+              "ጓድ ሻለቃ Producer certificate"
             ],
             "am": [
-              "የጓድ ሽልማቶች በሙሉ",
-              "ስምዎ በፊልሙ የጓድ ፕሮዲዩሰሮች ዝርዝር ውስጥ",
-              "የጓድ ፕሮዲዩሰር ምስክር ወረቀት"
+              "የጓድ ፕሮዲዩሰር ሽልማቶች በሙሉ",
+              "የጓድ ሻለቃ ፕሮዲዩሰር ምስክር ወረቀት"
             ]
           }
         },
@@ -104,13 +135,13 @@
           "amount": 100,
           "perks": {
             "en": [
-              "All ጓድ rewards",
-              "Your name in the film’s ጓድ Producer credit roll",
+              "All ጓድ Producer rewards",
+              "ጓድ ሻለቃ Producer certificate",
               "T-shirt or tote bag"
             ],
             "am": [
-              "የጓድ ሽልማቶች በሙሉ",
-              "ስምዎ በፊልሙ የጓድ ፕሮዲዩሰሮች ዝርዝር ውስጥ",
+              "የጓድ ፕሮዲዩሰር ሽልማቶች በሙሉ",
+              "የጓድ ሻለቃ ፕሮዲዩሰር ምስክር ወረቀት",
               "ቲሸርት ወይም የእጅ ቦርሳ"
             ]
           }
@@ -118,20 +149,20 @@
       },
       {
         "title": {
-          "en": "ጓድ Executive Producer",
-          "am": "ጓድ ዋና ፕሮዲዩሰር"
+          "en": "ጓድ ሻለቃ Producer ጌታዬ/እመቤቴ",
+          "am": "ጓድ ሻለቃ ፕሮዲዩሰር ጌታዬ/እመቤቴ"
         },
         "guad": true,
         "local": {
           "amount": 2500,
           "perks": {
             "en": [
-              "All ጓድ Producer rewards",
-              "Your name in the ጓድ Executive Producer credits"
+              "All ጓድ ሻለቃ Producer rewards",
+              "Your name in the ጌታዬ/እመቤቴ credits"
             ],
             "am": [
-              "የጓድ ፕሮዲዩሰር ሽልማቶች በሙሉ",
-              "ስምዎ በጓድ ዋና ፕሮዲዩሰሮች ዝርዝር ውስጥ"
+              "የጓድ ሻለቃ ፕሮዲዩሰር ሽልማቶች በሙሉ",
+              "ስምዎ በጌታዬ/እመቤቴ ዝርዝር ውስጥ"
             ]
           }
         },
@@ -139,14 +170,48 @@
           "amount": 150,
           "perks": {
             "en": [
-              "All ጓድ Producer rewards",
-              "Your name in the ጓድ Executive Producer credits",
+              "All ጓድ ሻለቃ Producer rewards",
+              "Your name in the ጌታዬ/እመቤቴ credits",
               "Hoodie"
             ],
             "am": [
-              "የጓድ ፕሮዲዩሰር ሽልማቶች በሙሉ",
-              "ስምዎ በጓድ ዋና ፕሮዲዩሰሮች ዝርዝር ውስጥ",
+              "የጓድ ሻለቃ ፕሮዲዩሰር ሽልማቶች በሙሉ",
+              "ስምዎ በጌታዬ/እመቤቴ ዝርዝር ውስጥ",
               "ሁዲ"
+            ]
+          }
+        }
+      },
+      {
+        "title": {
+          "en": "Executive Producer",
+          "am": "ዋና ፕሮዲዩሰር"
+        },
+        "guad": true,
+        "plus": true,
+        "local": {
+          "amount": 2500,
+          "perks": {
+            "en": [
+              "All ጌታዬ/እመቤቴ rewards",
+              "Your name in the Executive Producer credits"
+            ],
+            "am": [
+              "የጌታዬ/እመቤቴ ሽልማቶች በሙሉ",
+              "ስምዎ በዋና ፕሮዲዩሰሮች ዝርዝር ውስጥ"
+            ]
+          }
+        },
+        "diaspora": {
+          "amount": null,
+          "perks": {
+            "en": [
+              "All ጌታዬ/እመቤቴ rewards",
+              "Your name in the Executive Producer credits"
+            ],
+            "am": [
+              "የጌታዬ/እመቤቴ ሽልማቶች በሙሉ",
+              "ስምዎ በዋና ፕሮዲዩሰሮች ዝርዝር ውስጥ"
             ]
           }
         }
@@ -196,85 +261,5 @@
         }
       }
     ]
-  },
-  "partnerPackages": [
-    {
-      "title": {
-        "en": "Title Partner",
-        "am": "ዋና አጋር"
-      },
-      "slots": 1,
-      "perks": {
-        "en": [
-          "“GERA KEGN presented by” billing",
-          "Logo on poster, trailer & opening credits",
-          "Premiere co-hosting & screening rights",
-          "Custom campaign with the cast"
-        ],
-        "am": [
-          "«ግራ ቀኝ በ… አቅራቢነት» ስያሜ",
-          "ሎጎ በፖስተር፣ ቅድመ እይታ እና መክፈቻ ላይ",
-          "የፕሪሚየር አጋርነት",
-          "ከተዋንያን ጋር ልዩ ዘመቻ"
-        ]
-      }
-    },
-    {
-      "title": {
-        "en": "Presenting Partner",
-        "am": "አቅራቢ አጋር"
-      },
-      "slots": 3,
-      "perks": {
-        "en": [
-          "Logo in end credits & on website",
-          "Branded production-diary episodes",
-          "Private screening for staff & clients"
-        ],
-        "am": [
-          "ሎጎ በመዝጊያ እና በድረ ገጹ ላይ",
-          "በስምዎ የቀረጻ ማስታወሻ ክፍሎች",
-          "ለሠራተኞች እና ደንበኞች የግል ማሳያ"
-        ]
-      }
-    },
-    {
-      "title": {
-        "en": "Supporting Partner",
-        "am": "ደጋፊ አጋር"
-      },
-      "slots": 8,
-      "perks": {
-        "en": [
-          "Logo in end credits",
-          "Partner wall on website",
-          "Premiere invitations"
-        ],
-        "am": [
-          "ሎጎ በመዝጊያ ላይ",
-          "በድረ ገጹ የአጋሮች ግድግዳ",
-          "የፕሪሚየር ግብዣዎች"
-        ]
-      }
-    },
-    {
-      "title": {
-        "en": "In-kind Partner",
-        "am": "በዓይነት አጋር"
-      },
-      "slots": null,
-      "perks": {
-        "en": [
-          "Locations, equipment, catering, transport, period props",
-          "Credit as in-kind partner",
-          "Behind-the-scenes mention"
-        ],
-        "am": [
-          "የቀረጻ ቦታ፣ መሣሪያ፣ ምግብ፣ ትራንስፖርት፣ የዘመኑ ዕቃዎች",
-          "በዓይነት አጋርነት ዕውቅና",
-          "ከትዕይንት ጀርባ መጠቀስ"
-        ]
-      }
-    }
-  ]
+  }
 }
