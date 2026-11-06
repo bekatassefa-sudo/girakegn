@@ -147,78 +147,78 @@
       }
     }
   ],
-  "cases": [
+  "verdicts": [
     {
-      "no": "001/72",
-      "season": "1",
-      "title": {
-        "en": "The Missing Ledger",
-        "am": "የጠፋው መዝገብ"
-      },
-      "text": {
-        "en": "A cooperative's accounts vanish overnight. The bookkeeper is charged — but who signed the order?",
-        "am": "የማኅበሩ ሂሳብ በአንድ ሌሊት ጠፋ። ሂሳብ ያዡ ተከሰሰ — ትዕዛዙን ማን ፈረመ?"
-      }
+      "season": 1,
+      "ep": 1,
+      "image": "assets/img/verdicts/s1-e01-800.webp",
+      "text": "መሃይሙ አሻጥረኛ 15 ዓመት የጉልበት ሥራ እየሰራ እንዲማር ተፈረደበት!"
     },
     {
-      "no": "014/72",
-      "season": "1",
-      "title": {
-        "en": "A House in Arat Kilo",
-        "am": "አራት ኪሎ ያለው ቤት"
-      },
-      "text": {
-        "en": "Nationalised property, two families, one key. The court must decide who the law belongs to.",
-        "am": "የተወረሰ ቤት፣ ሁለት ቤተሰቦች፣ አንድ ቁልፍ። ሕጉ የማን እንደሆነ ችሎቱ መወሰን አለበት።"
-      }
+      "season": 1,
+      "ep": 2,
+      "image": "assets/img/verdicts/s1-e02-800.webp",
+      "text": "ሶሻሊስቱ ጠንቋይ የዕእምሮ ህክምናውን ሲጨርስ ቀሪ ዘመኑን የጉልበት ሥራ እንዲሰራ ተፈረደበት!"
     },
     {
-      "no": "027/73",
-      "season": "1",
-      "title": {
-        "en": "The Letter from Asmara",
-        "am": "ከአስመራ የመጣው ደብዳቤ"
-      },
-      "text": {
-        "en": "A soldier's letter becomes evidence. Its words can free a man — or condemn the writer.",
-        "am": "የወታደር ደብዳቤ ማስረጃ ሆነ። ቃላቱ አንዱን ነጻ ሊያወጡ — ጸሐፊውን ሊያስፈርዱ ይችላሉ።"
-      }
+      "season": 1,
+      "ep": 3,
+      "image": "assets/img/verdicts/s1-e03-800.webp",
+      "text": "በተጨማሪም ሰልፍ ሰባሪዋ ለ9 ወራት ያለ ምንም ክፍያ ጋዜጦችና በራሪ ወረቀቶችን ለሰልፈኞች እንድታድል ተፈረደባት!"
     },
     {
-      "no": "009/74",
-      "season": "2",
-      "title": {
-        "en": "Curfew",
-        "am": "ሰዓት እላፊ"
-      },
-      "text": {
-        "en": "Found on the street after midnight. The only witness is the man who arrested him.",
-        "am": "ከእኩለ ሌሊት በኋላ መንገድ ላይ ተገኘ። ብቸኛው ምስክር ያሰረው ሰው ነው።"
-      }
+      "season": 1,
+      "ep": 4,
+      "image": "assets/img/verdicts/s1-e04-800.webp",
+      "text": "በአይን አውጣው ደራሲ አቶ ዮናስ ስዩም ላይ ሁለቱም እጆቹ እንዲቆረጡ እና ለ10 ዓመት በቆራጦ እርሻ ጣብያ በጉልበት ስራ እንዲያገለግል ተፈረደበት!"
     },
     {
-      "no": "033/74",
-      "season": "2",
-      "title": {
-        "en": "The Kebele Record",
-        "am": "የቀበሌው መዝገብ"
-      },
-      "text": {
-        "en": "One line in a neighbourhood register decides a family's fate.",
-        "am": "በቀበሌ መዝገብ ላይ ያለች አንዲት መስመር የቤተሰብን ዕጣ ትወስናለች።"
-      }
+      "season": 1,
+      "ep": 5,
+      "image": "assets/img/verdicts/s1-e05-800.webp",
+      "text": "ዶጮ መልኬ ዕድሜ ልኩን የማተሚያ ቤቱን ሸንት ቤት እንዲያፀዳ እና ያለማቋረጥ ለህትመት ፊደላት እንዲያዘጋጅ እና እንዲበትን ተፈረደበት!"
     },
     {
-      "no": "— / —",
-      "season": "film",
-      "title": {
-        "en": "The Final Hearing",
-        "am": "የመጨረሻው ችሎት"
-      },
-      "text": {
-        "en": "Sealed. To be opened in cinemas.",
-        "am": "የታሸገ። በሲኒማ ቤቶች ይከፈታል።"
-      }
+      "season": 1,
+      "ep": 6,
+      "image": "assets/img/verdicts/s1-e06-800.webp",
+      "text": "ዐቃቤ ንጉሴ በሃላፊነቱ ላይ ባሳየው ቸልተኝነት እና የፍርድ ቤቱን ውድ ጊዜ በማባከኑ በአሳማ ማደለቢያ ውስጥ ለ6 ወር እንዲታሰር ተፈረደበት!"
+    },
+    {
+      "season": 1,
+      "ep": 7,
+      "image": "assets/img/verdicts/s1-e07-800.webp",
+      "text": "በሚስጥር ዘረኛው ያዕቆብ መርዕድ በጣም ጥቁር በሆኑ ተቆጣጣሪ እየተጠበቀ በቁንጣ የመንግስት እርሻ የ25 አመት የጉልበት ሥራ እንዲሰራ ተፈረደበት!"
+    },
+    {
+      "season": 1,
+      "ep": 8,
+      "image": "assets/img/verdicts/s1-e08-800.webp",
+      "text": "የእብደት መምህርቷ በአብሪ ኮኮብ የአዕምሮ ሆስፒታል የመጨረሻ አሰቃቂ ዋርድ ኢፉ ተለጉማና በእብድ ጃኬት ውስጥ ተጠፍራ እድሜ ልክ እንድትታሰር ተፈረደባት!"
+    },
+    {
+      "season": 1,
+      "ep": 9,
+      "image": "assets/img/verdicts/s1-e09-800.webp",
+      "text": "ቅዝብት ችሎት፦ የእጁን ያገኘዉ የጮሌው ተከሳሽ ታሪክ እና አስገራሚው የወረዳ 06 ችሎት ውሎ"
+    },
+    {
+      "season": 1,
+      "ep": 10,
+      "image": "assets/img/verdicts/s1-e10-800.webp",
+      "text": "ተከሳሽ አለምነሽ ማስብን በአስከፊ ሁኔታ እንድትፈራ እና የማስታውስ ችሎታዋን የሚያጠፉ ህክምና ተሰጥቷት ቀሪ ህይወቷን በደመ-ነፍስ እንድትመራ ተወሰነባት!"
+    },
+    {
+      "season": 1,
+      "ep": 11,
+      "image": "assets/img/verdicts/s1-e11-800.webp",
+      "text": "አስር አለቃው የእስረኛ ድርሻው በግማሽ ተቀንሶበት በአስቸኳይ ወደ ሥራ ገበታው እንዲመለስ፤ በተቃራኒው የወዳጁ የሳጅን ተሾመ ኮታ ግን በእጥፍ እንዲጨመር ተፈረደ!"
+    },
+    {
+      "season": 1,
+      "ep": 12,
+      "image": "assets/img/verdicts/s1-e12-800.webp",
+      "text": "የድል ዜና! የወረዳ 06 ችሎት የአሜሪካን ኢንፔሪያሊዝም እና ቀሪውን ዓለም አስተማረ!"
     }
   ],
   "milestones": [

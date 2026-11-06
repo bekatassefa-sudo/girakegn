@@ -36,7 +36,7 @@ The production team edits content at **`https://<domain>/admin`** (Decap CMS) �
 Every change is saved as a separate version with the editor's name, so anything can be traced or rolled back.
 
 **What's editable:** episodes (YouTube links, publish / unpublish, featured), production diary, crowdfunding figures, levels,
-use of funds, partner packages, ጓድ credit names, cast & crew, case files, milestones, FAQ, release date, social links, cities.
+use of funds, partner packages, ጓድ credit names, cast & crew, case verdicts, milestones, FAQ, release date, social links, cities.
 (Page copy written into the HTML — headlines and long text — is edited by the web team.)
 
 **Public submissions are moderated too.** All six forms (producer registration, ጓድ name, partner enquiry, ambassador,

@@ -200,7 +200,7 @@ collections:
 
   # ------------------------------------------------------------------
   - name: film
-    label: "The Film (cast, crew, cases, milestones)"
+    label: "The Film (cast, crew, verdicts, milestones)"
     editor: { preview: false }
     files:
       - name: film
@@ -226,15 +226,16 @@ collections:
             fields:
               - { name: name, label: "Name", widget: string }
               - { name: role, label: "Role", widget: object, fields: *bi }
-          - name: cases
-            label: "Case files"
+          - name: verdicts
+            label: "Case verdicts (The Story)"
+            label_singular: "verdict"
             widget: list
-            summary: "{{fields.no}} · {{fields.title.en}}"
+            summary: "Season {{fields.season}} · Episode {{fields.ep}}"
             fields:
-              - { name: no, label: "File number", widget: string }
-              - { name: season, label: "Season (1, 2 or “film” for the sealed file)", widget: string }
-              - { name: title, label: "Title", widget: object, fields: *bi }
-              - { name: text, label: "Summary", widget: object, fields: *bitext }
+              - { name: season, label: "Season", widget: number, value_type: int, min: 1 }
+              - { name: ep, label: "Episode (the tile opens this episode)", widget: number, value_type: int, min: 1 }
+              - { name: image, label: "Verdict tile", widget: image, hint: "16:9, about 800×450. WebP or JPG." }
+              - { name: text, label: "Verdict text (read aloud by screen readers)", widget: text }
           - name: milestones
             label: "Production milestones (Transparency, Movie)"
             widget: list

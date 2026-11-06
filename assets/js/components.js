@@ -150,35 +150,19 @@
     }));
   };
 
-  /* ---------- Case files ---------- */
-  R.cases = (el) => {
-    el.classList.add("case-grid");
+  /* ---------- Case verdicts: each tile opens its episode on the Series page ---------- */
+  R.verdicts = (el) => {
+    el.classList.add("verdict-grid");
     el.setAttribute("data-stagger", "");
-    el.innerHTML = C.cases.map((c) => {
-      const sealed = c.season === "film";
-      const season = sealed ? t("film") : `${t("season")} ${c.season}`;
+    el.innerHTML = C.verdicts.map((v) => {
+      const label = `${t("season")} ${v.season} · ${t("episode")} ${v.ep}`;
       return `
-      <button type="button" class="case ${sealed ? "sealed" : ""}" aria-pressed="false">
-        <span class="case-inner">
-          <span class="case-face case-front">
-            <span class="case-no">FILE NO. ${esc(c.no)}</span>
-            <span class="case-stamp">${esc(sealed ? t("sealed") : t("closed"))}</span>
-            <span class="case-title">${esc(L(c.title))}</span>
-            <span class="case-meta"><span>${esc(season)}</span><span>${esc(t("open"))} →</span></span>
-          </span>
-          <span class="case-face case-back">
-            <span class="case-no">FILE NO. ${esc(c.no)} · ${esc(season)}</span>
-            <span class="case-text">${esc(L(c.text))}</span>
-            <span class="case-close">← ${esc(t("closeFile"))}</span>
-          </span>
-        </span>
-      </button>`;
+      <a class="verdict" href="series.html?s=${+v.season}&e=${+v.ep}#watch">
+        <img src="${esc(v.image)}" width="800" height="450" loading="lazy" alt="${esc(label)}: ${esc(v.text)}">
+        <span class="verdict-meta"><span>${esc(label)}</span><span>${esc(t("watch"))} →</span></span>
+      </a>`;
     }).join("");
   };
-  document.addEventListener("click", (e) => {
-    const c = e.target.closest(".case");
-    if (c) c.setAttribute("aria-pressed", c.classList.toggle("open"));
-  });
 
   /* ---------- Cast & crew ---------- */
   const SIL = `<svg class="silhouette" viewBox="0 0 200 220" aria-hidden="true"><path d="M100 18c26 0 42 20 42 46 0 22-10 40-24 48v10c38 8 68 30 74 70v28H8v-28c6-40 36-62 74-70v-10c-14-8-24-26-24-48 0-26 16-46 42-46z"/></svg>`;
