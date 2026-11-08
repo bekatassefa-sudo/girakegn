@@ -1304,17 +1304,28 @@ html[lang="am"] .menu-label { font-family: var(--f-ethi); font-weight: 500; }
     position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; justify-content: safe center;
     padding: 18px 18px; overflow-y: auto; background: rgba(13, 11, 9, .74);
     transform: scaleX(-1); /* cancels the frame's flip so the text reads normally */
-    opacity: 0; visibility: hidden; transition: opacity .2s ease, visibility 0s .2s;
+    /* turning back: the text fades as the card passes edge-on, halfway through */
+    opacity: 0; visibility: hidden; transition: opacity .3s ease .18s, visibility 0s .5s;
   }
-  .poster.is-flipped .poster-frame { transform: perspective(1100px) rotateY(180deg); transition: transform .7s var(--ease), box-shadow .4s; }
+  /* A slow, even turn (eases in and out like a card turned by hand), lifting slightly
+     off the page as it passes edge-on and settling back down. */
+  .poster-frame { transition: transform 1.3s cubic-bezier(.45, .05, .25, 1), box-shadow .6s; }
+  /* phones keep :hover after a tap; don't let the desktop hover speed rush the turn */
+  .poster:hover .poster-frame { transition-duration: 1.3s, .6s; }
+  .poster.is-flipped .poster-frame { transform: perspective(1100px) rotateY(180deg); animation: poster-lift 1.3s cubic-bezier(.45, .05, .25, 1); }
+  .poster.was-flipped .poster-frame { animation: poster-lift-back 1.3s cubic-bezier(.45, .05, .25, 1); }
   .poster.is-flipped .poster-frame img { filter: brightness(.55) saturate(.7); }
-  .poster.is-flipped .poster-back { opacity: 1; visibility: visible; transition: opacity .25s ease .3s, visibility 0s .3s; }
+  .poster.is-flipped .poster-back { opacity: 1; visibility: visible; transition: opacity .5s ease .65s, visibility 0s .65s; }
   .poster.is-flipped .poster-bio { opacity: 0; }
   .poster-back-name { margin: 0 0 10px; font: 800 22px/1.1 var(--f-display); color: var(--paper); }
   html[lang="am"] .poster-back-name { font-family: var(--f-ethi); font-weight: 900; }
   .poster-back-text { font-size: 14px; line-height: 1.55; color: var(--paper); }
-  .poster-frame img { transition: transform 1.4s var(--ease), filter .5s ease .2s; }
+  .poster-frame img { transition: transform 1.4s var(--ease), filter .7s ease .35s; }
+  .poster-bio { transition: opacity .6s ease; }
 }
+@keyframes poster-lift { 0%, 100% { scale: 1; } 50% { scale: 1.05; } }
+@keyframes poster-lift-back { 0%, 100% { scale: 1; } 50% { scale: 1.05; } }
 @media (max-width: 640px) and (prefers-reduced-motion: reduce) {
   .poster.is-flipped .poster-frame { transform: scaleX(-1) !important; transition: none; }
+  .poster.is-flipped .poster-frame, .poster.was-flipped .poster-frame { animation: none; }
 }

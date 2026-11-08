@@ -230,6 +230,7 @@
     if (matchMedia("(max-width: 640px)").matches) {
       cards.forEach((c, i) => {
         const on = i === idx && !c.classList.contains("is-flipped");
+        c.classList.toggle("was-flipped", !on && c.classList.contains("is-flipped"));
         c.classList.toggle("is-flipped", on);
         c.setAttribute("aria-expanded", on);
         $(".poster-back", c).setAttribute("aria-hidden", !on);
