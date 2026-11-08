@@ -148,6 +148,7 @@ collections:
                   - { name: featured, label: "Highlight this level (also pre-selected in the pledge pop-up)", widget: boolean, default: false, required: false }
                   - { name: guad, label: "Qualifies for the ጓድ credit roll", widget: boolean, default: false, required: false }
                   - { name: plus, label: "Open-ended amount (shows “& plus” after the price)", widget: boolean, default: false, required: false }
+                  - { name: localOnly, label: "Ethiopia only (hide this level from the Diaspora USD list)", widget: boolean, default: false, required: false }
                   - name: local
                     label: "In Ethiopia (ETB)"
                     widget: object

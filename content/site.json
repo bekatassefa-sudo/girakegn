@@ -1,6 +1,6 @@
 {
   "site": {
-    "showCountdown": true,
+    "showCountdown": false,
     "releaseDate": "2027-09-11T18:00:00+03:00",
     "releaseLabel": {
       "en": "In Cinemas – 2027 G.C / 2020 E.C",

@@ -130,6 +130,7 @@
       </div>
       <div class="tiers" data-stagger>
         ${C.crowdfunding.tiers.map((tier, i) => {
+          if (market === "diaspora" && tier.localOnly) return "";
           const m = tier[market] || {};
           return `
           <article class="tier ${tier.featured ? "featured" : ""} ${tier.guad ? "is-guad" : ""}">
@@ -665,6 +666,7 @@
      layered on top and moved a few pixels, so the artwork itself appears to move.
      Vector extras (banknotes, reel spokes, glints) are drawn on top. */
   const EMBLEM = "assets/img/campaign/peoples-film-emblem.webp";
+  const EMBLEM_ALT = "assets/img/campaign/peoples-film-emblem-female.webp";
   const NOTES = [ // banknotes rising from the crowd into the fist: [path, start delay s]
     ["M150 640 C 90 470, 160 300, 300 205", 0],
     ["M230 625 C 200 470, 200 330, 320 215", 0.7],
@@ -755,7 +757,8 @@
 
         <g clip-path="url(#em-c-banner)" class="em-glint-wrap"><rect class="em-glint" x="-260" y="620" width="200" height="320" fill="url(#em-glint-g)"/></g>
         <g clip-path="url(#em-c-strips)" class="em-glint-wrap"><rect class="em-run" x="330" y="1060" width="70" height="50" fill="url(#em-glint-g)"/></g>
-      </svg>`;
+      </svg>
+      <img class="emblem-alt" src="${EMBLEM_ALT}" width="1254" height="1254" alt="" loading="lazy">`;
 
     // Animate only while on screen (saves battery); never for reduced-motion users.
     const svg = $("svg", el);

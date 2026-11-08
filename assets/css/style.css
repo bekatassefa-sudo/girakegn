@@ -1277,3 +1277,20 @@ html[lang="am"] .merch-buy b { font-family: var(--f-ethi); }
 .menu-no { font: 400 11px var(--f-body); color: var(--muted); }
 .menu-label, html[lang="am"] .menu-label { font: 400 18px/1.35 var(--f-body); letter-spacing: .01em; }
 html[lang="am"] .menu-label { font-family: var(--f-ethi); font-weight: 500; }
+
+/* Countdown switched off in Site settings */
+.countdown[hidden] { display: none; }
+
+/* The two campaign emblems take turns; the animated one stays alone for reduced motion */
+.emblem-alt { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; border-radius: 3px; opacity: 0; pointer-events: none; }
+.is-playing .emblem-alt { animation: emblem-swap 16s ease-in-out infinite; }
+@keyframes emblem-swap { 0%, 42% { opacity: 0; } 50%, 92% { opacity: 1; } 100% { opacity: 0; } }
+
+/* What the three characters add up to, under their posters */
+.triad { margin-top: clamp(48px, 7vw, 80px); }
+.triad > .lede { max-width: 720px; margin: 0 0 28px; }
+
+/* Four levels (Diaspora USD) sit two by two rather than three and one */
+@media (min-width: 641px) and (max-width: 1160px) {
+  .tiers:has(> .tier:nth-child(4):last-child) .tier { flex-basis: 40%; }
+}

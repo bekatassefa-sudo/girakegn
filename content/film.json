@@ -8,16 +8,16 @@
       "photo": "assets/img/cast/michael-tamire-prosecutor-1099.webp",
       "photoSmall": "assets/img/cast/michael-tamire-prosecutor-600.webp",
       "role": {
-        "en": "The Prosecutor",
-        "am": "ዐቃቤ ሕጉ"
+        "en": "The Zealous Prosecutor (Comrade Prosecutor)",
+        "am": "ዐቃቤ"
       },
       "bio": {
-        "en": "Loyal to the file in front of him, and to whoever wrote it.",
-        "am": "ፊቱ ላለው ፋይል እና ለጻፈው ታማኝ።"
+        "en": "The state prosecutor responsible for charging citizens with absurd “crimes against the revolution.”",
+        "am": "ዜጎችን “በአብዮቱ ላይ በተፈጸሙ ወንጀሎች” በሚል አስቂኝ ክስ የሚከስ የመንግሥት ዐቃቤ ሕግ።"
       },
       "about": {
-        "en": "The Prosecutor arrives with every file already decided. Charming in the corridor and merciless at the bench, he serves the law as it is written — and whoever is holding the pen. Michael Tamire brings him back to the courtroom, where his open hand is never quite as open as it looks.",
-        "am": "ዐቃቤ ሕጉ እያንዳንዱን መዝገብ ቀድሞ ወስኖ ይመጣል። በኮሪደሩ ተግባቢ፣ በችሎቱ ርኅራኄ የለሽ ነው፤ ሕጉን እንደተጻፈው — እና ብዕሩን ለያዘው ሰው — ያገለግላል። ሚካኤል ታምሬ ወደ ችሎቱ ይመልሰዋል፤ የተዘረጋው እጁ እንደሚመስለው ክፍት አይደለም።"
+        "en": "The state prosecutor responsible for charging citizens with absurd “crimes against the revolution.” Driven by extreme ideological fervor, the Prosecutor treats every trivial incident—from local superstitions to everyday grievances—as a dangerous political conspiracy against the state.",
+        "am": "ዜጎችን “በአብዮቱ ላይ በተፈጸሙ ወንጀሎች” በሚል አስቂኝ ክስ የሚከስ የመንግሥት ዐቃቤ ሕግ። በከፍተኛ የርዕዮተ ዓለም ስሜት የሚነዳው ዐቃቤ ሕጉ፣ እያንዳንዱን ጥቃቅን ክስተት — ከአካባቢ አጉል እምነቶች እስከ የዕለት ተዕለት ቅሬታዎች — በመንግሥት ላይ እንደተጠነሰሰ አደገኛ የፖለቲካ ሴራ ይቆጥረዋል።"
       }
     },
     {
@@ -28,16 +28,16 @@
       "photo": "assets/img/cast/abebe-balcha-judge-1099.webp",
       "photoSmall": "assets/img/cast/abebe-balcha-judge-600.webp",
       "role": {
-        "en": "The Presiding Judge",
-        "am": "ሰብሳቢ ዳኛው"
+        "en": "The Party-Loyal Judge (Comrade Judge)",
+        "am": "ጓድ ዳኛ"
       },
       "bio": {
-        "en": "Believes the law can still stand upright — even when the times lean.",
-        "am": "ዘመኑ ቢያዘነብልም ሕግ ቀጥ ብሎ መቆም ይችላል ብሎ ያምናል።"
+        "en": "The presiding judge and voice of revolutionary ideology.",
+        "am": "ሰብሳቢ ዳኛው እና የአብዮታዊ ርዕዮተ ዓለም ድምጽ።"
       },
       "about": {
-        "en": "The Presiding Judge believes the law can still stand upright, even when the times lean. Every hearing tests that belief a little more. Abebe Balcha returns as the man in the middle of the court — and of the story — who must decide whether to follow the law or the times.",
-        "am": "ሰብሳቢ ዳኛው ዘመኑ ቢያዘነብልም ሕግ ቀጥ ብሎ መቆም ይችላል ብሎ ያምናል። እያንዳንዱ ችሎት ያንን እምነት ይፈትነዋል። አበበ ባልቻ በችሎቱም በታሪኩም መሃል ያለውን ሰው ሆኖ ይመለሳል — ሕጉን ወይስ ዘመኑን መከተል እንዳለበት የሚወስነው።"
+        "en": "The presiding judge and voice of revolutionary ideology. Despite his outward display of total allegiance to the revolution, his decisions frequently expose his underlying self-preservation instincts and ignorance of actual law.",
+        "am": "ሰብሳቢ ዳኛው እና የአብዮታዊ ርዕዮተ ዓለም ድምጽ። ለአብዮቱ ፍጹም ታማኝ መስሎ ቢታይም፣ ውሳኔዎቹ ራሱን የማዳን ውስጣዊ ፍላጎቱን እና ስለ ትክክለኛው ሕግ ያለውን አለማወቅ በተደጋጋሚ ያጋልጣሉ።"
       }
     },
     {
@@ -48,16 +48,16 @@
       "photo": "assets/img/cast/girum-zenebe-defence-1099.webp",
       "photoSmall": "assets/img/cast/girum-zenebe-defence-600.webp",
       "role": {
-        "en": "The Defence Advocate",
-        "am": "ተከላካይ ጠበቃው"
+        "en": "The Defense Counsel / Public Defender",
+        "am": "የተከላካይ ጠበቃ"
       },
       "bio": {
-        "en": "Sharp, stubborn, and running out of places to stand.",
-        "am": "ብልህ፣ ቆራጥ፣ ግን የሚቆምበት ቦታ እያጣ ያለ።"
+        "en": "The court-appointed defense attorney attempting to represent the accused.",
+        "am": "ተከሳሾችን ለመወከል የሚሞክር በፍርድ ቤት የተመደበ ተከላካይ ጠበቃ።"
       },
       "about": {
-        "en": "The Defence Advocate is sharp, stubborn and running out of places to stand. He takes the cases nobody else will, and smiles through the ones he cannot win. Girum Zenebe returns as the voice for the accused — the one person in the room still arguing that everyone deserves a defence.",
-        "am": "ተከላካይ ጠበቃው ብልህ፣ ቆራጥ ግን የሚቆምበት ቦታ እያጣ ያለ ሰው ነው። ሌሎች የማይቀበሏቸውን ጉዳዮች ይቀበላል፤ ማሸነፍ በማይችላቸውም ፈገግ ይላል። ግሩም ዘነበ የተከሳሾች ድምጽ ሆኖ ይመለሳል — ሁሉም ሰው ተከላካይ ይገባዋል ብሎ አሁንም የሚከራከረው ብቸኛ ሰው።"
+        "en": "The court-appointed defense attorney attempting to represent the accused. His character acts as the audience proxy—the lone voice of reason and sanity operating inside an inherently broken system.",
+        "am": "ተከሳሾችን ለመወከል የሚሞክር በፍርድ ቤት የተመደበ ተከላካይ ጠበቃ። ገጸ ባሕሪው የተመልካቹ ወኪል ነው — ከመሠረቱ በተሰበረ ሥርዓት ውስጥ የሚንቀሳቀስ ብቸኛ የምክንያታዊነት እና የጤናማነት ድምጽ።"
       }
     },
     {
