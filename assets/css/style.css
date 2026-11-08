@@ -1294,3 +1294,27 @@ html[lang="am"] .menu-label { font-family: var(--f-ethi); font-weight: 500; }
 @media (min-width: 641px) and (max-width: 1160px) {
   .tiers:has(> .tier:nth-child(4):last-child) .tier { flex-basis: 40%; }
 }
+
+/* Phones: tapping a character poster flips it over where it stands. The artwork shows
+   through mirrored and dimmed, with the description readable on top. Larger screens
+   keep the side/below description panel and never show the back. */
+.poster-back { display: none; }
+@media (max-width: 640px) {
+  .poster-back {
+    position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; justify-content: safe center;
+    padding: 18px 18px; overflow-y: auto; background: rgba(13, 11, 9, .74);
+    transform: scaleX(-1); /* cancels the frame's flip so the text reads normally */
+    opacity: 0; visibility: hidden; transition: opacity .2s ease, visibility 0s .2s;
+  }
+  .poster.is-flipped .poster-frame { transform: perspective(1100px) rotateY(180deg); transition: transform .7s var(--ease), box-shadow .4s; }
+  .poster.is-flipped .poster-frame img { filter: brightness(.55) saturate(.7); }
+  .poster.is-flipped .poster-back { opacity: 1; visibility: visible; transition: opacity .25s ease .3s, visibility 0s .3s; }
+  .poster.is-flipped .poster-bio { opacity: 0; }
+  .poster-back-name { margin: 0 0 10px; font: 800 22px/1.1 var(--f-display); color: var(--paper); }
+  html[lang="am"] .poster-back-name { font-family: var(--f-ethi); font-weight: 900; }
+  .poster-back-text { font-size: 14px; line-height: 1.55; color: var(--paper); }
+  .poster-frame img { transition: transform 1.4s var(--ease), filter .5s ease .2s; }
+}
+@media (max-width: 640px) and (prefers-reduced-motion: reduce) {
+  .poster.is-flipped .poster-frame { transform: scaleX(-1) !important; transition: none; }
+}

@@ -9,6 +9,14 @@
   const FILES = ["site", "series", "campaign", "credits", "film", "news", "faq", "merch"];
   const SCRIPTS = ["assets/js/core.js", "assets/js/components.js"];
 
+  // Start downloading the site scripts now, alongside the content, instead of one after
+  // another (each trip to the server costs a few hundred ms on mobile). They still run in order.
+  SCRIPTS.forEach((src) => {
+    const l = document.createElement("link");
+    l.rel = "preload"; l.as = "script"; l.href = src;
+    document.head.append(l);
+  });
+
   const load = (src) => new Promise((res, rej) => {
     const s = document.createElement("script");
     s.src = src; s.onload = res; s.onerror = rej;

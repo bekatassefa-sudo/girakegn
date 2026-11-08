@@ -176,7 +176,8 @@
     const am = X.lang === "am";
     const poster = (p, i) => {
       const actor = L(p.actor), role = L(p.role);
-      const srcset = p.photoSmall ? `srcset="${esc(p.photoSmall)} 600w, ${esc(p.photo)} 1099w" sizes="(max-width: 640px) 90vw, (max-width: 920px) 45vw, 380px"` : "";
+      const sizes = [[p.photoSmall, 600], [p.photoMedium, 900], [p.photo, 1099]].filter(([src]) => src);
+      const srcset = sizes.length > 1 ? `srcset="${sizes.map(([src, w]) => `${esc(src)} ${w}w`).join(", ")}" sizes="(max-width: 640px) 80vw, (max-width: 920px) 45vw, 380px"` : "";
       return `
       <figure class="poster" tabindex="0" role="button" aria-expanded="false" data-poster="${i}"
               aria-label="${esc(am ? `${actor} — ${role}፤ ተጨማሪ ለማንበብ ይጫኑ` : `${actor}, ${role}. Read more`)}">
@@ -184,6 +185,11 @@
           <img src="${esc(p.photo)}" ${srcset} width="1099" height="1431" loading="lazy" decoding="async"
                alt="${esc(am ? `${actor} — ${role}` : `${actor} as ${role}, character poster`)}">
           <span class="poster-glare" aria-hidden="true"></span>
+          <span class="poster-back" aria-hidden="true">
+            <span class="poster-panel-kicker">${esc(role)}</span>
+            <span class="poster-back-name">${esc(actor)}</span>
+            <span class="poster-back-text">${esc(L(p.about) || L(p.bio))}</span>
+          </span>
         </div>
         <figcaption>
           <span class="poster-role">${esc(role)}</span>
@@ -220,6 +226,17 @@
     const row = $(".poster-row", stage), panel = $(".poster-panel", stage);
     const cards = $$(".poster", row);
     const wide = matchMedia("(min-width: 921px)").matches;
+    // Phones: the tapped poster flips over in place and shows its description on the back.
+    if (matchMedia("(max-width: 640px)").matches) {
+      cards.forEach((c, i) => {
+        const on = i === idx && !c.classList.contains("is-flipped");
+        c.classList.toggle("is-flipped", on);
+        c.setAttribute("aria-expanded", on);
+        $(".poster-back", c).setAttribute("aria-hidden", !on);
+      });
+      stage._focus = null;
+      return;
+    }
     const close = () => {
       stage.classList.remove("is-focused");
       cards.forEach((c) => { c.style.transform = ""; c.classList.remove("is-active"); c.setAttribute("aria-expanded", "false"); });
@@ -758,7 +775,7 @@
         <g clip-path="url(#em-c-banner)" class="em-glint-wrap"><rect class="em-glint" x="-260" y="620" width="200" height="320" fill="url(#em-glint-g)"/></g>
         <g clip-path="url(#em-c-strips)" class="em-glint-wrap"><rect class="em-run" x="330" y="1060" width="70" height="50" fill="url(#em-glint-g)"/></g>
       </svg>
-      <img class="emblem-alt" src="${EMBLEM_ALT}" width="1254" height="1254" alt="" loading="lazy">`;
+      <img class="emblem-alt" src="${EMBLEM_ALT}" width="900" height="900" alt="" loading="lazy" decoding="async">`;
 
     // Animate only while on screen (saves battery); never for reduced-motion users.
     const svg = $("svg", el);
