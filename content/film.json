@@ -8,6 +8,7 @@
       "photo": "assets/img/cast/michael-tamire-prosecutor-1099.webp",
       "photoSmall": "assets/img/cast/michael-tamire-prosecutor-600.webp",
       "photoMedium": "assets/img/cast/michael-tamire-prosecutor-900.webp",
+      "color": "#8e1a10",
       "role": {
         "en": "The Zealous Prosecutor (Comrade Prosecutor)",
         "am": "ዐቃቤ"
@@ -29,6 +30,7 @@
       "photo": "assets/img/cast/abebe-balcha-judge-1099.webp",
       "photoSmall": "assets/img/cast/abebe-balcha-judge-600.webp",
       "photoMedium": "assets/img/cast/abebe-balcha-judge-900.webp",
+      "color": "#1e2c30",
       "role": {
         "en": "The Party-Loyal Judge (Comrade Judge)",
         "am": "ጓድ ዳኛ"
@@ -50,6 +52,7 @@
       "photo": "assets/img/cast/girum-zenebe-defence-1099.webp",
       "photoSmall": "assets/img/cast/girum-zenebe-defence-600.webp",
       "photoMedium": "assets/img/cast/girum-zenebe-defence-900.webp",
+      "color": "#4f462b",
       "role": {
         "en": "The Defense Counsel / Public Defender",
         "am": "የተከላካይ ጠበቃ"

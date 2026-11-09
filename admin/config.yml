@@ -218,6 +218,7 @@ collections:
               - { name: photo, label: "Character poster (large, ~1100px wide)", widget: image, required: false, hint: "Portrait poster, 1099×1431 or similar 3:4 shape. WebP or JPG." }
               - { name: photoSmall, label: "Character poster (small, ~600px wide, for phones)", widget: image, required: false }
               - { name: photoMedium, label: "Character poster (medium, ~900px wide, for sharp phone screens)", widget: image, required: false }
+              - { name: color, label: "Description panel colour (the poster's main colour, e.g. #8e1a10)", widget: string, required: false }
               - { name: role, label: "Character", widget: object, fields: *bi }
               - { name: bio, label: "Character line", widget: object, fields: *bitext }
               - { name: about, label: "Full description (shown when the poster is clicked)", widget: object, required: false, fields: *bitext }

@@ -1122,6 +1122,39 @@ html, body { overflow-x: hidden; overflow-x: clip; }
 .poster-panel[hidden] { display: none; }
 .poster-panel:not(.is-open) { pointer-events: none; }
 
+/* Laptops: the description is a card alongside the poster's frame, in the poster's own
+   main colour (--pc, from the cast entry), unfolding from the poster's right edge so it
+   reads as an extension of it. */
+.poster-panel { --pc: #2a1d14; }
+@media (min-width: 921px) {
+  .poster-stage { container-type: inline-size; }
+  .poster-panel {
+    --col: calc((100cqw - 2 * var(--pgap)) / 3);   /* one poster column (cqw: always width-based) */
+    /* runs from the poster's edge to the right edge of the screen, only as tall as the
+       text, centred on the poster frame's side */
+    top: calc(var(--col) * 1.3021 / 2); bottom: auto; right: auto; left: var(--col);
+    width: calc(100cqw - var(--col) + (100vw - 100cqw) / 2);
+    translate: 0 -50%; max-height: calc(var(--col) * 1.3021);
+    justify-content: safe center; overflow-y: auto; padding: clamp(22px, 2.2vw, 34px) clamp(22px, 2.2vw, 34px) clamp(24px, 2.4vw, 36px);
+    background: linear-gradient(90deg, var(--pc), color-mix(in srgb, var(--pc) 72%, #000));
+    border-left: 0; border-radius: 0;
+    box-shadow: 0 50px 80px -36px rgba(0, 0, 0, .95);
+    opacity: 1; transform: none; clip-path: inset(0 100% 0 0);
+    transition: clip-path .5s cubic-bezier(.6, 0, .8, .4);   /* closing: folds back into the poster */
+  }
+  /* opening: unfolds once the poster has glided into place */
+  .poster-panel.is-open { clip-path: inset(0 0 0 0); transition: clip-path .85s var(--ease) .5s; }
+  .poster-panel-text { max-width: 68ch; }
+  .poster-panel-kicker { color: rgba(233, 223, 199, .78); }
+  .poster-panel-name { font-size: clamp(24px, 2.3vw, 34px); margin-bottom: 14px; }
+  .poster-panel-text { font-size: clamp(15px, 1.3vw, 18px); line-height: 1.7; color: var(--paper); }
+  .poster-close { width: 38px; height: 38px; font-size: 22px; top: 10px; right: 10px; border-color: rgba(233, 223, 199, .35); }
+}
+@media (max-width: 920px) {
+  .poster-panel { background: linear-gradient(180deg, var(--pc), color-mix(in srgb, var(--pc) 72%, #000)); }
+  .poster-panel-kicker { color: rgba(233, 223, 199, .78); }
+}
+
 /* =====================================================================
    AGED PAPER — the whole site sits on worn, foxed umber paper
    (texture: assets/img/brand/aged-paper.webp, a seamless 1024px tile

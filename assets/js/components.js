@@ -238,16 +238,24 @@
       stage._focus = null;
       return;
     }
+    // Closing runs in reverse: the description folds back into the poster first, then the
+    // poster glides home and the others come back.
     const close = () => {
-      stage.classList.remove("is-focused");
-      cards.forEach((c) => { c.style.transform = ""; c.classList.remove("is-active"); c.setAttribute("aria-expanded", "false"); });
       panel.classList.remove("is-open");
-      setTimeout(() => { if (!stage.classList.contains("is-focused")) panel.hidden = true; }, X.reduced ? 0 : 450);
+      clearTimeout(stage._closing);
+      stage._closing = setTimeout(() => {
+        if (stage._focus != null) return;        // reopened in the meantime
+        panel.hidden = true;
+        stage.classList.remove("is-focused");
+        cards.forEach((c) => { c.style.transform = ""; c.classList.remove("is-active"); c.setAttribute("aria-expanded", "false"); });
+      }, X.reduced ? 0 : 560);
     };
     if (idx == null || stage._focus === idx) { stage._focus = null; return close(); }
+    clearTimeout(stage._closing);
     stage._focus = idx;
     const p = C.cast.filter((x) => x.photo)[idx];
     const am = X.lang === "am";
+    panel.style.setProperty("--pc", p.color || "");
     panel.innerHTML = `
       <button type="button" class="poster-close" aria-label="${am ? "ዝጋ" : "Close"}">×</button>
       <p class="poster-panel-kicker">${esc(L(p.role))}</p>
