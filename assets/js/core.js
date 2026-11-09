@@ -497,7 +497,91 @@
     v.muted = true;          // some browsers need the property set, not just the attribute
     new IntersectionObserver(([en]) => { en.isIntersecting ? v.play().catch(() => {}) : v.pause(); }).observe(v);
   }
-  const start = () => { applyLang(); initDrift(); initCurtain(); initHeroVideo(); };
+
+  // The projector at the left: aim its beam at the film, and run the lamp's flicker.
+  function initProjector() {
+    const hero = $(".hero"), pj = $(".projector"), beam = $(".beam"), v = $(".hero-video");
+    if (!hero || !pj || !beam || !v) return;
+    const polys = $$(".beam-haze, .beam-core, #beam-clip polygon", beam), grad = $("#beam-fill"), lens = $(".lens", pj);
+    const dust = $(".beam-dust", beam);
+    const title = $(".title-art");
+    const aim = () => {
+      const h = hero.getBoundingClientRect(), r = v.getBoundingClientRect();
+      const L = r.left - h.left, R = r.right - h.left, T = r.top - h.top, B = r.bottom - h.top;
+      // Sit the projector low, beside the top of the ግራ ቀኝ artwork; the beam crosses over it
+      // on its long way up to the film.
+      let l = lens.getBoundingClientRect();
+      let lx = l.left - h.left + l.width / 2, ly = l.top - h.top + l.height / 2;
+      const t = title ? title.getBoundingClientRect() : null;
+      const want = t && t.height ? t.top - h.top + t.height * 0.4 : (T + B) / 2;
+      pj.style.setProperty("--pj-top", `${parseFloat(getComputedStyle(pj).top) + want - ly}px`);
+      // A true cone from the lens: its two edges run to the film's outermost corners, and the
+      // projector is turned to point straight down the middle, so the light spreads at equal
+      // angles either side of it. (It pivots on the lens, so re-measure once after turning.)
+      let up, down;
+      for (let pass = 0; pass < 2; pass++) {
+        l = lens.getBoundingClientRect();
+        lx = l.left - h.left + l.width / 2; ly = l.top - h.top + l.height / 2;
+        const ang = [[L, T], [R, T], [R, B], [L, B]].map(([x, y]) => ({ x, y, a: Math.atan2(y - ly, x - lx) }));
+        up = ang.reduce((m, c) => (c.a < m.a ? c : m));
+        down = ang.reduce((m, c) => (c.a > m.a ? c : m));
+        pj.style.setProperty("--pj-tilt", `${((up.a + down.a) / 2) * 180 / Math.PI}deg`);
+      }
+      const mid = (up.a + down.a) / 2, sx = 3 * Math.sin(mid), sy = 3 * Math.cos(mid);
+      // the cone's outline: lens → outer corner on one side, round the far side of the film → outer corner on the other
+      const order = [[L, T], [R, T], [R, B], [L, B]];
+      const i0 = order.findIndex(([x, y]) => x === up.x && y === up.y);
+      const far = [];
+      for (let i = i0; ; i = (i + 1) % 4) { far.push(order[i]); if (order[i][0] === down.x && order[i][1] === down.y) break; }
+      const pts = [[lx + sx, ly - sy], ...far, [lx - sx, ly + sy]].map((p) => p.join(",")).join(" ");
+      polys.forEach((p) => p.setAttribute("points", pts));
+      ["x1", "y1", "x2", "y2"].forEach((k, i) => grad.setAttribute(k, [lx, ly, R, (T + B) / 2][i]));
+      // dust motes scattered along the beam (redrawn when the size changes)
+      if (!reduced) {
+        dust.innerHTML = Array.from({ length: 34 }, () => {
+          const f = Math.random(), x = lx + (L - lx) * f * 1.05, spread = 6 + ((B - T) / 2) * f;
+          const y = ly + ((T + B) / 2 - ly) * f + (Math.random() * 2 - 1) * spread;
+          return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${(0.6 + Math.random() * 1.4).toFixed(2)}" style="--d:${(7 + Math.random() * 9).toFixed(1)}s;--delay:-${(Math.random() * 16).toFixed(1)}s;--dx:${(Math.random() * 60 - 20).toFixed(0)}px;--dy:${(Math.random() * 40 - 25).toFixed(0)}px;--o:${(0.25 + Math.random() * 0.5).toFixed(2)}"/>`;
+        }).join("");
+      }
+    };
+    aim();
+    addEventListener("resize", aim);
+    if (document.fonts) document.fonts.ready.then(aim);
+    v.addEventListener("loadedmetadata", aim);
+    setTimeout(aim, 2000);   // after the hero and projector have finished sliding into place
+    if (reduced) return;     // no motion: a steady beam, still reels
+
+    // Lamp: a soft 24-frames-a-second shimmer, and every few seconds a stutter where the
+    // light catches and drops out for a moment — the picture goes with it.
+    const STUTTERS = [
+      [[0.15, 70], [1, 60], [0.35, 90]],
+      [[0.05, 140], [0.9, 50], [0.2, 60]],
+      [[0.4, 50], [1, 80], [0.1, 110], [0.7, 40]],
+      [[0.02, 220]]
+    ];
+    let queue = [], until = 0, next = performance.now() + 2500, last = 0, raf = 0;
+    const frame = (t) => {
+      raf = requestAnimationFrame(frame);
+      if (t - last < 41) return;          // ~24 fps, like film
+      last = t;
+      let lamp;
+      if (t < until) return;
+      if (queue.length) { const [val, ms] = queue.shift(); lamp = val; until = t + ms; }
+      else if (t >= next) {
+        queue = STUTTERS[Math.floor(Math.random() * STUTTERS.length)].slice();
+        next = t + 3500 + Math.random() * 5500;
+        const [val, ms] = queue.shift(); lamp = val; until = t + ms;
+      } else lamp = 0.9 + Math.random() * 0.1;
+      hero.style.setProperty("--lamp", lamp.toFixed(3));
+    };
+    new IntersectionObserver(([en]) => {
+      hero.classList.toggle("is-rolling", en.isIntersecting);
+      cancelAnimationFrame(raf);
+      if (en.isIntersecting) raf = requestAnimationFrame(frame);
+    }).observe(hero);
+  }
+  const start = () => { applyLang(); initDrift(); initCurtain(); initHeroVideo(); initProjector(); };
   const whenReady = () => (window.GKC ? start() : setTimeout(whenReady, 10));
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", whenReady);
   else whenReady();

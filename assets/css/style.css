@@ -1329,3 +1329,62 @@ html[lang="am"] .menu-label { font-family: var(--f-ethi); font-weight: 500; }
   .poster.is-flipped .poster-frame { transform: scaleX(-1) !important; transition: none; }
   .poster.is-flipped .poster-frame, .poster.was-flipped .poster-frame { animation: none; }
 }
+
+/* =====================================================================
+   HERO PROJECTOR — an old cinema projector at the left edge casts its beam
+   onto the film. core.js draws the beam to wherever the film sits and sets
+   --lamp (0–1) on .hero ~24 times a second: a gentle shimmer with the odd
+   stutter, where the beam, the lens and the picture all dip together.
+   ===================================================================== */
+.hero { --lamp: 1; }
+.projector {
+  /* partly off the left edge, turned to aim at the middle of the film (core.js), and a
+     touch out of focus — the booth at the back of the hall, just creeping into view */
+  position: absolute; left: 0; top: var(--pj-top, 30%); z-index: 1;
+  width: clamp(120px, 15vw, 215px); height: auto; overflow: visible; pointer-events: none;
+  translate: -40% 0; rotate: var(--pj-tilt, -12deg); transform-origin: 96.4% 70.4%;   /* pivots on the lens */
+  filter: blur(1.2px) brightness(.78) drop-shadow(0 22px 30px rgba(0, 0, 0, .75));
+  opacity: 0; animation: pj-in 1.6s var(--ease) .3s forwards;
+}
+@keyframes pj-in { from { opacity: 0; translate: -60% 0; } to { opacity: 1; } }
+.projector .reel { transform-box: fill-box; transform-origin: center; }
+.hero.is-rolling .reel-front { animation: reel-spin 2.6s linear infinite; }
+.hero.is-rolling .reel-back { animation: reel-spin 2s linear infinite; }
+@keyframes reel-spin { to { transform: rotate(360deg); } }
+.projector .lens { opacity: var(--lamp); filter: drop-shadow(0 0 6px #fff1c8) drop-shadow(0 0 14px rgba(255, 236, 190, .8)); }
+.beam {
+  /* above the film and the title: the light lands on the picture, like a real projection */
+  position: absolute; inset: 0; width: 100%; height: 100%; z-index: 3; pointer-events: none;
+  mix-blend-mode: screen; opacity: calc(var(--lamp) * .95);
+}
+.beam > polygon, .beam-dust { animation: beam-in 1.8s ease .7s both; }
+.beam-haze { opacity: .55; }
+/* dust drifting slowly through the light */
+.beam-dust circle { fill: #fff3d2; opacity: 0; transform-box: fill-box; animation: mote var(--d, 9s) linear var(--delay, 0s) infinite; }
+@keyframes mote {
+  0% { opacity: 0; transform: translate(0, 0); }
+  20%, 70% { opacity: var(--o, .5); }
+  100% { opacity: 0; transform: translate(var(--dx, 30px), var(--dy, -20px)); }
+}
+@keyframes beam-in { from { opacity: 0; } }
+/* The film is the lit screen: a warm glow sits behind it, and the picture itself
+   goes dim and comes back with the lamp */
+.screen { position: relative; width: min(560px, 94vw); margin: 0 auto 6px; }
+.screen::before {
+  content: ""; position: absolute; inset: 4% 6%; z-index: -1; border-radius: 6px;
+  background: radial-gradient(ellipse at center, rgba(255, 240, 205, .22), rgba(255, 240, 205, 0) 70%);
+  filter: blur(14px); opacity: var(--lamp);
+}
+.screen .hero-video { width: 100%; margin: 0; opacity: max(var(--lamp), .06); filter: brightness(calc(.55 + .45 * var(--lamp))) sepia(.12); }
+@media (max-width: 920px) {
+  /* tablets and phones: the film moves over to the right to leave the projector room */
+  .screen { width: min(72vw, 560px); margin-right: 0; }
+}
+@media (max-width: 640px) {
+  .projector { width: 28vw; translate: -44% 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .projector { opacity: 1; animation: none; }
+  .beam > polygon, .beam-dust { animation: none; }
+  .beam-dust { display: none; }
+}

@@ -40,13 +40,44 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero">
-    <div class="hero-bg" aria-hidden="true"><div class="hero-light"></div><div class="hero-blinds"></div></div>
+    <div class="hero-bg" aria-hidden="true"><div class="hero-blinds"></div></div>
+    <!-- The old cinema projector at the left casts its beam onto the film (beam drawn by core.js) -->
+    <svg class="beam" aria-hidden="true"><defs>
+      <linearGradient id="beam-fill" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff6dc" stop-opacity=".5"/><stop offset=".25" stop-color="#f3dfae" stop-opacity=".17"/><stop offset="1" stop-color="#f3dfae" stop-opacity=".09"/></linearGradient>
+      <filter id="beam-soft" x="-10%" y="-30%" width="120%" height="160%"><feGaussianBlur stdDeviation="5"/></filter>
+      <filter id="beam-haze" x="-10%" y="-40%" width="120%" height="180%"><feGaussianBlur stdDeviation="22"/></filter>
+      <clipPath id="beam-clip"><polygon/></clipPath>
+    </defs>
+      <polygon class="beam-haze" fill="url(#beam-fill)" filter="url(#beam-haze)"/>
+      <polygon class="beam-core" fill="url(#beam-fill)" filter="url(#beam-soft)"/>
+      <g class="beam-dust" clip-path="url(#beam-clip)"></g>
+    </svg>
+    <svg class="projector" viewBox="0 0 220 230" aria-hidden="true">
+      <defs>
+        <linearGradient id="pj-metal" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a3a28"/><stop offset=".45" stop-color="#2a2016"/><stop offset="1" stop-color="#140e09"/></linearGradient>
+        <radialGradient id="pj-reel" cx=".38" cy=".32" r=".8"><stop offset="0" stop-color="#5a4733"/><stop offset=".6" stop-color="#2a2016"/><stop offset="1" stop-color="#120c08"/></radialGradient>
+      </defs>
+      <g fill="url(#pj-metal)" stroke="#8a6f48" stroke-width="2">
+        <path d="M88 92 L104 40 M150 104 L104 40" stroke-width="5" fill="none"/>
+        <path d="M44 150 L78 128" stroke-width="6" fill="none"/>
+        <g class="reel reel-back"><circle cx="104" cy="44" r="40" fill="url(#pj-reel)"/><circle cx="104" cy="44" r="7" fill="#b08a52"/>
+          <g fill="#0b0805" stroke="none"><circle cx="104" cy="22" r="10"/><circle cx="125" cy="37" r="10"/><circle cx="117" cy="62" r="10"/><circle cx="91" cy="62" r="10"/><circle cx="83" cy="37" r="10"/></g></g>
+        <g class="reel reel-front"><circle cx="58" cy="132" r="56" fill="url(#pj-reel)"/><circle cx="58" cy="132" r="9" fill="#b08a52"/>
+          <g fill="#0b0805" stroke="none"><circle cx="58" cy="101" r="14"/><circle cx="87.5" cy="122.5" r="14"/><circle cx="76" cy="157" r="14"/><circle cx="40" cy="157" r="14"/><circle cx="28.5" cy="122.5" r="14"/></g></g>
+        <rect x="86" y="118" width="84" height="86" rx="6"/>
+        <rect x="96" y="128" width="40" height="8" rx="2" fill="#2a2018"/>
+        <rect x="168" y="148" width="34" height="28" rx="3"/>
+        <rect x="200" y="144" width="12" height="36" rx="2" fill="#2a2018"/>
+        <path d="M100 204 L84 228 M156 204 L172 228" stroke-width="5"/>
+      </g>
+      <circle class="lens" cx="212" cy="162" r="7" fill="#fff4d6"/>
+    </svg>
     <div class="hero-inner">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" disablepictureinpicture
+      <div class="screen"><video class="hero-video" autoplay muted loop playsinline preload="auto" disablepictureinpicture
              poster="assets/video/three-musketeers-first.webp" width="918" height="540"
              aria-label="Illustrated portraits of the film's three lead actors appear on a waving flag">
         <source src="assets/video/three-musketeers.mp4" type="video/mp4">
-      </video>
+      </video></div>
       <h1 class="title">
         <span class="sr">ግራ ቀኝ</span>
         <span class="title-am title-art" aria-hidden="true"><img class="gra" src="assets/img/brand/title-left.webp" alt="" width="487" height="248"><img class="kegn" src="assets/img/brand/title-right.webp" alt="" width="467" height="248"></span>
