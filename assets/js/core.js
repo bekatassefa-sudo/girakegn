@@ -20,7 +20,7 @@
     ["series", "series.html", { en: "The Series", am: "ተከታታዩ" }],
     ["why", "why-now.html", { en: "Why Now", am: "ለምን አሁን" }],
     ["producer", "become-a-producer.html", { en: "Become a Producer", am: "ፕሮዲዩሰር ይሁኑ" }],
-    ["guad", "guad-producer.html", { en: "ጓድ Producer & Diaspora", am: "ጓድ ፕሮዲዩሰር እና ዲያስፖራ" }, { en: "ጓድ & Diaspora", am: "ጓድ እና ዲያስፖራ" }],
+    ["guad", "guad-producer.html", { en: "ጓድ", am: "ጓድ" }, { en: "ጓድ", am: "ጓድ" }],
     ["transparency", "transparency.html", { en: "Transparency & Production Diary", am: "ግልጽነት እና የቀረጻ ማስታወሻ" }, { en: "Transparency", am: "ግልጽነት" }],
     ["merch", "merch.html", { en: "Merch", am: "ሸቀጦች" }],
     ["faq", "faq.html", { en: "FAQ", am: "ጥያቄዎች" }]

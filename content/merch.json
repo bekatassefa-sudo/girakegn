@@ -21,19 +21,24 @@
     },
     {
       "name": {
-        "en": "Hoodie",
-        "am": "ሁዲ"
+        "en": "Tank top",
+        "am": "ሰቅ ካናቴራ"
       },
       "desc": {
-        "en": "For the long nights in the gallery.",
-        "am": "ለረጅም የችሎት ምሽቶች።"
+        "en": "The people's film emblem on a tank top, in black, red or navy.",
+        "am": "የሕዝብ ፊልሙ አርማ ያለበት ሰቅ ካናቴራ፤ በጥቁር፣ በቀይ ወይም በባሕር ሰማያዊ።"
       },
-      "image": "",
+      "image": "assets/img/merch/tanktop-black.webp",
       "priceEtb": null,
       "priceUsd": null,
       "buyUrl": "",
       "published": true,
-      "group": "wear"
+      "group": "wear",
+      "images": [
+        "assets/img/merch/tanktop-black.webp",
+        "assets/img/merch/tanktop-red.webp",
+        "assets/img/merch/tanktop-navy.webp"
+      ]
     },
     {
       "name": {
@@ -41,12 +46,19 @@
         "am": "ሹራብ"
       },
       "desc": {
-        "en": "The THINK ግራ ቀኝ poster across the chest of a crew-neck sweatshirt.",
-        "am": "THINK ግራ ቀኝ ፖስተር ደረቱ ላይ ያለበት ሹራብ።"
+        "en": "The THINK ግራ ቀኝ poster across the chest of a crew-neck sweatshirt. In olive, black, red, brown, pink, light blue, royal blue and navy.",
+        "am": "THINK ግራ ቀኝ ፖስተር ደረቱ ላይ ያለበት ሹራብ። በወይራ አረንጓዴ፣ በጥቁር፣ በቀይ፣ በቡናማ፣ በሮዝ፣ በፈዛዛ ሰማያዊ፣ በሰማያዊ እና በባሕር ሰማያዊ።"
       },
-      "image": "assets/img/merch/sweatshirt-1.webp",
+      "image": "assets/img/merch/sweatshirt-olive.webp",
       "images": [
-        "assets/img/merch/sweatshirt-1.webp"
+        "assets/img/merch/sweatshirt-olive.webp",
+        "assets/img/merch/sweatshirt-black.webp",
+        "assets/img/merch/sweatshirt-red.webp",
+        "assets/img/merch/sweatshirt-brown.webp",
+        "assets/img/merch/sweatshirt-1.webp",
+        "assets/img/merch/sweatshirt-lightblue.webp",
+        "assets/img/merch/sweatshirt-royal.webp",
+        "assets/img/merch/sweatshirt-navy.webp"
       ],
       "group": "wear",
       "priceEtb": null,
