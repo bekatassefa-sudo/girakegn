@@ -304,6 +304,7 @@ collections:
               - { name: name, label: "Name", widget: object, fields: *bi }
               - { name: desc, label: "Short description", widget: object, fields: *bi }
               - { name: image, label: "Photo", widget: image, required: false }
+              - { name: group, label: "Group", widget: select, default: "wear", options: [{ label: "Wearable", value: "wear" }, { label: "Court aesthetics (not wearable)", value: "other" }] }
               - { name: images, label: "Photo gallery (several photos: shown as a sliding gallery, first one leads)", widget: list, field: { name: image, label: "Photo", widget: image }, required: false }
               - { name: priceEtb, label: "Price (ETB)", widget: number, value_type: int, required: false }
               - { name: priceUsd, label: "Price (USD)", widget: number, value_type: int, required: false }

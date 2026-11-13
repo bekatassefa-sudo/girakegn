@@ -6,14 +6,18 @@
         "am": "ቲሸርት"
       },
       "desc": {
-        "en": "The GERA KEGN emblem on a classic tee.",
-        "am": "የግራ ቀኝ አርማ ያለበት ቲሸርት።"
+        "en": "Black tee with the THINK ግራ ቀኝ poster printed big across the back.",
+        "am": "ጀርባው ላይ THINK ግራ ቀኝ ፖስተር በትልቁ የታተመበት ጥቁር ቲሸርት።"
       },
-      "image": "",
+      "image": "assets/img/merch/tshirt-1.webp",
       "priceEtb": null,
       "priceUsd": null,
       "buyUrl": "",
-      "published": true
+      "published": true,
+      "group": "wear",
+      "images": [
+        "assets/img/merch/tshirt-1.webp"
+      ]
     },
     {
       "name": {
@@ -28,6 +32,49 @@
       "priceEtb": null,
       "priceUsd": null,
       "buyUrl": "",
+      "published": true,
+      "group": "wear"
+    },
+    {
+      "name": {
+        "en": "Sweatshirt",
+        "am": "ሹራብ"
+      },
+      "desc": {
+        "en": "The THINK ግራ ቀኝ poster across the chest of a crew-neck sweatshirt.",
+        "am": "THINK ግራ ቀኝ ፖስተር ደረቱ ላይ ያለበት ሹራብ።"
+      },
+      "image": "assets/img/merch/sweatshirt-1.webp",
+      "images": [
+        "assets/img/merch/sweatshirt-1.webp"
+      ],
+      "group": "wear",
+      "priceEtb": null,
+      "priceUsd": null,
+      "buyUrl": "",
+      "published": true
+    },
+    {
+      "name": {
+        "en": "Playing cards",
+        "am": "የመጫወቻ ካርታ"
+      },
+      "desc": {
+        "en": "A full deck with the three faces of ግራ ቀኝ on every back. Deal them out on the next long night.",
+        "am": "በእያንዳንዱ ካርታ ጀርባ የግራ ቀኝ ሦስቱ ገጸ ባሕርያት ያሉበት ሙሉ ካርታ።"
+      },
+      "image": "assets/img/merch/playing-cards-1.webp",
+      "images": [
+        "assets/img/merch/playing-cards-1.webp",
+        "assets/img/merch/playing-cards-2.webp",
+        "assets/img/merch/playing-cards-3.webp",
+        "assets/img/merch/playing-cards-4.webp",
+        "assets/img/merch/playing-cards-5.webp"
+      ],
+      "group": "other",
+      "priceEtb": null,
+      "priceUsd": null,
+      "buyUrl": "",
       "published": true
     },
     {
@@ -36,14 +83,22 @@
         "am": "የእጅ ቦርሳ"
       },
       "desc": {
-        "en": "Carry your case files in style.",
-        "am": "መዝገቦችዎን በዘመናዊ መንገድ ይያዙ።"
+        "en": "Canvas tote in natural or black, with the three-faces poster or the people's film emblem. Carry your case files in style.",
+        "am": "በተፈጥሮ ቀለም ወይም በጥቁር፣ የሦስቱ ገጸ ባሕርያት ፖስተር ወይም የሕዝብ ፊልሙ አርማ ያለበት የሸራ ቦርሳ። መዝገቦችዎን በዘመናዊ መንገድ ይያዙ።"
       },
-      "image": "",
+      "image": "assets/img/merch/tote-1.webp",
       "priceEtb": null,
       "priceUsd": null,
       "buyUrl": "",
-      "published": true
+      "published": true,
+      "group": "other",
+      "images": [
+        "assets/img/merch/tote-1.webp",
+        "assets/img/merch/tote-5.webp",
+        "assets/img/merch/tote-2.webp",
+        "assets/img/merch/tote-3.webp",
+        "assets/img/merch/tote-4.webp"
+      ]
     },
     {
       "name": {
@@ -65,7 +120,8 @@
       "priceEtb": null,
       "priceUsd": null,
       "buyUrl": "",
-      "published": true
+      "published": true,
+      "group": "other"
     },
     {
       "name": {
@@ -86,7 +142,8 @@
       "priceEtb": null,
       "priceUsd": null,
       "buyUrl": "",
-      "published": true
+      "published": true,
+      "group": "other"
     }
   ]
 }

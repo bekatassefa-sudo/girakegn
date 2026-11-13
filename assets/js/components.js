@@ -475,9 +475,8 @@
   });
   R.merch = (el) => {
     const am = X.lang === "am";
-    el.classList.add("merch-grid");
-    el.setAttribute("data-stagger", "");
-    el.innerHTML = C.merch.filter((m) => m.published !== false).map((m) => {
+    el.classList.remove("merch-grid");
+    const card = (m) => {
       const prices = [m.priceEtb != null ? `${fmt(m.priceEtb)} ETB` : "", m.priceUsd != null ? `$${fmt(m.priceUsd)}` : ""].filter(Boolean).join(" · ");
       const buy = /^https?:\/\//i.test(m.buyUrl || "") ? m.buyUrl : "";
       return `
@@ -490,7 +489,14 @@
           ${buy ? `<a class="btn btn-gold btn-sm" href="${esc(buy)}" target="_blank" rel="noopener">${am ? "ይግዙ" : "Buy"}</a>` : ""}
         </div>
       </article>`;
-    }).join("");
+    };
+    const live = C.merch.filter((m) => m.published !== false);
+    const grid = (list) => list.length ? `<div class="merch-grid" data-stagger>${list.map(card).join("")}</div>` : "";
+    const wear = live.filter((m) => m.group !== "other"), other = live.filter((m) => m.group === "other");
+    const rule = (en, amText) => `
+      <div class="merch-divider" data-reveal="up"><span>${am ? amText : en}</span></div>`;
+    el.innerHTML = (wear.length ? rule("Wear the court", "ችሎቱን ይልበሱ") + grid(wear) : "")
+      + (other.length ? rule("Court aesthetics", "የችሎት ውበት") + grid(other) : "");
   };
 
   /* ---------- Fan certificate: drawn in the browser after the email subscription ---------- */
