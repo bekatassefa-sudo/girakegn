@@ -25,6 +25,17 @@
     ["merch", "merch.html", { en: "Merch", am: "ሸቀጦች" }],
     ["faq", "faq.html", { en: "FAQ", am: "ጥያቄዎች" }]
   ];
+  // Sections that drop down under a page in the navigation
+  const SUBS = {
+    guad: [
+      ["#guad", { en: "ጓድ Producer", am: "ጓድ ፕሮዲዩሰር" }],
+      ["#diaspora", { en: "Diaspora", am: "ዲያስፖራ" }]
+    ],
+    transparency: [
+      ["#team", { en: "The team", am: "ቡድኑ" }],
+      ["#diary", { en: "Production diary", am: "የቀረጻ ማስታወሻ" }]
+    ]
+  };
   const href = (id) => PAGES.find((p) => p[0] === id)[1];
   const current = document.body.dataset.page;
   // Review preview on GitHub Pages: not indexed, labelled, forms off. Switches off by itself on the real host.
@@ -119,7 +130,12 @@
         </svg>
       </a>
       <nav class="nav-links" aria-label="Main">
-        ${NAV_INLINE.map((id) => `<a href="${href(id)}" data-nav="${id}" class="${id === current ? "active" : ""}"></a>`).join("")}
+        ${NAV_INLINE.map((id) => {
+          const link = `<a href="${href(id)}" data-nav="${id}" class="${id === current ? "active" : ""}"></a>`;
+          if (!SUBS[id]) return link;
+          return `<span class="nav-drop">${link}<span class="nav-sub">${SUBS[id].map(([hash, label]) =>
+            `<a href="${href(id)}${hash}" data-sub-en="${label.en}" data-sub-am="${label.am}"></a>`).join("")}</span></span>`;
+        }).join("")}
       </nav>
       <div class="nav-actions">
         <div class="lang" role="group" aria-label="Language">
@@ -148,7 +164,8 @@
         ${PAGES.map(([id, url], i) => `
           <a href="${url}" class="menu-link ${id === current ? "active" : ""}" style="--i:${i}">
             <span class="menu-no">${String(i + 1).padStart(2, "0")}</span><span class="menu-label" data-nav="${id}"></span>
-          </a>`).join("")}
+          </a>${SUBS[id] ? `<span class="menu-subs" style="--i:${i}">${SUBS[id].map(([hash, label]) =>
+            `<a href="${url}${hash}" data-sub-en="${label.en}" data-sub-am="${label.am}"></a>`).join("")}</span>` : ""}`).join("")}
       </nav>
       <aside class="menu-side">
         <p class="eyebrow" data-t="menuCampaign"></p>
@@ -218,6 +235,7 @@
 
   function translateShell() {
     $$("[data-nav]").forEach((el) => { const p = PAGES.find((x) => x[0] === el.dataset.nav); el.textContent = L((el.closest(".nav-links") && p[3]) || p[2]); });
+    $$("[data-sub-en]").forEach((el) => { el.textContent = GKX.lang === "am" ? el.dataset.subAm : el.dataset.subEn; });
     $$(".lang button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.lang === GKX.lang));
   }
 
@@ -581,7 +599,21 @@
       if (en.isIntersecting) raf = requestAnimationFrame(frame);
     }).observe(hero);
   }
-  const start = () => { applyLang(); initDrift(); initCurtain(); initHeroVideo(); initProjector(); };
+  // Links like transparency.html#team: the browser jumps to the section before the content
+  // above it has been drawn, so it lands short. Aim again once the page is filled in.
+  function landOnHash() {
+    const target = location.hash.length > 1 && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (!target) return;
+    let userMoved = false;   // never yank the page away from someone who has started scrolling
+    const stop = () => { userMoved = true; };
+    ["wheel", "touchstart", "keydown", "mousedown"].forEach((ev) => addEventListener(ev, stop, { once: true, passive: true }));
+    const go = () => { if (!userMoved) target.scrollIntoView({ behavior: "instant", block: "start" }); };
+    go();                                                   // content is drawn by now
+    if (document.fonts) document.fonts.ready.then(go);      // fonts change line heights
+    if (document.readyState !== "complete") addEventListener("load", go, { once: true });
+    [300, 1200].forEach((ms) => setTimeout(go, ms));        // late images and reveals
+  }
+  const start = () => { applyLang(); initDrift(); initCurtain(); initHeroVideo(); initProjector(); landOnHash(); };
   const whenReady = () => (window.GKC ? start() : setTimeout(whenReady, 10));
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", whenReady);
   else whenReady();

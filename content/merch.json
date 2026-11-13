@@ -44,6 +44,49 @@
       "priceUsd": null,
       "buyUrl": "",
       "published": true
+    },
+    {
+      "name": {
+        "en": "Bottle opener magnet",
+        "am": "የጠርሙስ መክፈቻ ማግኔት"
+      },
+      "desc": {
+        "en": "A bottle-cap opener with the people's film emblem. Magnetic, so it lives on the fridge.",
+        "am": "የሕዝብ ፊልሙ አርማ ያለበት የጠርሙስ ቆብ ቅርጽ መክፈቻ። ማግኔት ስላለው ፍሪጅ ላይ ይቀመጣል።"
+      },
+      "image": "assets/img/merch/bottle-opener-5.webp",
+      "images": [
+        "assets/img/merch/bottle-opener-5.webp",
+        "assets/img/merch/bottle-opener-1.webp",
+        "assets/img/merch/bottle-opener-2.webp",
+        "assets/img/merch/bottle-opener-3.webp",
+        "assets/img/merch/bottle-opener-4.webp"
+      ],
+      "priceEtb": null,
+      "priceUsd": null,
+      "buyUrl": "",
+      "published": true
+    },
+    {
+      "name": {
+        "en": "Car air freshener",
+        "am": "የመኪና ሽቶ"
+      },
+      "desc": {
+        "en": "THINK ግራ ቀኝ — hang it from the mirror and take the film for a ride.",
+        "am": "ግራ ቀኝ ያስቡ — በመስታወቱ ላይ ይስቀሉትና ፊልሙን ይዘው ይጓዙ።"
+      },
+      "image": "assets/img/merch/air-freshener-1.webp",
+      "images": [
+        "assets/img/merch/air-freshener-1.webp",
+        "assets/img/merch/air-freshener-2.webp",
+        "assets/img/merch/air-freshener-3.webp",
+        "assets/img/merch/air-freshener-4.webp"
+      ],
+      "priceEtb": null,
+      "priceUsd": null,
+      "buyUrl": "",
+      "published": true
     }
   ]
 }

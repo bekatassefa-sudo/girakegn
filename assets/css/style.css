@@ -1421,3 +1421,51 @@ html[lang="am"] .menu-label { font-family: var(--f-ethi); font-weight: 500; }
   .beam > polygon, .beam-dust { animation: none; }
   .beam-dust { display: none; }
 }
+
+/* Transparency drops down "The team" and "Production diary" in the top bar (hover or keyboard
+   focus), and lists them under it in the full-screen menu. */
+.nav-drop { position: relative; display: inline-flex; }
+.nav-sub {
+  position: absolute; top: 100%; left: -16px; z-index: 5; display: flex; flex-direction: column; min-width: 200px;
+  padding: 14px 16px 10px; margin-top: 8px; background: rgba(20, 14, 9, .96); border: 1px solid var(--line);
+  border-top: 2px solid var(--gold); border-radius: 0 0 4px 4px; box-shadow: 0 24px 40px -18px rgba(0, 0, 0, .9);
+  opacity: 0; visibility: hidden; transform: translateY(-6px);
+  transition: opacity .25s ease, transform .35s var(--ease), visibility 0s .35s;
+}
+.nav-sub::before { content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: 12px; }   /* keeps hover across the gap */
+.nav-drop:hover .nav-sub, .nav-drop:focus-within .nav-sub { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+.nav-links .nav-sub a { padding: 9px 0; border-bottom: 1px solid var(--line); }
+.nav-links .nav-sub a:last-child { border-bottom: 0; }
+.nav-links .nav-sub a::after { display: none; }
+.nav-links .nav-sub a:hover { color: var(--gold-2); }
+.menu-subs {
+  display: flex; flex-wrap: wrap; gap: 8px 22px; padding: 10px 0 12px 44px; border-bottom: 1px solid var(--line);
+  opacity: 0; transform: translateX(-40px); transition: opacity .5s var(--ease), transform .7s var(--ease);
+}
+.menu.open .menu-subs { opacity: 1; transform: none; transition-delay: calc(.16s + var(--i) * 40ms); }
+.menu-subs a { white-space: nowrap; font: 600 13px var(--f-body); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); text-decoration: none; }
+html[lang="am"] .menu-subs a { font: 700 16px var(--f-ethi); letter-spacing: 0; text-transform: none; }
+.menu-subs a::before { content: "↳ "; color: var(--gold); }
+.menu-subs a:hover { color: var(--gold-2); }
+
+/* Merch photo gallery: swipe on phones, arrows on laptops, dots show where you are */
+.merch-gallery { position: relative; display: block; }
+.mg-track {
+  display: flex; width: 100%; height: 100%; overflow-x: auto; scroll-snap-type: x mandatory;
+  scrollbar-width: none; overscroll-behavior-x: contain; outline: none;
+}
+.mg-track::-webkit-scrollbar { display: none; }
+.mg-track img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; scroll-snap-align: start; }
+.mg-arrow {
+  position: absolute; top: 50%; translate: 0 -50%; width: 40px; height: 40px; border-radius: 50%;
+  display: grid; place-items: center; padding: 0 0 3px; font: 400 28px/1 var(--f-display);
+  background: rgba(20, 14, 9, .72); color: var(--paper); border: 1px solid rgba(233, 223, 199, .25);
+  cursor: pointer; opacity: 0; transition: opacity .25s, background .2s, border-color .2s;
+}
+.mg-prev { left: 10px; } .mg-next { right: 10px; }
+.merch-gallery:hover .mg-arrow, .mg-arrow:focus-visible, .mg-track:focus-visible ~ .mg-arrow { opacity: 1; }
+.mg-arrow:hover { background: rgba(20, 14, 9, .9); border-color: var(--gold); color: var(--gold-2); }
+@media (hover: none) { .mg-arrow { display: none; } }   /* touch screens swipe instead */
+.mg-dots { position: absolute; left: 0; right: 0; bottom: 12px; display: flex; justify-content: center; gap: 7px; pointer-events: none; }
+.mg-dots i { width: 7px; height: 7px; border-radius: 50%; background: rgba(255, 255, 255, .55); box-shadow: 0 0 0 1px rgba(0, 0, 0, .25); transition: background .25s, transform .25s; }
+.mg-dots i.on { background: var(--gold); transform: scale(1.3); }

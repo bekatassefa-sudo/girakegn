@@ -436,6 +436,43 @@
   };
 
   /* ---------- Merch (content/merch.json, editable in /admin) ---------- */
+  // One photo → a plain picture; several → a sliding gallery (swipe, arrows, dots).
+  const merchPics = (m, am) => {
+    const pics = (m.images || []).filter(Boolean);
+    if (pics.length < 2) {
+      const one = pics[0] || m.image;
+      return `<div class="merch-pic">${one ? `<img src="${esc(one)}" alt="${esc(L(m.name))}" loading="lazy" decoding="async">` : `<span aria-hidden="true">ግራ ቀኝ</span>`}</div>`;
+    }
+    const name = L(m.name);
+    return `
+        <div class="merch-pic merch-gallery" role="group" aria-roledescription="${am ? "የፎቶ ማሳያ" : "gallery"}" aria-label="${esc(name)}">
+          <div class="mg-track" tabindex="0">${pics.map((src, i) =>
+            `<img src="${esc(src)}" alt="${esc(`${name} — ${i + 1} / ${pics.length}`)}" width="900" height="900" loading="lazy" decoding="async">`).join("")}</div>
+          <button type="button" class="mg-arrow mg-prev" data-mg="-1" aria-label="${am ? "ቀዳሚ ፎቶ" : "Previous photo"}">‹</button>
+          <button type="button" class="mg-arrow mg-next" data-mg="1" aria-label="${am ? "ቀጣይ ፎቶ" : "Next photo"}">›</button>
+          <div class="mg-dots" aria-hidden="true">${pics.map((_, i) => `<i class="${i ? "" : "on"}"></i>`).join("")}</div>
+        </div>`;
+  };
+  const mgIndex = (track) => Math.round(track.scrollLeft / track.clientWidth);
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest?.("[data-mg]");
+    if (!btn) return;
+    const track = $(".mg-track", btn.closest(".merch-gallery"));
+    const n = track.children.length, next = (mgIndex(track) + +btn.dataset.mg + n) % n;   // wraps round
+    track.scrollTo({ left: next * track.clientWidth, behavior: X.reduced ? "auto" : "smooth" });
+  });
+  document.addEventListener("scroll", (e) => {
+    const track = e.target.classList?.contains("mg-track") ? e.target : null;
+    if (!track) return;
+    const i = mgIndex(track);
+    $$(".mg-dots i", track.parentElement).forEach((d, k) => d.classList.toggle("on", k === i));
+  }, true);
+  document.addEventListener("keydown", (e) => {
+    const track = e.target.classList?.contains("mg-track") ? e.target : null;
+    if (!track || (e.key !== "ArrowLeft" && e.key !== "ArrowRight")) return;
+    e.preventDefault();
+    $(`[data-mg="${e.key === "ArrowLeft" ? -1 : 1}"]`, track.parentElement).click();
+  });
   R.merch = (el) => {
     const am = X.lang === "am";
     el.classList.add("merch-grid");
@@ -445,7 +482,7 @@
       const buy = /^https?:\/\//i.test(m.buyUrl || "") ? m.buyUrl : "";
       return `
       <article class="merch-item">
-        <div class="merch-pic">${m.image ? `<img src="${esc(m.image)}" alt="${esc(L(m.name))}" loading="lazy">` : `<span aria-hidden="true">ግራ ቀኝ</span>`}</div>
+        ${merchPics(m, am)}
         <h3>${esc(L(m.name))}</h3>
         <p>${esc(L(m.desc))}</p>
         <div class="merch-buy">
